@@ -23,7 +23,15 @@ echo '
                         echo '<li><a href="./sign.php" class="navanc">Resume Templates</a></li>';
                     }
                        echo '<li><a href="myResume.php" class="navanc">My Resume</a></li>
+
                              <li><a href="#" class="navanc">Job Search</a> </li>';
+
+                       echo '<a href="myResume.php" class="nvdrp">My Resume</a>
+                    </div>
+                </div>
+            </li>
+            
+
             if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
                 echo '<li><div class="navanc" id="mbtn"><a href="./db/logout.php">Logout</a></div> </li>';
             }
