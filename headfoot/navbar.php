@@ -31,22 +31,7 @@ echo '
                     </div>
                 </div>
             </li>
-            <li>
-                <div class="cdropdown">
-                    <button href="#" onclick="navdropdown2()" class="cvhover">Cover-Letter
-                        <span class="rdrpdown">&#9660;</span>
-                    </button>
-                    <div id="mydrop1" class="cdropdown-content">';
-                    if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
-                       echo '<a href="./cltemplate.php" class="nvdrp">Cover-Letter Templates</a>';
-                    }
-                    else{
-                        echo '<a href="./sign.php" class="nvdrp">Cover-Letter Templates</a>';
-                    }
-                      echo '<!----<a href="#" class="nvdrp">My Cover-Letter</a>---->
-                    </div>
-                </div>
-            </li>
+            
             <li><!----<a href="#" class="navanc">Job Search</a>----> </li>';
 
             if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
