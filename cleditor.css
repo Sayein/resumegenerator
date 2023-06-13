@@ -1,0 +1,1449 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* css to print resume */
+
+@media print {
+    body * {
+        display: none;
+    }
+
+    #frame,#frame *{
+        display:grid;
+    }
+
+    #frame{
+        position:absolute;
+        left: 0;
+        right: 0;
+        top: 100px;
+        bottom: 0;
+        border: none;
+    }
+
+    .about .box .yearcompany h5{
+       display: flex !important;
+
+    }
+
+    .strtend{
+        display: flex !important;
+    }
+
+    .tmp6head h1{
+        display: flex !important;
+        justify-content: center;
+    }
+
+    .tmp6flex {
+        display: flex !important;
+    }
+
+    .tmp6head .ctstat{
+        display: flex !important;
+        justify-content: space-evenly;
+    }
+
+    #dlname{
+        padding-left: 7px;
+    }
+
+    .tmp6head .ctstat{
+        display: grid !important;
+       justify-content: center !important;
+    }
+
+    .tmp6head .ctstat p{
+        display:flex !important;
+    }
+    
+
+}
+
+/* Editor */
+
+.main{
+    position: relative;
+      width: 100%;
+      /* background-color: red; */
+      padding: 100px 80px 150px 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 150px;
+      padding-bottom: 200px;
+}
+
+/* left side */
+
+.left{
+    /* background-color: cyan; */
+    padding-left: 50px;
+}
+
+.clprow{
+    display: flex;
+    gap: 30px;
+    padding:20px 0;
+}
+
+.clpcentr{
+    display: grid;
+    place-items: center;
+    /* background-color: green; */
+    margin-top: 50px;
+}
+
+.cled,.clexp,.clskl,.compdis,.clprfsumry{
+    display: none;
+}
+
+.clpi label{
+      font-size: 23px;
+      
+}
+
+.cled label{
+    font-size: 23px;
+}
+
+.clexp label{
+    font-size: 23px;
+}
+
+.clskl label{
+    font-size: 23px;
+}
+.clprfsumry{
+    font-size: 23px;
+}
+.letb{
+    display: none;
+
+}
+.cta{
+    display: none;
+}
+.closer{
+    display: none;
+}
+
+.clpcentr input[type=text]{
+    width: 300px;
+    height: 40px;
+    font-size: 17px;
+    outline: none;
+    padding: 10px;
+    border: none;
+    border-bottom:1px solid black;
+    margin-top: 15px;
+}
+
+.clptxtarea{
+    padding-top: 20px;
+}
+
+.clpcentr textarea{
+    font-size: 17px;
+    width: 630px;
+    height: 55px;
+    padding: px;
+    outline: none;
+    border: none;
+    border-bottom:1px solid black;
+    margin-top: 1px;
+    overflow:hidden;
+}
+
+/* right side */
+
+.right{
+    /* background-color: yellow; */
+    display: grid;
+    place-items: center;
+}
+
+.imgdiv{
+    width: 75%;
+    height: 100%;
+    border: 2px solid grey;
+}
+
+.rimg{
+    width: 100%;
+    height:100%;
+}
+
+/* previous next button */
+
+.prevnextbtn{
+    max-width: 642px;
+    display: flex;
+    justify-content: space-between;
+    margin:70px auto;
+    gap: 250px;
+}
+
+.prevnextbtn a{
+    padding:15px 25px;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.prevnextbtn input[type=submit]{
+    padding:15px 15px;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    outline: none;
+    border: none;
+    margin-left: -7px;
+    margin-top: -13px;
+}
+
+#bk{
+    background-color:rgba(0,0,0,0.5);
+}
+
+#bk:hover{
+    background-color:black;
+}
+
+#nxt{
+    background-color:black;
+}
+
+#nxt:hover{
+    background-color:rgba(0,0,0,0.5);
+}
+
+/* final phase */
+
+.rightbaju{
+    padding-top: 35px;
+    padding-bottom: 50px;
+    text-align: center;
+    width: 50%;
+    background-color: rgb(242, 243, 245);
+    box-shadow: 7px 10px 10px grey;
+    border-radius:5px;
+    margin-top: 100px;
+}
+
+#editlinks{
+    cursor: pointer;
+}
+
+.backpagenav{
+    display: grid;
+    font-size: 23px;
+    gap:20px;
+}
+
+.edbtn{
+    display: grid;
+    align-items: center;
+    width: 70%;
+    margin: auto;
+    height: 50px;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+
+.edbtn:hover{
+    background-color: #1d55ff;
+    box-shadow: -1px 1px 0px rgb(59, 59, 59),
+                -2px 2px 0px rgb(59, 59, 59),
+                -3px 3px 0px rgb(59, 59, 59),
+                -4px 4px 0px rgb(59, 59, 59),
+                -5px 5px 0px rgb(59, 59, 59),
+                -6px 6px 0px rgb(59, 59, 59);
+    color: white;            
+}
+
+.downloadprintbtn{
+    max-width: 550px;
+    display: flex;
+    margin-top: 100px;
+    justify-content: space-between;
+    gap: 50px;
+ }
+
+.downloadprintbtn button{
+    padding: 10px;
+    width:120px;
+    height: 50px;
+    font-size: 17px;
+    border: none;
+    margin-top: 15px;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.downloadprintbtn button:hover{
+    background-color: rgba(0,0,0,0.5);
+}
+
+
+/* responsive editor */
+
+@media(max-width:1500px) {
+    
+    .main{
+        display:block;
+        padding-top: 130px;
+    }
+
+    .right{
+        margin-top: 100px;
+    }
+
+    .imgdiv{
+        width: 50%;
+    }
+
+    .clpi h1{
+        text-align:center;
+    }
+
+    .cled h1{
+        text-align:center;
+    }
+
+    .clexp h1{
+        text-align:center;
+    }
+
+    .clskl h1{
+        text-align:center;
+    }
+
+}
+
+@media (max-width:900px){
+    .left{
+        padding-left: 0px;
+    }
+
+    .imgdiv{
+        width: 70%;
+    }
+
+}
+
+@media (max-width:850px){
+
+    .prevnextbtn{
+        height: 200px;
+        gap: 0px;
+        display: grid;
+        justify-content: center;
+ }
+
+    .prevnextbtn button{
+        margin-bottom: 50px;
+    }
+
+    .clprow{
+        display: block;
+        padding:0 0;
+    }
+
+    .clpcol{
+        margin-top: 20px;
+    }
+
+    .clpcentr{
+        display:block;
+        margin-top: 50px;
+    }
+
+    .clpcentr input[type=text]{
+        width: 100%;
+    }
+
+    .clpcentr textarea{
+        width: 100%;
+    }
+
+    .imgdiv{
+        width: 90%;
+        height: 110%;
+        margin-top: -100px;
+    }
+
+}
+
+/* 1 resume template */
+
+#dfname,#dlname{
+    max-width: 100px;
+}
+
+.bodycon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    position: relative; 
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.5);
+ }
+ /* leftside */
+ 
+ .container .leftside{
+     position: relative;
+     /* background: #F8B195; */
+     background:  #003147;
+     padding: 30px;
+     
+ }
+ 
+ .profiletext{
+     position: relative;
+     display:flex;
+     flex-direction: column;
+     align-items: center;
+     padding-bottom: 20px;
+     border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+ }
+ 
+ .profiletext .imgbox{
+     position: relative;
+     width: 100px;
+     height: 100px;
+     border-radius: 50%;
+     overflow: hidden;
+     border: 5px solid   #03a9f4;
+ 
+ }
+ 
+ .profiletext .imgbox img{
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+ }
+ 
+ .profiletext h2{
+     color: #fff;
+     font-size:18px;
+     margin-top: 20px;
+     text-transform: uppercase;
+     text-align: center;
+     font-weight: 600;
+     line-height: 25px;
+ 
+ }
+ .profiletext h2 span{
+    font-size: 15px; 
+    
+ }
+ 
+ /* contactinfo */
+ 
+ .contactinfo{
+     padding-top: 20px;
+ }
+ .title{
+     color:  #fff;
+     text-transform: uppercase;
+     margin-bottom: 20px;
+     font-weight: 600;
+     font-size: 17px;
+     letter-spacing: 1px;
+     text-align: center;
+ 
+ }
+ .contactinfo ul{
+     position: relative;
+ 
+ }
+ .contactinfo ul li{
+     position: relative;
+     list-style: none;
+     margin: 10px 0;
+     cursor: pointer;
+     color:  #fff;
+ }
+ 
+ /* education section */
+ 
+ .contactinfo.education li{
+     margin-bottom: 15px;
+ 
+ }
+ .contactinfo.education h5{
+     color:  #03a9f4;
+     font-weight: bold;
+ 
+ }
+ .contactinfo.education h4:nth-child(2){
+     color: #fff;
+     font-weight: bold;
+ 
+ }
+ .contactinfo.education h4{
+     color: #fff;
+     font-weight: 380;
+ 
+ }
+ 
+ /* contactinfo languages */
+ 
+ .contactinfo.languages .percent{
+     position: relative;
+     width: 100%;
+     height: 6px;
+     background: white;
+     display: block;
+     margin-top: 5px;
+     overflow: hidden;
+ } 
+ 
+ .contactinfo.languages .percent div{
+     position: absolute;
+     top: 0;
+     left: 0;
+     height: 100%;
+     background-color:  #03a9f4;
+ }
+ 
+ 
+ /* rightside */
+ .container .rightside{
+     position: relative;
+     background: WHITE;
+     padding: 40px;
+ }
+ 
+ .about{
+     margin-bottom: 50px;
+ }
+ .about:last-child{
+     margin-bottom: 0px;
+ }
+ .title2{
+     color:  black;
+     text-transform: uppercase;
+     letter-spacing: 1px;
+     margin-bottom: 10px;
+     font-size: 20px;
+ }
+ p{
+     color: black;
+ 
+ }
+ .about .box{
+     margin: 20px 0;
+ }
+ .about .box .yearcompany{
+     min-width: 150px;
+ }
+ .about .box .yearcompany h5{
+     text-transform: uppercase;
+     color:   #03a9f4;
+ }
+ 
+ .about .box .text h4{
+     text-transform: uppercase;
+     color: hsl(206, 5%, 26%);
+ }
+ 
+ .skills .box{
+     position: relative;
+     width: 100%;
+     display: grid;
+     grid-template-columns: 150px 1fr;
+     justify-content: center;
+     align-items: center;
+ }
+ .skills .box h4{
+     text-transform: uppercase;
+     color:  #003147;
+     font-weight: 500;
+ 
+ }
+ .skills .box  .percent{
+     position: relative;
+     width: 100%;
+     height: 5px;
+     background:  #f0f0f0;
+     overflow: hidden;
+ }
+ .skills .box  .percent div{
+     position: absolute;
+     top: 0;
+     left: 0;
+     height: 100%;
+     background: #03a9f4;
+ }
+ .interest ul{
+     display: grid;
+     grid-template-columns: repeat(4,1fr);
+ }
+ .interest ul li{
+     list-style: none;
+     color:  hsl(206, 5%, 26%);
+     font-weight: 500;
+     margin: 10px 0;
+ }
+ .interest ul li .fa{
+     color: aqua;
+ }
+
+
+ /* 2 resume template */
+
+/* #lf1{
+    background-color: skyblue;
+}
+
+#temp2h{
+    color: black;
+} */
+
+/* 1 cl template */
+
+.cvl1cont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+
+}
+.cvl1box{
+     background-color:white;
+     width: 700px;
+     padding: 10px;
+     border: 5px solid lightblue;
+     
+     
+}
+#cvl1h1{
+    text-align: center;
+    background-color: lightblue ;
+    padding: 5px;
+}
+#cvl1para{
+    text-align: center;
+    background-color: rgb(198, 222, 229);
+    padding: 10px;
+}
+
+.cvldt{
+    padding: 10px;
+}
+
+.cvlfd{
+    padding: 10px;
+}
+
+.cljt{
+    padding: 10px;
+}
+.clsname{
+    padding: 10px;
+}
+
+.clintro{
+     padding: 10px;
+}
+
+.cllb{
+    padding: 10px;
+}
+
+.clcta{
+    padding: 10px;
+}
+.clloser{
+    padding: 10px;
+} 
+
+/* 2 cl template */
+
+.cvl2cont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+
+}
+.cvl2box{
+     background-color:white ;
+     width: 700px;
+     padding: 10px;
+     border: 5px solid gray;
+     
+     
+}
+#cvl2h1{
+    text-align: center;
+    background-color: rgb(163, 162, 162) ;
+    padding: 5px;
+}
+#cl2para{
+    text-align: center;
+    background-color: lightgray;
+    padding: 10px;
+}
+
+.cvldt{
+    padding: 10px;
+}
+
+.cvlfd{
+    padding: 10px;
+}
+
+.cljt{
+    padding: 10px;
+}
+.clsname{
+    padding: 10px;
+}
+
+.clintro{
+     padding: 10px;
+}
+
+.cllb{
+    padding: 10px;
+}
+
+.clcta{
+    padding: 10px;
+}
+.clloser{
+    padding: 10px;
+} 
+
+
+/* 3 cl template */
+
+.cvl3cont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+
+}
+.cvl3box{
+     width: 700px;
+     padding: 10px;
+     border: 2px solid black;
+     
+     
+}
+#cvl3h1{
+    text-align: center;
+    text-decoration: underline;
+    padding: 5px;
+    color:white;
+    background-color:black;
+}
+#cl3para{
+    text-align: center;
+    color:white;
+    padding: 10px;
+    background-color:black;
+
+    
+}
+
+.cvldt{
+    padding: 10px;
+}
+
+.cvlfd{
+    padding: 10px;
+}
+
+.cljt{
+    padding: 10px;
+}
+.clsname{
+    padding: 10px;
+}
+
+.clintro{
+     padding: 10px;
+}
+
+.cllb{
+    padding: 10px;
+}
+
+.clcta{
+    padding: 10px;
+}
+.clloser{
+    padding: 10px;
+} 
+
+/* 4 */
+
+.cvl4cont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+
+}
+.cvl4box{
+     width: 700px;
+     padding: 10px;
+     border: 5px solid black;
+     
+     
+}
+#cvl4h1{
+    /* text-align: center; */
+    padding: 5px;
+}
+#cl4para{
+    /* text-align: center; */
+    padding: 10px;
+    
+}
+
+.cvldt{
+    padding: 10px;
+}
+
+.cvlfd{
+    padding: 10px;
+}
+
+.cljt{
+    padding: 10px;
+}
+.clsname{
+    padding: 10px;
+}
+
+.clintro{
+     padding: 10px;
+}
+
+.cllb{
+    padding: 10px;
+}
+
+.clcta{
+    padding: 10px;
+}
+.clloser{
+    padding: 10px;
+}
+
+/* 5 */
+
+.cvl5cont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+     
+
+}
+.cvl5box{
+     width: 700px;
+     padding: 10px;
+     border: 5px solid purple;
+     
+     
+}
+#cvl5h1{
+    /* text-align: center; */
+    padding: 5px;
+    color: purple;
+}
+#cl5para{
+    /* text-align: center; */
+    padding: 10px;
+    color: purple;
+    font-weight: 700;
+    
+}
+
+.cvldt{
+    padding: 10px;
+}
+
+.cvlfd{
+    padding: 10px;
+}
+
+.cljt{
+    padding: 10px;
+}
+.clsname{
+    padding: 10px;
+}
+
+.clintro{
+     padding: 10px;
+}
+
+.cllb{
+    padding: 10px;
+}
+
+.clcta{
+    padding: 10px;
+}
+.clloser{
+    padding: 10px;
+} 
+
+/* 6 */
+
+.cvl6cont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+     
+
+}
+.cvl6box{
+     width: 700px;
+     padding: 10px;
+     border: 5px solid rgb(203, 133, 133);
+     
+     
+     
+}
+#cvl6h1{
+    /* text-align: center; */
+    padding: 5px;
+    color: black;
+    background-color: rgb(226, 207, 207);
+    
+}
+#cl6para{
+    /* text-align: center; */
+    padding: 10px;
+    color: black;
+    font-weight: 700;
+    background-color:  rgb(226, 207, 207);
+    
+    
+}
+
+.cvldt{
+    padding: 10px;
+}
+
+.cvlfd{
+    padding: 10px;
+}
+
+.cljt{
+    padding: 10px;
+}
+.clsname{
+    padding: 10px;
+}
+
+.clintro{
+     padding: 10px;
+}
+
+.cllb{
+    padding: 10px;
+}
+
+.clcta{
+    padding: 10px;
+}
+.clloser{
+    padding: 10px;
+} 
+
+.profiletext6{
+    /* position: relative; */
+    /* display:flex; */
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid red;
+}
+
+/* 7 */
+
+.cvl7cont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+     
+
+}
+.cvl7box{
+     width: 700px;
+     padding: 10px;
+     border: 5px solid gray;
+     background-color: rgb(249, 242, 242);
+     
+     
+     
+}
+#cvl7h1{
+    text-align: center;
+    padding: 5px;
+    color: black;
+    
+    
+    
+}
+#cl7para{
+    text-align: center;
+    padding: 10px;
+    color: black;
+    font-weight: 700;
+    
+    
+    
+}
+
+.cvldt{
+    padding: 10px;
+}
+
+.cvlfd{
+    padding: 10px;
+}
+
+.cljt{
+    padding: 10px;
+}
+.clsname{
+    padding: 10px;
+}
+
+.clintro{
+     padding: 10px;
+}
+
+.cllb{
+    padding: 10px;
+}
+
+.clcta{
+    padding: 10px;
+}
+.clloser{
+    padding: 10px;
+} 
+
+
+.profiletext7{
+    /* position: relative; */
+    /* display:flex; */
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 3px solid gray;
+}
+
+
+/* 8 */
+
+.cvl8cont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+     
+
+}
+.cvl8box{
+     width: 700px;
+     padding: 10px;
+     border: 5px solid cornflowerblue;  
+     
+}
+
+#cvl8h1{
+    text-align: center;
+    padding: 5px;
+    background-color: cornflowerblue;
+    
+    
+    
+}
+#cl8para{
+    text-align: center;
+    color: cornflowerblue;
+    padding: 10px;
+    font-weight: 700;
+    background-color: rgb(36, 34, 34);
+}
+
+.cvldt{
+    padding: 10px;
+}
+
+.cvlfd{
+    padding: 10px;
+}
+
+.cljt{
+    padding: 10px;
+}
+.clsname{
+    padding: 10px;
+}
+
+.clintro{
+     padding: 10px;
+}
+
+.cllb{
+    padding: 10px;
+}
+
+.clcta{
+    padding: 10px;
+}
+.clloser{
+    padding: 10px;
+} 
+
+
+.profiletext8{
+    /* position: relative; */
+    /* display:flex; */
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 3px solid black;
+}
+
+/* 9 */
+
+.cvl9cont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+     
+
+}
+.cvl9box{
+     width: 700px;
+     padding: 10px;
+     border: 3px solid rgb(217, 148, 38);
+     
+     
+     
+}
+#cvl9h1{
+    /* text-align: center; */
+    padding: 5px;
+    color: black;
+    background-color: rgb(233, 205, 159);
+    
+}
+#cl9para{
+    /* text-align: center; */
+    padding: 10px;
+    color: black;
+    font-weight: 700;
+    background-color:  rgb(233, 205, 159);
+    
+    
+}
+
+.cvldt{
+    padding: 10px;
+}
+
+.cvlfd{
+    padding: 10px;
+}
+
+.cljt{
+    padding: 10px;
+}
+.clsname{
+    padding: 10px;
+}
+
+.clintro{
+     padding: 10px;
+}
+
+.cllb{
+    padding: 10px;
+}
+
+.clcta{
+    padding: 10px;
+}
+.clloser{
+    padding: 10px;
+} 
+
+.profiletext9{
+    /* position: relative; */
+    /* display:flex; */
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(217, 148, 38);
+}
+
+/* 10 */
+
+.cvl10cont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+     
+
+}
+.cvl10box{
+     width: 700px;
+     padding: 10px;
+     border: 5px solid blue;
+     border-radius: 10px;
+     
+     
+     
+     
+}
+#cvl10h1{
+    /* text-align: center; */
+    padding: 5px;
+    color: rgb(71, 71, 212);
+    
+}
+#cl10para{
+    /* text-align: center; */
+    padding: 10px;
+    color: black;
+    font-weight: 700;
+    color: rgb(88, 88, 183);
+    
+    
+}
+
+.cvldt{
+    padding: 10px;
+}
+
+.cvlfd{
+    padding: 10px;
+}
+
+.cljt{
+    padding: 10px;
+}
+.clsname{
+    padding: 10px;
+}
+
+.clintro{
+     padding: 10px;
+}
+
+.cllb{
+    padding: 10px;
+}
+
+.clcta{
+    padding: 10px;
+}
+.clloser{
+    padding: 10px;
+} 
+
+.profiletext10{
+    /* position: relative; */
+    /* display:flex; */
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid blue;
+}
+
+/* 11 */
+
+.cvl11cont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+
+}
+.cvl11box{
+     width: 700px;
+     padding: 10px;
+     border: 4px solid black;
+     
+     
+}
+#cvl11h1{
+    text-align: center;
+    /* text-decoration: underline; */
+    padding: 5px;
+    background-color: black;
+    color: white;
+}
+#cl11para{
+    text-align: center;
+    padding: 10px;
+    color: black;
+}
+
+.cvldt{
+    padding: 10px;
+}
+
+.cvlfd{
+    padding: 10px;
+}
+
+.cljt{
+    padding: 10px;
+}
+.clsname{
+    padding: 10px;
+}
+
+.clintro{
+     padding: 10px;
+}
+
+.cllb{
+    padding: 10px;
+}
+
+.clcta{
+    padding: 10px;
+}
+.clloser{
+    padding: 10px;
+} 
+
+.profiletext11{
+    /* position: relative; */
+    /* display:flex; */
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid black;
+}
+
+/* 12 */
+
+.cvl12cont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+
+}
+.cvl12box{
+     width: 700px;
+     padding: 10px;
+     border: 2px solid black;
+     
+     
+}
+#cvl12h1{
+    text-align: center;
+    /* text-decoration: underline; */
+    padding: 5px;
+    background-color: black;
+    color: lightblue;
+}
+#cl12para{
+    text-align: center;
+    padding: 10px;
+    color: black;
+    background-color: lightblue;
+}
+
+.cvldt{
+    padding: 10px;
+}
+
+.cvlfd{
+    padding: 10px;
+}
+
+.cljt{
+    padding: 10px;
+}
+.clsname{
+    padding: 10px;
+}
+
+.clintro{
+     padding: 10px;
+}
+
+.cllb{
+    padding: 10px;
+}
+
+.clcta{
+    padding: 10px;
+}
+.clloser{
+    padding: 10px;
+} 
+
+.profiletext12{
+    /* position: relative; */
+    /* display:flex; */
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid black;
+}

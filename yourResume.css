@@ -1,0 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.content{
+    width: 200px;
+    height: 500px;
+    background-color:yellow;
+    padding-top: 100px;
+}

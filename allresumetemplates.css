@@ -1,0 +1,461 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 1 resume template */
+
+#dfname,
+#dlname,
+#cont1,
+#cont2,
+#cont3,
+#cont4,
+#cont5,
+#sclyr,
+#degree,
+#fostdy,
+#scln,
+#sclloc,
+#skls,
+#lnk,
+#dlang{
+    width: 135px;
+    display: block;
+    overflow-wrap: break-word;
+}
+
+
+#hob{
+    width: 65px;
+    display: block;
+    overflow-wrap: break-word;
+}
+
+#profsumry,#cpn,#jbt,#jbsmry{
+    width: 320px;
+    display: block;
+    overflow-wrap: break-word;
+}
+
+@media (max-width:500px) {
+        #dfname,
+        #dlname,
+        #cont1,
+        #cont2,
+        #cont3,
+        #cont4,
+        #cont5,
+        #sclyr,
+        #degree,
+        #fostdy,
+        #scln,
+        #sclloc,
+        #skls,
+        #lnk,
+        #dlang{
+            width:63px;
+            display: block;
+            overflow-wrap: break-word;
+        }
+
+        #hob{
+            width: 35px;
+            display: block;
+            overflow-wrap: break-word;
+        }
+
+        #profsumry,#cpn,#jbt,#jbsmry{
+            width: 153px;
+            display: block;
+            overflow-wrap: break-word;
+        }
+}
+
+
+
+.bodycon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    position: relative; 
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+ }
+ /* leftside */
+ 
+ .container .leftside{
+     position: relative;
+     /* background: #F8B195; */
+     background:  #003147;
+     padding: 15px;
+     
+ }
+ 
+ .profiletext{
+     position: relative;
+     display:flex;
+     flex-direction: column;
+     align-items: center;
+     padding-bottom: 20px;
+     border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+ }
+ 
+ /* .profiletext .imgbox{
+     position: relative;
+     width: 100px;
+     height: 100px;
+     border-radius: 50%;
+     overflow: hidden;
+     border: 5px solid   #03a9f4;
+ 
+ }
+ 
+ .profiletext .imgbox img{
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+ } */
+ 
+ .profiletext h2{
+     color: #fff;
+     margin-top: 20px;
+     text-transform: uppercase;
+     text-align: center;
+     font-weight: 600;
+     line-height: 25px;
+ 
+ }
+ .profiletext h2 span{
+    font-size: 16px; 
+    
+ }
+ 
+ /* contactinfo */
+ 
+ .contactinfo{
+     padding-top: 20px;
+ }
+
+ .title{
+     color:  #fff;
+     text-transform: uppercase;
+     margin-bottom: 20px;
+     font-weight: 600;
+     font-size: 15px;
+     letter-spacing: 1px;
+     text-align: center;
+ 
+ }
+ .contactinfo ul{
+     position: relative;
+ 
+ }
+ .contactinfo ul li{
+     position: relative;
+     list-style: none;
+     margin: 10px 0;
+     cursor: pointer;
+     color:  #fff;
+     font-size: 12px;
+ }
+ 
+ /* education section */
+ 
+ .contactinfo.education li{
+     margin-bottom: 15px;
+     line-height: 23px;
+ }
+ .contactinfo.education h5{
+     color:  #03a9f4;
+     font-weight: bold;
+ 
+ }
+ .contactinfo.education h4:nth-child(2){
+     color: #fff;
+     font-weight: bold;
+ 
+ }
+ .contactinfo.education h4{
+     color: #fff;
+     font-weight: 380;
+ 
+ }
+ 
+ /* contactinfo languages */
+ 
+ .contactinfo.languages .percent{
+     position: relative;
+     width: 100%;
+     height: 6px;
+     background: white;
+     display: block;
+     margin-top: 5px;
+     overflow: hidden;
+ } 
+ 
+ .contactinfo.languages .percent div{
+     position: absolute;
+     top: 0;
+     left: 0;
+     height: 100%;
+     background-color:  #03a9f4;
+ }
+ 
+ 
+ /* rightside */
+ .container .rightside{
+     position: relative;
+     background: WHITE;
+     padding: 15px;
+ }
+ 
+ .about{
+     margin-bottom: 30px;
+ }
+ .about:last-child{
+     margin-bottom: 0px;
+ }
+ .title2{
+     color:  black;
+     text-transform: uppercase;
+     letter-spacing: 1px;
+     margin-bottom: 10px;
+     font-size: 16px;
+ }
+ p{
+     color: black;
+     font-size: 11px;
+ 
+ }
+ .about .box{
+     margin: 20px 0;
+ }
+ .about .box .yearcompany{
+     min-width: 150px;
+ }
+ .about .box .yearcompany h5{
+     text-transform: uppercase;
+     color:   #03a9f4;
+     display: flex;
+     font-size: 10px;
+ }
+ 
+ .about .box .text h4{
+     text-transform: uppercase;
+     color: hsl(206, 5%, 26%);
+     font-size: 12px;
+ }
+ 
+ .skills .box{
+     position: relative;
+     width: 100%;
+     display: grid;
+     grid-template-columns: 150px 1fr;
+     justify-content: center;
+     align-items: center;
+ }
+ .skills .box h4{
+     text-transform: uppercase;
+     color:  #003147;
+     font-weight: 500;
+     font-size: 12px;
+ 
+ }
+
+ .skills .box  .percent{
+    position: relative;
+    width: 100%;
+    height: 5px;
+    background:  #f0f0f0;
+    overflow: hidden;
+}
+.skills .box  .percent div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: #03a9f4;
+}
+
+ .skills1 .box  .percent{
+     position: relative;
+     width: 100%;
+     height: 5px;
+     background:  #f0f0f0;
+     overflow: hidden;
+ }
+ .skills1 .box  .percent div{
+     position: absolute;
+     top: 0;
+     left: 0;
+     height: 100%;
+     background: #03a9f4;
+ }
+
+ .skills2 .box  .percent{
+    position: relative;
+    width: 100%;
+    height: 5px;
+    background:  #f0f0f0;
+    overflow: hidden;
+}
+.skills2 .box  .percent div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: #03a9f4;
+}
+
+.skills3 .box  .percent{
+    position: relative;
+    width: 100%;
+    height: 5px;
+    background:  #f0f0f0;
+    overflow: hidden;
+}
+.skills3 .box  .percent div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: #03a9f4;
+}
+
+ .interest ul{
+     display: grid;
+     grid-template-columns: repeat(4,1fr);
+ }
+ .interest ul li{
+     list-style: none;
+     color:  hsl(206, 5%, 26%);
+     font-weight: 500;
+     margin: 10px 0;
+     font-size: 12px;
+ }
+ .interest ul li .fa{
+     color: aqua;
+ }
+
+ .about-links{
+    list-style: none;
+    display: grid;
+    padding-bottom: 10px;
+  
+ }
+
+ .about-links ul{
+    list-style: none;
+    padding-bottom: 10px;
+    font-size: 12px;
+}
+
+ #lnk{
+    padding-bottom: 10px;
+ 
+ }
+
+ /* 2 resume template */
+
+#lf1{
+    background-color: skyblue;
+}
+
+#temp2h{
+    color: black;
+}
+
+
+/* css for Template 3  */
+
+.tmp6gridcon{
+    display: grid;
+    place-items: center;
+    padding-top:10px;
+    padding-bottom: 10px;
+}
+
+.tmp6maincon{
+    width:100%;
+   padding:40px 30px 40px 30px;
+}
+
+.line{
+    width: 100%;
+    border-bottom: 2px solid black;
+}
+
+.tmp6head{
+    width: 100%;
+    text-align: center;
+    line-height: 28px;
+    padding-bottom: 30px;
+}
+
+.tmp6head h1{
+    display: flex !important;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.tmp6flex{
+    width: 100%;
+    display: flex;
+    padding-bottom: 30px;
+}
+
+.tmp6right{
+    width: 100%;
+    border-top: 2px solid black;
+    margin-top:27px;
+    padding-top: 30px;
+}
+
+.tmp6rightwrkx{
+    width: 100%;
+    border-top: 2px solid black;
+    margin-top:27px;
+    padding-top: 10px;
+}
+
+.tmp6left{
+    width: 25%;
+}
+
+.wrkx{
+padding-top: 25px;
+}
+
+.list{
+    padding-left: 19px;
+}
+
+span::first-letter{
+    text-transform: uppercase;
+}
+.strtend{
+    display:flex;
+    align-items: center;
+}
+
+.tmp6head .ctstat{
+    display: grid;
+   justify-content: center;
+}
+
+.tmp6head .ctstat span{
+                     padding-left: 8px;
+}
+
+
+
+   
