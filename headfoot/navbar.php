@@ -28,5 +28,4 @@ echo '
     </div>
 </nav>
 </header>';
-
 ?>
