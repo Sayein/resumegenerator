@@ -278,6 +278,9 @@ elseif(isset($_GET['false2'])){
             
         </div>
     </div>
+
+    <!-- work for forget password feature -->
+
     <script src="headfoot/script.js"></script>
     <?php
         include("headfoot/footer.php");
