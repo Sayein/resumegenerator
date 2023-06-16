@@ -273,15 +273,6 @@ elseif(isset($_GET['false2'])){
                             id="rgbtn">Sign up</button>
                     </div>
                 </form>
-
-                <form action="sign.php" method="post" class="input-group" id="forgotPassword">
-                    <input type="text" class="input-field" placeholder="Email" name="remail" required>
-                    <input type="text" class="input-field" placeholder="Password" name="rpassword" required>
-                    <input type="password" class="input-field" placeholder="Confirm Password" name="cpassword" required>
-                    <div class="btnmodalgrid"><button type="submit" class="submit-btn" name="registerbtn"
-                            id="rgbtn">Sign up</button>
-                    </div>
-                </form>
             </div>
             
         </div>
