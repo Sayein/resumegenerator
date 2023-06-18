@@ -254,12 +254,9 @@ elseif(isset($_GET['false2'])){
                 </div>
 
                 <form action="./db/login.php" method="post" class="input-group" id="login">
-                    <div style="width:100%; text-align:center;">
-                        <h2 style="color:red;"></h2>
-                    </div>
                     <input type="text" class="input-field" placeholder="Email" name="lemail" required>
                     <input type="password" class="input-field" placeholder="password" name="lpassword" required style="margin-bottom:20px;">
-                    <a href="?forgot-password" class="link">i forgot my password !</a>
+                    <a href="forgotpass.php" class="link">forgot password ?</a>
                     <div class="btnmodalgrid"><button type="submit" name="loginbtn" class="submit-btn">Login</button>
                     </div>
                 </form>
@@ -277,19 +274,24 @@ elseif(isset($_GET['false2'])){
             
         </div>
     </div>
+
     <script src="headfoot/script.js"></script>
     <?php
         include("headfoot/footer.php");
 
-    ?>
-
+   
+    if($alert){
+        echo'
 <script>
+
+
     setInterval(function() {
 			var div = document.getElementById("error");
 				div.style.display = "none";
 		}, 3000);
-</script>
-
+</script>';
+    }
+?>
 </body>
 
 </html>

@@ -1,26 +1,3 @@
- // js code for clickable resume and cover-letter links
-
- function navdropdown() {
-    document.getElementById("mydrop").classList.toggle("show");
-}
-
-function navdropdown2() {
-    document.getElementById("mydrop1").classList.toggle("show1");
-}
-
-document.onclick = function (e) {
-    if (e.target.className !== 'resumehover' && e.target.className !== 'cvhover') {
-        let dropdown1 = document.querySelector(".dropdown-content");
-        let dropdown2 = document.querySelector(".cdropdown-content");
-        if (dropdown1.classList.contains('show')) {
-            dropdown1.classList.remove('show');
-        }
-        else if (dropdown2.classList.contains('show1')) {
-            dropdown2.classList.remove('show1');
-        }
-    }
-}
-
 /* js code for responsive navbar button */
 
  function showx(){
@@ -52,7 +29,7 @@ menu.addEventListener("click", function () {
 });
 
 
-// js for sign in modal
+// js for sign up and log in style
 
 var x = document.getElementById("login");
 var y = document.getElementById("register");
