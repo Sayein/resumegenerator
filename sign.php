@@ -270,7 +270,6 @@ elseif(isset($_GET['false2'])){
                             id="rgbtn">Sign up</button>
                     </div>
                 </form>
-
             </div>
             
         </div>
