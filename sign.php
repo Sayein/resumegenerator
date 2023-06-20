@@ -1,6 +1,7 @@
 <?php
 session_start();
 $alert=false;
+$success=false;
 $error="";
 if($_SERVER["REQUEST_METHOD"]=="POST"){
   include "./db/config.php";
@@ -15,23 +16,31 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
   $result=mysqli_query($conn,$existuser);
   $numrow=mysqli_num_rows($result);
 
-  if($numrow>0){
+  if($numrow > 0){
     $alert=true;
-    $error="User Already Exists!";
+    $error="User already exists !";
     
   }
   else{
-    if($pass==$cpass){
+    if(strlen($pass) < 8){
+        $alert=true;
+        $error="Enter more than 8 charactes !";
+    }
+    elseif(strlen($pass) > 20){
+        $alert=true;
+        $error="Enter less than 20 charactes !";
+    }
+    elseif($pass==$cpass){
        $hash=password_hash($pass, PASSWORD_DEFAULT);
        $sql="INSERT INTO `crbpusers` (`user_id`, `email`, `password`, `dt`) VALUES ('$userid', '$email', '$hash', current_timestamp())";
        $result=mysqli_query($conn,$sql);
        if($result){
-        header("Location: ./sign.php");
+        header("Location: ./sign.php?success2");
        }
      }
      else{
         $alert=true;
-        $error="Passwords Donot Match";
+        $error="Passwords donot match !";
         
      }
 
@@ -40,12 +49,20 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
 if(isset($_GET['false1']) && $_GET['false1']=="true"){
     $alert=true;
-    $error="Email Or Password Is Incorrect";
+    $error="Email or password is incorrect !";
 }
 elseif(isset($_GET['false2'])){
     $alert=true;
-    $error="User Does Not Exist!";
+    $error="User does not exist !";
 }
+elseif(isset($_GET["success"])){
+    $success=true;
+    $error="Your password has been reset !";
+  }
+elseif(isset($_GET["success2"])){
+    $success=true;
+    $error="You can log in now !";
+  }
 
 ?>
 
@@ -88,7 +105,7 @@ elseif(isset($_GET['false2'])){
     }
 
     .toggle-btn {
-        padding: 10px 35px;
+        padding: 9px 35px;
         cursor: pointer;
         background: transparent;
         border: 0;
@@ -235,6 +252,22 @@ elseif(isset($_GET['false2'])){
 
 } 
 
+   if($success){
+   
+     echo '<div class="error" id="error">
+                    <h2 style="color:green;">'.$error.'</h2>
+   </div>' ; 
+
+} 
+
+   if($success){
+   
+     echo '<div class="error" id="error">
+                    <h2 style="color:green;">'.$error.'</h2>
+   </div>' ; 
+
+} 
+
 //    elseif($login){
 //     echo '<div class="error" id="error">
 //                     <h2 style="color:red;">'.$showerr.'</h2>
@@ -254,7 +287,7 @@ elseif(isset($_GET['false2'])){
                 </div>
 
                 <form action="./db/login.php" method="post" class="input-group" id="login">
-                    <input type="text" class="input-field" placeholder="Email" name="lemail" required>
+                    <input type="email" class="input-field" placeholder="Email" name="lemail" required>
                     <input type="password" class="input-field" placeholder="password" name="lpassword" required style="margin-bottom:20px;">
                     <a href="forgotpass.php" class="link">forgot password ?</a>
                     <div class="btnmodalgrid"><button type="submit" name="loginbtn" class="submit-btn">Login</button>
@@ -263,8 +296,8 @@ elseif(isset($_GET['false2'])){
 
 
                 <form action="sign.php" method="post" class="input-group" id="register">
-                    <input type="text" class="input-field" placeholder="Email" name="remail" required>
-                    <input type="text" class="input-field" placeholder="Password" name="rpassword" required>
+                    <input type="email" class="input-field" placeholder="Email" name="remail" required>
+                    <input type="password" class="input-field" placeholder="Password" name="rpassword" required>
                     <input type="password" class="input-field" placeholder="Confirm Password" name="cpassword" required>
                     <div class="btnmodalgrid"><button type="submit" class="submit-btn" name="registerbtn"
                             id="rgbtn">Sign up</button>
@@ -280,7 +313,7 @@ elseif(isset($_GET['false2'])){
         include("headfoot/footer.php");
 
    
-    if($alert){
+    if($alert || $success){
         echo'
 <script>
 
