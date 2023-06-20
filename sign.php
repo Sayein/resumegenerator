@@ -303,7 +303,6 @@ elseif(isset($_GET["success2"])){
                             id="rgbtn">Sign up</button>
                     </div>
                 </form>
-
             </div>
             
         </div>
