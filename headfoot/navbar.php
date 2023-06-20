@@ -6,7 +6,7 @@ echo '
         <a href="index.php" class="homelink" style="text-decoration:none; color:black;">
             <div class="logocon">
                 <div class="logoan"></div>
-                <h2>R<span class="cg">G</span></h2>
+                <span id="logoletter">R<span class="cg">G</span></span>
             </div>
         </a>
         <input type="checkbox" id="check">

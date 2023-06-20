@@ -92,7 +92,7 @@
       overflow: hidden;
     } 
 
-.logocon:hover h2{
+.logocon:hover #logoletter{
     color:white;
     transition-delay: 0.5s;
 }
@@ -102,7 +102,9 @@
     transition-delay: 0.5s;
 }
 
-.logocon h2{
+.logocon #logoletter{
+    font-size: 21px;
+    font-weight: bold;
     padding:0 15px;
     transition-delay: 0.3s;
 }
@@ -125,7 +127,7 @@
 
 .navbar ul li .navanc{
     text-decoration: none;
-    font-size: 20px;
+    font-size: 19px;
     font-weight:700;
     padding:20px 5px;
     color:black;
@@ -133,6 +135,7 @@
 }
 
 #mbtn a{
+         font-size:18px;
          text-decoration:none;
          color:white;
          background-color: #0000FF;
@@ -341,31 +344,30 @@
 
 .herosec{
     padding:85px 80px 80px 80px;
-    /* background-color:blue; */
-    /* background-color: #f8f9fa; */
-    /* background-color: #f8f9fa; */
-    /* height: 100vh; */
+
 }
 
 .sherosec{
     display: flex;
     width: 100%;
-    /* background-color:red; */
+
     justify-content: space-between;
     align-items: center;
     gap: 40px;
 }
 
 .leftcontent p{
-    font-size:50px;
+    font-size:45px;
     font-weight:bolder;
     letter-spacing:1px;
     margin-bottom: 24px;
 }
 
-.leftcontent h3{
+.leftcontent .heropara{
+    display: block;
     padding-bottom:40px;
-    font-size: 25px;
+    font-size: 22px;
+    font-weight:500;
     width: 85%;
     padding-left:10px;
 }
@@ -477,7 +479,7 @@
         text-align: center;
     }
 
-    .leftcontent h3{
+    .leftcontent .heropara{
         padding:20px 0;
         text-align:center;
         font-size: 19px;

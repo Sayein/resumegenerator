@@ -1,6 +1,5 @@
 <?php
-// $login=false;
-// $showerr="";
+
 if($_SERVER["REQUEST_METHOD"]=="POST"){
     include "config.php";
 
@@ -34,6 +33,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
   }
 
 }
+
+
 
 
 ?>

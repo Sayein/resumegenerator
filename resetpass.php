@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forgot your password?</title>
+    <title>Reset your password</title>
     <style>
     * {
         margin: 0;
@@ -22,7 +22,7 @@
     }
 
     .formdiv {
-        margin-top:-100px;
+        /* margin-top:-30px; */
         padding: 20px;
     }
 
@@ -49,7 +49,7 @@
     .input-field {
         width: 100%;
         padding: 10px 0px;
-        margin-top: 17px;
+        margin-top: 23px;
         border-top: 0px;
         border-left: 0px;
         border-right: 0px;
@@ -185,7 +185,7 @@
    .error{
         width:100%;
         text-align:center;
-        padding-top:110px;
+        padding-top:30px;
         position:absolute;
     }
 
@@ -196,34 +196,45 @@
 <body>
     <?php
 $alert=false;
-$success=false;
 $error="";
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
     include "./db/config.php";
 
-    $to=$_POST['forgotmail'];
-    $subject="Reset Your Password";
-    $msg="This is reset password message from https://localhost:8080/newresumegen/resetpass.php";
+    $email=$_POST['resetmail'];
+    $pass=$_POST['resetpass'];
+    $cpass=$_POST['cresetpass'];
 
 
-    $existuser="SELECT * FROM `crbpusers` WHERE email='$to'";
+    $existuser="SELECT * FROM `crbpusers` WHERE email='$email'";
     $result=mysqli_query($conn,$existuser);
     $numrow=mysqli_num_rows($result);
 
     if($numrow > 0){
-        if(mail($to,$subject,$msg)){
-             $success=true;
-             $error="Mail has been sent !"; 
-           }
-        else{
+        
+        if(strlen($pass) < 8){
+            $alert=true;
+            $error="Enter more than 8 charactes !";
+        }
+        elseif(strlen($pass) > 20){
+            $alert=true;
+            $error="Enter less than 20 charactes !";
+        }
+        elseif($pass==$cpass){
+            $hash=password_hash($pass, PASSWORD_DEFAULT);
+            $query="UPDATE crbpusers SET password='$hash' WHERE email='$email'";
+            $result=mysqli_query($conn,$query);
+            header("Location: sign.php?success");
+          }
+          else{
              $alert=true;
-             $error="Mail could not be send !";   
-            } 
+             $error="Passwords donot match !";
+             
+          }
     }
     else{
         $alert=true;
-        $error="No User Registered with that email !";    
+        $error="Invalid email address !";    
     }
 
 }
@@ -237,15 +248,8 @@ if($alert){
    </div>';
 }
 
-if($success){
-
-    echo'<div class="error" id="error">
-                    <h2 style="color:green;">'.$error.'</h2>
-   </div>';
-}
-
 ?>
-
+    <!-- work for forget password feature -->
     <div id="btns" class="btn1">
         <div class="formdiv">
             <div class="branding">
@@ -258,12 +262,15 @@ if($success){
             </div>
             </div>
             <div class="formcontent">
-                <form action="forgotpass.php" class="forgotform" method="post">
+                <form action="resetpass.php" class="forgotform" method="post">
                     <h2>Reset your password</h2>
-                    <p>Enter your email address that you used to register.
-                        We'll email you with a link to reset your password.</p>
+                    <p>Enter your email address that you used to register and enter your password.</p>
 
-                    <input type="email" class="input-field" name="forgotmail" id="forgotemail" placeholder="Email Address"
+                    <input type="email" class="input-field" name="resetmail" id="resetmail" placeholder="Email Address"
+                        required>
+                    <input type="password" class="input-field" name="resetpass" id="resetpass" placeholder="Your password"
+                        required>
+                    <input type="password" class="input-field" name="cresetpass" id="cresetpass" placeholder="confirm your password"
                         required>
                     <div class="btnmodalgrid">
                         <button type="submit" name="forgotsub" class="submit-btn">Send Password Rest Email</button>
