@@ -5,7 +5,7 @@ $success=false;
 $error="";
 if($_SERVER["REQUEST_METHOD"]=="POST"){
   include "./db/config.php";
-
+	
   $userid=uniqid();
  
   $email=$_POST['remail'];
@@ -43,7 +43,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         $error="Passwords donot match !";
         
      }
-
     }
    }
 
