@@ -194,19 +194,6 @@ elseif(isset($_GET["success2"])){
         display: grid;
         place-items: center;
         padding: 200px 0 300px 0;
-        /* Hidden by default */
-        /* position: fixed; */
-        /* Stay in place */
-        /* z-index: 1; */
-        /* Sit on top */
-        /* padding-top: 100px; */
-        /* Location of the box */
-        /* left: 0; */
-        /* top: 0; */
-        /* width: 100%; */
-        /* Full width */
-        /* height: 100%; */
-        /* Black w/ opacity */
     }
 
     /* Modal Content */
