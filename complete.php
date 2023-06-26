@@ -25,7 +25,7 @@
 
     .content {
         width: 100%;
-        padding:150px 20px 300px 20px;
+        padding:150px 20px 200px 20px;
     }
 
 
@@ -151,15 +151,12 @@
 
     .tempgrid {
         display: grid;
-        width: 100%;
         justify-content: center;
     }
 
     .tempcontainer {
         position: relative;
         width: 519px;
-        /* height: 934px; */
-        /* border: 2px solid gray; */
         overflow: hidden;
     }
 
@@ -168,7 +165,6 @@
     }
 
     .centerdiv {
-        width: 100%;
         display: grid;
         justify-content: center;
     }
@@ -199,20 +195,17 @@
     }
 
 
-    @media(max-width:985px) {
+     /* @media(max-width:985px) {
 
-        /* .newdiv{
+         .newdiv{
             transform:scale(0.9);
-        } */
+        } 
 
-        /* .imgdiv { */
-            /* width: 100%; */
-            /* border: 2px solid grey; */
-            /* height: auto;
+       .imgdiv { 
             margin: 0 10px 0 10px;
-        } */
+        }
 
-        /* .about h2 {
+        .about h2 {
             margin-top: 15px;
         }
 
@@ -226,7 +219,7 @@
 
         .title {
             font-size: 15px !important;
-        } */
+        }
 
         .downloadprintbtn {
             max-width: 550px;
@@ -234,7 +227,7 @@
             margin-top: 100px;
             justify-content: space-between;
             gap: 50px;
-            /* font-size: ; */
+
         }
 
         .downloadprintbtn button {
@@ -254,7 +247,7 @@
             background-color: rgba(0, 0, 0, 0.5);
         }
 
-    }
+    }  */
 
     /* @media(max-width:545px) {
 
@@ -292,7 +285,13 @@
     
     /* responsive templates */
 
-     @media (max-width:540px) {
+    @media (max-width:767px) {
+       /* .tempgrid{
+            transform:scale(0.5);
+        } */
+    }
+
+     /* @media (max-width:540px) {
       #fname {
           font-size: 10px !important;
       }
@@ -346,7 +345,7 @@
             margin-top:-250px;
         }
 
-    }
+    } */
 
     </style>
 </head>
