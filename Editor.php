@@ -159,12 +159,14 @@ session_start();
                             <div id="error6" style="color:red; font-size:18px; margin-top: 7px;"></div>
                         </div>
                     </div>
-                    <div class="prevnextbtn">
-                        <div class="backbtn">
-                            <a id="bk">Back</a>
-                        </div>
-                        <div class="nextbtn">
-                            <a id="nxt" onclick="toprfsumry()">Next</a>
+                    <div class="btndiv">
+                        <div class="prevnextbtn">
+                            <div class="backbtn">
+                                <a id="bk">Back</a>
+                            </div>
+                            <div class="nextbtn">
+                                <a id="nxt" onclick="toprfsumry()">Next</a>
+                            </div>
                         </div>
                     </div>
 
@@ -385,12 +387,14 @@ session_start();
                         </div>
 
                     </div>
-                    <div class="prevnextbtn">
-                        <div class="backbtn">
-                            <a id="bk" onclick="toexperience()">Back</a>
-                        </div>
-                        <div class="nextbtn">
-                          <a id="nxt" onclick="complete()">Next</a>
+                    <div class="btndiv">
+                        <div class="prevnextbtn">
+                            <div class="backbtn">
+                                <a id="bk" onclick="toexperience()">Back</a>
+                            </div>
+                            <div class="nextbtn">
+                                <a id="nxt" onclick="complete()">Next</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -491,9 +495,6 @@ session_start();
         crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
 
     <script>
-
-
-
     // js for displaying other sections of editor on click
 
     let pi = document.querySelector(".pi");
@@ -760,22 +761,21 @@ session_start();
         // let error13 = document.getElementById("error13"); //for job title error 
         // const emplr = document.getElementById('emplr'); //for employer name    
         // let error14 = document.getElementById("error14"); //for employer name error
-          const strd = document.getElementById('strd'); //for start date
-          let error15 = document.getElementById("error15"); //for start date error
-          const endt = document.getElementById('endt'); //for end date
-          let error16 = document.getElementById("error16"); //for end date error
+        const strd = document.getElementById('strd'); //for start date
+        let error15 = document.getElementById("error15"); //for start date error
+        const endt = document.getElementById('endt'); //for end date
+        let error16 = document.getElementById("error16"); //for end date error
         // const jd = document.getElementById('soyj'); //for summary of your job 
         // let error17 = document.getElementById("error17"); //for summary of your job error
-           
-           let pattern2 = /^\d+$/;
-         
 
-         if(!pattern2.test(strd.value)){
-            error15.textContent="Please enter valid year.";
-         }
-         else if(!pattern2.test(endt.value)){
-         error16.textContent="Please enter valid year.";
-         }
+        let pattern2 = /^\d+$/;
+
+
+        if (!pattern2.test(strd.value)) {
+            error15.textContent = "Please enter valid year.";
+        } else if (!pattern2.test(endt.value)) {
+            error16.textContent = "Please enter valid year.";
+        }
 
         // if (jt.value == "" || emplr.value == "" || strd.value == "" || endt.value == "" || jd.value == "") {
         //     error13.textContent = "Please enter your job title.";
@@ -792,21 +792,21 @@ session_start();
         //     error17.textContent = "Empty values are not allowed.";
 
         // }
-         else {
-        //    error13.textContent = "";
-        //     error14.textContent = "";
+        else {
+            //    error13.textContent = "";
+            //     error14.textContent = "";
             error15.textContent = "";
             error16.textContent = "";
-        //     error17.textContent = "";
-        pi.style.display = "none";
-        prfs.style.display = "none";
-        ed.style.display = "none";
-        exp.style.display = "none";
-        skl.style.display = "block";
-        editnav.style.display = "none";
-        //downloadprintbtn.style.display = "none";
-        completebtn.style.display = "none";
-         }
+            //     error17.textContent = "";
+            pi.style.display = "none";
+            prfs.style.display = "none";
+            ed.style.display = "none";
+            exp.style.display = "none";
+            skl.style.display = "block";
+            editnav.style.display = "none";
+            //downloadprintbtn.style.display = "none";
+            completebtn.style.display = "none";
+        }
     }
 
 
