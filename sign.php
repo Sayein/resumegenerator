@@ -254,14 +254,6 @@ elseif(isset($_GET["success2"])){
 
 } 
 
-//    elseif($login){
-//     echo '<div class="error" id="error">
-//                     <h2 style="color:red;">'.$showerr.'</h2>
-//    </div>' ; 
-//    }
-
-
-
    ?>
     <div id="btns" class="btn1">
         <div class="modal-cotent">
