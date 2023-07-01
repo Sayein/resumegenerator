@@ -193,95 +193,6 @@
     .downloadprintbtn button:hover {
         background-color: rgba(0, 0, 0, 0.5);
     }
-
-
-     /* @media(max-width:985px) {
-
-         .newdiv{
-            transform:scale(0.9);
-        } 
-
-       .imgdiv { 
-            margin: 0 10px 0 10px;
-        }
-
-        .about h2 {
-            margin-top: 15px;
-        }
-
-        .container .leftside {
-            padding: 20px !important;
-        }
-
-        .container .rightside {
-            padding: 20px !important;
-        }
-
-        .title {
-            font-size: 15px !important;
-        }
-
-        .downloadprintbtn {
-            max-width: 550px;
-            display: grid;
-            margin-top: 100px;
-            justify-content: space-between;
-            gap: 50px;
-
-        }
-
-        .downloadprintbtn button {
-            padding: 10px;
-            width: 150px;
-            height: 50px;
-            font-size: 17px;
-            border: none;
-            margin-top: 15px;
-            border-radius: 5px;
-            background-color: black;
-            color: white;
-            letter-spacing: 1px;
-        }
-
-        .downloadprintbtn button:hover {
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-    }  */
-
-    /* @media(max-width:545px) {
-
-        .newdiv{
-            transform:scale(0.8);
-        }
-
-        .right {
-            padding: 100px 10px 200px 10px;
-        }
-
-        .imgdiv {
-        
-            margin: 0 0 0 -10px;
-        }
-
-        .about h2 {
-            margin-top: 15px;
-        }
-
-        .container .leftside {
-            padding: 10px !important;
-        }
-
-        .container .rightside {
-            padding: 10px !important;
-        }
-
-        .title {
-            font-size: 13px !important;
-        }
-
-    } */
-
     
     /* responsive templates */
 
@@ -511,11 +422,6 @@
     }
 
 
-    // 
-
-    // if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
-
-    //  echo '
     </script>
 </body>
 
