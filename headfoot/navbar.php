@@ -25,7 +25,8 @@ echo '
               echo '<li><div class="navanc" id="mbtn"><a href="./sign.php">Sign in</a></div> </li>';
             }
    echo '</ul>
-    </div>
+   </div>
 </nav>
-</header>';
+</header>
+';
 ?>

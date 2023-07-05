@@ -90,7 +90,8 @@ session_start();
     if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
        echo '
        <!-- Editor -->
-    <div class="main">';
+    <div class="row">
+      <div class="main">';
 
             if($alert){
         
@@ -100,376 +101,377 @@ session_start();
         
            } 
 
-     echo '<!-- left -->
-     <div class="left">
-        <!-- personal details -->
-        <form action="Editor.php" method="post">
-                <div class="pi">
-                    <h1 >Personal Details</h1>
-                    <div class="pcentr">
+        echo '<!-- left -->
+        <div class="left">
+            <!-- personal details -->
+            <form action="Editor.php" method="post">
+                    <div class="pi">
+                        <h1 >Personal Details</h1>
+                        <div class="pcentr">
 
-                        <div class="prow">
-                            <div class="pcol">
-                                <label for="First name">First name</label><br>
-                                <input type="text" oninput="displayfname()" name="fname" id="fname"
-                                    placeholder="e.g. Ramesh">
-                                <div id="error" style="color:red; font-size:18px; margin-top: 7px;"></div>
-                            </div>
-                            <div class="pcol">
-                                <label for="Last name">Last name</label> <br>
-                                <input type="text" oninput="displaylname()" name="lname" id="lname"
-                                    placeholder="e.g. Mishra">
-                                <div id="error1" style="color:red; font-size:18px; margin-top: 7px;"></div>
-                            </div>
-                        </div>
-
-                        <div class="prow">
-                            <div class="pcol">
-                                <label for="Phone number">Phone number</label> <br>
-                                <input type="number" oninput="displayphn()" name="phn" id="phn"
-                                  max  placeholder="e.g. +91 9867982828">
-                                <div id="error2" style="color:red; font-size:18px; margin-top: 7px;"></div>
-                            </div>
-                            <div class="pcol">
-                                <label for="Email">Email</label><br>
-                                <input type="text" oninput="displayeml()" name="eml" id="eml"
-                                    placeholder="e.g. ramesh@gmail.com">
-                                <div id="error3" style="color:red; font-size:18px; margin-top: 7px;"></div>
-                            </div>
-                        </div>
-
-                        <div class="prow">
-                            <div class="pcol">
-                                <label for="City">City</label><br>
-                                <input type="text" oninput="displaycity()" name="city" id="city"
-                                    placeholder="e.g. Mumbai">
-                                <div id="error4" style="color:red; font-size:18px; margin-top: 7px;"></div>
-                            </div>
-                            <div class="pcol">
-                                <label for="State">State</label><br>
-                                <input type="text" oninput="displaystate()" name="state" id="state"
-                                    placeholder="e.g. Maharashtra">
-                                <div id="error5" style="color:red; font-size:18px; margin-top: 7px;"></div>
-                            </div>
-                        </div>
-                        <div class="ptxtarea">
-                            <label for="Country">Country</label><br>
-                            <input type="text" id="country" name="country" oninput="displaycountry()"
-                                placeholder="e.g. India">
-                            <div id="error6" style="color:red; font-size:18px; margin-top: 7px;"></div>
-                        </div>
-                    </div>
-                    <div class="btndiv">
-                        <div class="prevnextbtn">
-                            <div class="backbtn">
-                                <a id="bk">Back</a>
-                            </div>
-                            <div class="nextbtn">
-                                <a id="nxt" onclick="toprfsumry()">Next</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!--Professional summary  -->
-
-                <div class="prfsumry">
-                    <h1 >Profile</h1>
-                    <div class="pcentr">
-                        <div class="ptxtarea">
-                            <textarea oninput="displaypfsumry()" name="prfsumry" id="prfsumry"
-                                placeholder="e.g. Quickly learned new skills."></textarea>
-                            <div id="error7" style="color:red; font-size:18px; margin-top: 7px;"></div>
-                        </div>
-                    </div>
-
-                    <h1 style="padding-top:80px;">Languages</h1>
-                    <div class="pcentr">
-                        <div class="prow addinputlang">
-                                <div class="pcol" id="moveleft">
-                                    <input type="text" oninput="displaylang()" name="lang" id="lang"
-                                        placeholder="e.g. English">
-                                    <div id="error22" style="color:red; font-size:18px; margin-top: 7px;"></div>
-                                    <inyput type="hidden" class="inside">
-                                    </div>
-                                
-                        </div>
-                        <div class="pcol addlangbtn" onclick="addnewlang()" id="moveaddbtn">
-                                    <div class="addboxdiv">
-                                        <img class="addbutton" src="images/icons/addbox.png" alt="add button">
-                                    </div>
-                                </div>
-                    </div>
-
-                    <div class="prevnextbtn">
-                        <div class="backbtn">
-                            <a id="bk" onclick="toprslinfo()">Back</a>
-                        </div>
-                        <div class="nextbtn">
-                            <a id="nxt" onclick="toeducation()">Next</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Education -->
-
-                <div class="ed">
-                    <h1 >Education</h1>
-                    <div class="pcentr">
-
-                        <div class="prow">
-                            <div class="pcol">
-                                <label for="School name">School name</label><br>
-                                <input type="text" oninput="displayscln()" name="sscn" id="sscn"
-                                    placeholder="e.g. Saint Xevier">
-                                <div id="error8" style="color:red; font-size:18px; margin-top: 7px;"></div>
-                            </div>
-                            <div class="pcol">
-                                <label for="School location">School location</label><br>
-                                <input type="text" oninput="displaysclloc()" name="sscl" id="sscl"
-                                    placeholder="e.g. Maharashtra,mumbai">
-                                <div id="error9" style="color:red; font-size:18px; margin-top: 7px;"></div>
-                            </div>
-                        </div>
-
-                        <div class="prow">
-                            <div class="pcol">
-                                <label for="Degree">Degree</label> <br>
-                                <input type="text" oninput="displaydegree()" name="dgr" id="dgr"
-                                    placeholder="e.g. Bsc.IT ">
-                                <div id="error10" style="color:red; font-size:18px; margin-top: 7px;"></div>
-                            </div>
-                            <div class="pcol">
-                                <label for="Year">Year</label> <br>
-                                <input type="text" oninput="displayyear()" name="year" id="year"
-                                    placeholder="e.g. 2020-2023">
-                                <div id="error11" style="color:red; font-size:18px; margin-top: 7px;"></div>
-                            </div>
-                        </div>
-
-                        <div class="ptxtarea" style="padding-bottom:20px;">
-                            <label for="Field of study">Field of study</label> <br>
-                            <input type="text" oninput="displayfos()" name="fos" id="fos"
-                                placeholder="e.g. Information Tecnology">
-                            <div id="error12" style="color:red; font-size:18px; margin-top: 7px;"></div>
-                        </div>
-
-                        <div class="addbox">
-                            <div class="addboxdiv">
-                                <img class="addbutton" src="images/icons/addbox.png" alt="add button">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="prevnextbtn">
-                        <div class="backbtn">
-                            <a id="bk" onclick="toprfsumry()">Back</a>
-                        </div>
-                        <div class="nextbtn">
-                            <a id="nxt" onclick="toexperience()">Next</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Experience -->
-
-                <div class="exp">
-                    <h1 >Experience </h1>
-                    <div class="pcentr">
-
-                        <div class="prow">
-                            <div class="pcol">
-                                <label for="Job title">Job title</label><br>
-                                <input type="text" oninput="displayjt()" name="jt" id="jt"
-                                    placeholder="e.g. Software Engineer">
-                                <div id="error13" style="color:red; font-size:18px; margin-top: 7px;"></div>
-                            </div>
-                            <div class="pcol">
-                                <label for="Employer">Employer</label><br>
-                                <input type="text" oninput="displaycompany()" name="emplr" id="emplr"
-                                    placeholder="e.g. Google">
-                                <div id="error14" style="color:red; font-size:18px; margin-top: 7px;"></div>
-                            </div>
-                        </div>
-
-                        <div class="prow">
-                            <div class="pcol">
-                                <label for="Start date">Start year</label> <br>
-                                <input type="text" oninput="displaystrtdt()" name="strd" id="strd"
-                                    placeholder="e.g. 2019" maxlength="4">
-                                <div id="error15" style="color:red; font-size:18px; margin-top: 7px;"></div>
-                            </div>
-                            <div class="pcol">
-                                <label for="End date">End year</label> <br>
-                                <input type="text" oninput="displayenddt()" name="endt" id="endt"
-                                    placeholder="e.g. 2023"  maxlength="4">
-                                <div id="error16" style="color:red; font-size:18px; margin-top: 7px;"></div>
-                            </div>
-                        </div>
-
-                        <div class="ptxtarea" style="padding-bottom:20px;">
-                            <label for="Summary of your job">Summary of your job</label><br>
-                            <textarea oninput="displaysoyj()" id="soyj" name="soyj"
-                                placeholder="e.g. Experienced PHP Developer"></textarea>
-                            <div id="error17" style="color:red; font-size:18px; margin-top: 7px;"></div>
-                        </div>
-
-                        <div class="addbox">
-                            <div class="addboxdiv">
-                                <img class="addbutton" src="images/icons/addbox.png" alt="add button">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="prevnextbtn">
-                        <div class="backbtn">
-                            <a id="bk" onclick="toeducation()">Back</a>
-                        </div>
-                        <div class="nextbtn">
-                            <a id="nxt" onclick="toskl()">Next</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- skill -->
-
-                <div class="skl">
-                    <h1 >Skills & Links</h1>
-                    <div class="pcentr">
-
-                        <div class="newdiv">
                             <div class="prow">
                                 <div class="pcol">
-                                    <label for="skill">Skill</label><br>
-                                    <input type="text" oninput="displayskill()" name="skl" id="skl"
-                                        placeholder="e.g. Graphic Designer">
-                                    <div id="error18" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                    <label for="First name">First name</label><br>
+                                    <input type="text" oninput="displayfname()" name="fname" id="fname"
+                                        placeholder="e.g. Ramesh">
+                                    <div id="error" style="color:red; font-size:18px; margin-top: 7px;"></div>
                                 </div>
                                 <div class="pcol">
-                                    <label for="skill percentgae">Skill Percentage</label><br>
-                                    <input type="number" oninput="displayskillp()" name="sklprntg" id="sklprntg"
-                                        placeholder="e.g. 78%">
-                                    <div id="error19" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                    <label for="Last name">Last name</label> <br>
+                                    <input type="text" oninput="displaylname()" name="lname" id="lname"
+                                        placeholder="e.g. Mishra">
+                                    <div id="error1" style="color:red; font-size:18px; margin-top: 7px;"></div>
                                 </div>
                             </div>
+
+                            <div class="prow">
+                                <div class="pcol">
+                                    <label for="Phone number">Phone number</label> <br>
+                                    <input type="number" oninput="displayphn()" name="phn" id="phn"
+                                    max  placeholder="e.g. +91 9867982828">
+                                    <div id="error2" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                </div>
+                                <div class="pcol">
+                                    <label for="Email">Email</label><br>
+                                    <input type="text" oninput="displayeml()" name="eml" id="eml"
+                                        placeholder="e.g. ramesh@gmail.com">
+                                    <div id="error3" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                </div>
+                            </div>
+
+                            <div class="prow">
+                                <div class="pcol">
+                                    <label for="City">City</label><br>
+                                    <input type="text" oninput="displaycity()" name="city" id="city"
+                                        placeholder="e.g. Mumbai">
+                                    <div id="error4" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                </div>
+                                <div class="pcol">
+                                    <label for="State">State</label><br>
+                                    <input type="text" oninput="displaystate()" name="state" id="state"
+                                        placeholder="e.g. Maharashtra">
+                                    <div id="error5" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                </div>
+                            </div>
+                            <div class="ptxtarea">
+                                <label for="Country">Country</label><br>
+                                <input type="text" id="country" name="country" oninput="displaycountry()"
+                                    placeholder="e.g. India">
+                                <div id="error6" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                            </div>
+                        </div>
+                        <div class="btndiv">
+                            <div class="prevnextbtn">
+                                <div class="backbtn">
+                                    <a id="bk">Back</a>
+                                </div>
+                                <div class="nextbtn">
+                                    <a id="nxt" onclick="toprfsumry()">Next</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!--Professional summary  -->
+
+                    <div class="prfsumry">
+                        <h1 >Profile</h1>
+                        <div class="pcentr">
+                            <div class="ptxtarea">
+                                <textarea oninput="displaypfsumry()" name="prfsumry" id="prfsumry"
+                                    placeholder="e.g. Quickly learned new skills."></textarea>
+                                <div id="error7" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                            </div>
+                        </div>
+
+                        <h1 style="padding-top:80px;">Languages</h1>
+                        <div class="pcentr">
+                            <div class="prow addinputlang">
+                                    <div class="pcol" id="moveleft">
+                                        <input type="text" oninput="displaylang()" name="lang" id="lang"
+                                            placeholder="e.g. English">
+                                        <div id="error22" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                        <inyput type="hidden" class="inside">
+                                        </div>
+                                    
+                            </div>
+                            <div class="pcol addlangbtn" onclick="addnewlang()" id="moveaddbtn">
+                                        <div class="addboxdiv">
+                                            <img class="addbutton" src="images/icons/addbox.png" alt="add button">
+                                        </div>
+                                    </div>
+                        </div>
+
+                        <div class="prevnextbtn">
+                            <div class="backbtn">
+                                <a id="bk" onclick="toprslinfo()">Back</a>
+                            </div>
+                            <div class="nextbtn">
+                                <a id="nxt" onclick="toeducation()">Next</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Education -->
+
+                    <div class="ed">
+                        <h1 >Education</h1>
+                        <div class="pcentr">
+
+                            <div class="prow">
+                                <div class="pcol">
+                                    <label for="School name">School name</label><br>
+                                    <input type="text" oninput="displayscln()" name="sscn" id="sscn"
+                                        placeholder="e.g. Saint Xevier">
+                                    <div id="error8" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                </div>
+                                <div class="pcol">
+                                    <label for="School location">School location</label><br>
+                                    <input type="text" oninput="displaysclloc()" name="sscl" id="sscl"
+                                        placeholder="e.g. Maharashtra,mumbai">
+                                    <div id="error9" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                </div>
+                            </div>
+
+                            <div class="prow">
+                                <div class="pcol">
+                                    <label for="Degree">Degree</label> <br>
+                                    <input type="text" oninput="displaydegree()" name="dgr" id="dgr"
+                                        placeholder="e.g. Bsc.IT ">
+                                    <div id="error10" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                </div>
+                                <div class="pcol">
+                                    <label for="Year">Year</label> <br>
+                                    <input type="text" oninput="displayyear()" name="year" id="year"
+                                        placeholder="e.g. 2020-2023">
+                                    <div id="error11" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                </div>
+                            </div>
+
+                            <div class="ptxtarea" style="padding-bottom:20px;">
+                                <label for="Field of study">Field of study</label> <br>
+                                <input type="text" oninput="displayfos()" name="fos" id="fos"
+                                    placeholder="e.g. Information Tecnology">
+                                <div id="error12" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                            </div>
+
                             <div class="addbox">
                                 <div class="addboxdiv">
                                     <img class="addbutton" src="images/icons/addbox.png" alt="add button">
                                 </div>
                             </div>
                         </div>
-
-                        <div class="prow">
-                            <div class="pcol" id="moveleft">
-                                <label for="hobby">Hobby</label> <br>
-                                <input type="text" oninput="displayhobby()" name="hobby" id="hobby"
-                                    placeholder="e.g. Reading">
-                                <div id="error21" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                        <div class="prevnextbtn">
+                            <div class="backbtn">
+                                <a id="bk" onclick="toprfsumry()">Back</a>
                             </div>
-                            <div class="pcol" id="moveaddbtn">
+                            <div class="nextbtn">
+                                <a id="nxt" onclick="toexperience()">Next</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Experience -->
+
+                    <div class="exp">
+                        <h1 >Experience </h1>
+                        <div class="pcentr">
+
+                            <div class="prow">
+                                <div class="pcol">
+                                    <label for="Job title">Job title</label><br>
+                                    <input type="text" oninput="displayjt()" name="jt" id="jt"
+                                        placeholder="e.g. Software Engineer">
+                                    <div id="error13" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                </div>
+                                <div class="pcol">
+                                    <label for="Employer">Employer</label><br>
+                                    <input type="text" oninput="displaycompany()" name="emplr" id="emplr"
+                                        placeholder="e.g. Google">
+                                    <div id="error14" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                </div>
+                            </div>
+
+                            <div class="prow">
+                                <div class="pcol">
+                                    <label for="Start date">Start year</label> <br>
+                                    <input type="text" oninput="displaystrtdt()" name="strd" id="strd"
+                                        placeholder="e.g. 2019" maxlength="4">
+                                    <div id="error15" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                </div>
+                                <div class="pcol">
+                                    <label for="End date">End year</label> <br>
+                                    <input type="text" oninput="displayenddt()" name="endt" id="endt"
+                                        placeholder="e.g. 2023"  maxlength="4">
+                                    <div id="error16" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                </div>
+                            </div>
+
+                            <div class="ptxtarea" style="padding-bottom:20px;">
+                                <label for="Summary of your job">Summary of your job</label><br>
+                                <textarea oninput="displaysoyj()" id="soyj" name="soyj"
+                                    placeholder="e.g. Experienced PHP Developer"></textarea>
+                                <div id="error17" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                            </div>
+
+                            <div class="addbox">
                                 <div class="addboxdiv">
                                     <img class="addbutton" src="images/icons/addbox.png" alt="add button">
                                 </div>
                             </div>
                         </div>
-
-                        <div class="prow">
-                            <div class="pcol" id="moveleft">
-                                <label for="links">Links</label> <br>
-                                <input type="text" oninput="displaylink()" name="links" id="links"
-                                    placeholder="e.g. Linkd in">
-                                <div id="error20" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                        <div class="prevnextbtn">
+                            <div class="backbtn">
+                                <a id="bk" onclick="toeducation()">Back</a>
                             </div>
-                            <div class="pcol" id="moveaddbtn">
-                                <div class="addboxdiv">
-                                    <img class="addbutton" onclick="imgclicked()" src="images/icons/addbox.png" alt="add button">
+                            <div class="nextbtn">
+                                <a id="nxt" onclick="toskl()">Next</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- skill -->
+
+                    <div class="skl">
+                        <h1 >Skills & Links</h1>
+                        <div class="pcentr">
+
+                            <div class="newdiv">
+                                <div class="prow">
+                                    <div class="pcol">
+                                        <label for="skill">Skill</label><br>
+                                        <input type="text" oninput="displayskill()" name="skl" id="skl"
+                                            placeholder="e.g. Graphic Designer">
+                                        <div id="error18" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                    </div>
+                                    <div class="pcol">
+                                        <label for="skill percentgae">Skill Percentage</label><br>
+                                        <input type="number" oninput="displayskillp()" name="sklprntg" id="sklprntg"
+                                            placeholder="e.g. 78%">
+                                        <div id="error19" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                    </div>
+                                </div>
+                                <div class="addbox">
+                                    <div class="addboxdiv">
+                                        <img class="addbutton" src="images/icons/addbox.png" alt="add button">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="prow">
+                                <div class="pcol" id="moveleft">
+                                    <label for="hobby">Hobby</label> <br>
+                                    <input type="text" oninput="displayhobby()" name="hobby" id="hobby"
+                                        placeholder="e.g. Reading">
+                                    <div id="error21" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                </div>
+                                <div class="pcol" id="moveaddbtn">
+                                    <div class="addboxdiv">
+                                        <img class="addbutton" src="images/icons/addbox.png" alt="add button">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="prow">
+                                <div class="pcol" id="moveleft">
+                                    <label for="links">Links</label> <br>
+                                    <input type="text" oninput="displaylink()" name="links" id="links"
+                                        placeholder="e.g. Linkd in">
+                                    <div id="error20" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                </div>
+                                <div class="pcol" id="moveaddbtn">
+                                    <div class="addboxdiv">
+                                        <img class="addbutton" onclick="imgclicked()" src="images/icons/addbox.png" alt="add button">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="btndiv">
+                            <div class="prevnextbtn">
+                                <div class="backbtn">
+                                    <a id="bk" onclick="toexperience()">Back</a>
+                                </div>
+                                <div class="nextbtn">
+                                    <a id="nxt" onclick="complete()">Next</a>
                                 </div>
                             </div>
                         </div>
-
                     </div>
-                    <div class="btndiv">
-                        <div class="prevnextbtn">
-                            <div class="backbtn">
-                                <a id="bk" onclick="toexperience()">Back</a>
-                            </div>
-                            <div class="nextbtn">
-                                <a id="nxt" onclick="complete()">Next</a>
+
+                    <!-- editpage section -->
+
+                    <div class="rightbaju" style="display:none;">
+                    <div class="editbar">
+                            <h1 style="padding-bottom:30px;">Resume Sections</h1>
+                            <div class="backpagenav">
+                                <div class="edbtn"><a id="editlinks" onclick="editprslinfo()">Personal Detail</a></div>
+                                <div class="edbtn"><a id="editlinks" onclick="editprofile()">Profile & Languages</a></div>
+                                <div class="edbtn"><a id="editlinks" onclick="editeducation()">Education</a></div>
+                                <div class="edbtn"><a id="editlinks" onclick="editexperience()">Work Experience</a></div>
+                                <div class="edbtn"><a id="editlinks" onclick="editskl()">Skills & Links</a></div>
                             </div>
                         </div>
                     </div>
+                
+
+            </div>
+
+            <!-- Right -->
+
+            <div class="right">
+                <div class="imgdiv" id="frame">
+                    <div class="rimg">
+                    
+                    <!-- resumetemplate -->
+                    ';
+
+
+                        if($template == "1"){
+                        include 'templates/template1.php';
+                        } elseif($template == "2"){
+                        include 'templates/template2.php';
+                        } elseif($template == "3"){
+                        include 'templates/template3.php';
+                        }
+
+                    
+
+                    echo '</div>
                 </div>
 
-                <!-- editpage section -->
+                <!-- download and print button -->
 
-                <div class="rightbaju" style="display:none;">
-                  <div class="editbar">
-                         <h1 style="padding-bottom:30px;">Resume Sections</h1>
-                         <div class="backpagenav">
-                             <div class="edbtn"><a id="editlinks" onclick="editprslinfo()">Personal Detail</a></div>
-                             <div class="edbtn"><a id="editlinks" onclick="editprofile()">Profile & Languages</a></div>
-                             <div class="edbtn"><a id="editlinks" onclick="editeducation()">Education</a></div>
-                             <div class="edbtn"><a id="editlinks" onclick="editexperience()">Work Experience</a></div>
-                             <div class="edbtn"><a id="editlinks" onclick="editskl()">Skills & Links</a></div>
-                         </div>
+                <div class="downloadprintbtn" style="display:none;">
+                    <div class="downlodbtn">
+                        <button type="submit" id="downloadpdfbtn">Download PDF</button>
+                    </div>
+
+                    <div class="printbtn">
+                        <button onclick="window.print()">Print</button>
                     </div>
                 </div>
-            
 
-        </div>
+                <!-----complete section --->
 
-        <!-- Right -->
-
-        <div class="right">
-            <div class="imgdiv" id="frame">
-                <div class="rimg">
-                
-                <!-- resumetemplate -->
-                ';
-
-
-                    if($template == "1"){
-                    include 'templates/template1.php';
-                    } elseif($template == "2"){
-                    include 'templates/template2.php';
-                    } elseif($template == "3"){
-                    include 'templates/template3.php';
-                    }
-
-                
-
-                echo '</div>
+                <div class="complete" style="display:none;">
+                <button type="submit" name="complete">Complete</button>
+                </div> 
+            </form> 
             </div>
-
-            <!-- download and print button -->
-
-            <div class="downloadprintbtn" style="display:none;">
-                <div class="downlodbtn">
-                    <button type="submit" id="downloadpdfbtn">Download PDF</button>
-                </div>
-
-                <div class="printbtn">
-                    <button onclick="window.print()">Print</button>
-                </div>
-            </div>
-
-            <!-----complete section --->
-
-              <div class="complete" style="display:none;">
-            <button type="submit" name="complete">Complete</button>
-            </div> 
-         </form> 
         </div>
     </div>
        ';
 
     }
     else{
-        echo '<div style="height:100vh; display:grid; place-items:center; padding-top:100px; padding-bottom:200px;">
-                 <div>
-                    <h1 style="text-align:center;">Please Login To Use Editor .</h1>
-                    <div class="btngrid"><a href="sign.php"><button type="submit" class="herobtn">Login in</button></a></div>
-                 </div> 
-              </div>';
+        echo '  <div style="height:100vh; display:grid; place-items:center; padding-top:100px; padding-bottom:200px;">
+                    <div>
+                        <h1 style="text-align:center;">Please Login To Use Editor .</h1>
+                        <div class="btngrid"><a href="sign.php"><button type="submit" class="herobtn">Login in</button></a></div>
+                    </div> 
+                </div>';
     }
  
 ?>

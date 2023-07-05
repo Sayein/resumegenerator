@@ -13,6 +13,11 @@ h1{
 border: 2px solid grey;
 }
 
+.row{
+    max-width: 1540px;
+    margin: auto;
+}
+
 /* code for error div */
 
 .error{
@@ -235,6 +240,7 @@ input::-webkit-inner-spin-button {
 }
 
 .prevnextbtn{
+    margin-top: 70px;
     max-width: 550px;
     display: flex;
     justify-content: space-between;
@@ -373,7 +379,9 @@ input::-webkit-inner-spin-button {
     }
 
     .right{
+        margin: auto;
         margin-top: 100px;
+        max-width: 620px;
     }
 
     .imgdiv{
@@ -417,10 +425,8 @@ input::-webkit-inner-spin-button {
     }
 
     .prevnextbtn{
+        margin-top: 0;
         height: 200px;
-        gap: 0px;
-        display: grid;
-        justify-content: center;
  }
 
     .prevnextbtn button{
