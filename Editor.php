@@ -111,13 +111,13 @@ session_start();
 
                             <div class="prow">
                                 <div class="pcol">
-                                    <label for="First name">First name</label><br>
+                                    <label for="fname">First name</label><br>
                                     <input type="text" oninput="displayfname()" name="fname" id="fname"
                                         placeholder="e.g. Ramesh">
                                     <div id="error" style="color:red; font-size:18px; margin-top: 7px;"></div>
                                 </div>
                                 <div class="pcol">
-                                    <label for="Last name">Last name</label> <br>
+                                    <label for="lname">Last name</label> <br>
                                     <input type="text" oninput="displaylname()" name="lname" id="lname"
                                         placeholder="e.g. Mishra">
                                     <div id="error1" style="color:red; font-size:18px; margin-top: 7px;"></div>
@@ -126,13 +126,13 @@ session_start();
 
                             <div class="prow">
                                 <div class="pcol">
-                                    <label for="Phone number">Phone number</label> <br>
+                                    <label for="phn">Phone number</label> <br>
                                     <input type="number" oninput="displayphn()" name="phn" id="phn"
                                     max  placeholder="e.g. +91 9867982828">
                                     <div id="error2" style="color:red; font-size:18px; margin-top: 7px;"></div>
                                 </div>
                                 <div class="pcol">
-                                    <label for="Email">Email</label><br>
+                                    <label for="eml">Email</label><br>
                                     <input type="text" oninput="displayeml()" name="eml" id="eml"
                                         placeholder="e.g. ramesh@gmail.com">
                                     <div id="error3" style="color:red; font-size:18px; margin-top: 7px;"></div>
@@ -141,20 +141,20 @@ session_start();
 
                             <div class="prow">
                                 <div class="pcol">
-                                    <label for="City">City</label><br>
+                                    <label for="city">City</label><br>
                                     <input type="text" oninput="displaycity()" name="city" id="city"
                                         placeholder="e.g. Mumbai">
                                     <div id="error4" style="color:red; font-size:18px; margin-top: 7px;"></div>
                                 </div>
                                 <div class="pcol">
-                                    <label for="State">State</label><br>
+                                    <label for="state">State</label><br>
                                     <input type="text" oninput="displaystate()" name="state" id="state"
                                         placeholder="e.g. Maharashtra">
                                     <div id="error5" style="color:red; font-size:18px; margin-top: 7px;"></div>
                                 </div>
                             </div>
                             <div class="ptxtarea">
-                                <label for="Country">Country</label><br>
+                                <label for="country">Country</label><br>
                                 <input type="text" id="country" name="country" oninput="displaycountry()"
                                     placeholder="e.g. India">
                                 <div id="error6" style="color:red; font-size:18px; margin-top: 7px;"></div>
@@ -192,7 +192,7 @@ session_start();
                                         <input type="text" oninput="displaylang()" name="lang" id="lang"
                                             placeholder="e.g. English">
                                         <div id="error22" style="color:red; font-size:18px; margin-top: 7px;"></div>
-                                        <inyput type="hidden" class="inside">
+                                        <input type="hidden" class="inside">
                                         </div>
                                     
                             </div>
@@ -221,13 +221,13 @@ session_start();
 
                             <div class="prow">
                                 <div class="pcol">
-                                    <label for="School name">School name</label><br>
+                                    <label for="sscn">School name</label><br>
                                     <input type="text" oninput="displayscln()" name="sscn" id="sscn"
                                         placeholder="e.g. Saint Xevier">
                                     <div id="error8" style="color:red; font-size:18px; margin-top: 7px;"></div>
                                 </div>
                                 <div class="pcol">
-                                    <label for="School location">School location</label><br>
+                                    <label for="sscl">School location</label><br>
                                     <input type="text" oninput="displaysclloc()" name="sscl" id="sscl"
                                         placeholder="e.g. Maharashtra,mumbai">
                                     <div id="error9" style="color:red; font-size:18px; margin-top: 7px;"></div>
@@ -236,13 +236,13 @@ session_start();
 
                             <div class="prow">
                                 <div class="pcol">
-                                    <label for="Degree">Degree</label> <br>
+                                    <label for="dgr">Degree</label> <br>
                                     <input type="text" oninput="displaydegree()" name="dgr" id="dgr"
                                         placeholder="e.g. Bsc.IT ">
                                     <div id="error10" style="color:red; font-size:18px; margin-top: 7px;"></div>
                                 </div>
                                 <div class="pcol">
-                                    <label for="Year">Year</label> <br>
+                                    <label for="year">Year</label> <br>
                                     <input type="text" oninput="displayyear()" name="year" id="year"
                                         placeholder="e.g. 2020-2023">
                                     <div id="error11" style="color:red; font-size:18px; margin-top: 7px;"></div>
@@ -250,7 +250,7 @@ session_start();
                             </div>
 
                             <div class="ptxtarea" style="padding-bottom:20px;">
-                                <label for="Field of study">Field of study</label> <br>
+                                <label for="fos">Field of study</label> <br>
                                 <input type="text" oninput="displayfos()" name="fos" id="fos"
                                     placeholder="e.g. Information Tecnology">
                                 <div id="error12" style="color:red; font-size:18px; margin-top: 7px;"></div>
@@ -280,13 +280,13 @@ session_start();
 
                             <div class="prow">
                                 <div class="pcol">
-                                    <label for="Job title">Job title</label><br>
+                                    <label for="jt">Job title</label><br>
                                     <input type="text" oninput="displayjt()" name="jt" id="jt"
                                         placeholder="e.g. Software Engineer">
                                     <div id="error13" style="color:red; font-size:18px; margin-top: 7px;"></div>
                                 </div>
                                 <div class="pcol">
-                                    <label for="Employer">Employer</label><br>
+                                    <label for="emplr">Employer</label><br>
                                     <input type="text" oninput="displaycompany()" name="emplr" id="emplr"
                                         placeholder="e.g. Google">
                                     <div id="error14" style="color:red; font-size:18px; margin-top: 7px;"></div>
@@ -295,13 +295,13 @@ session_start();
 
                             <div class="prow">
                                 <div class="pcol">
-                                    <label for="Start date">Start year</label> <br>
+                                    <label for="strd">Start year</label> <br>
                                     <input type="text" oninput="displaystrtdt()" name="strd" id="strd"
                                         placeholder="e.g. 2019" maxlength="4">
                                     <div id="error15" style="color:red; font-size:18px; margin-top: 7px;"></div>
                                 </div>
                                 <div class="pcol">
-                                    <label for="End date">End year</label> <br>
+                                    <label for="endt">End year</label> <br>
                                     <input type="text" oninput="displayenddt()" name="endt" id="endt"
                                         placeholder="e.g. 2023"  maxlength="4">
                                     <div id="error16" style="color:red; font-size:18px; margin-top: 7px;"></div>
@@ -309,7 +309,7 @@ session_start();
                             </div>
 
                             <div class="ptxtarea" style="padding-bottom:20px;">
-                                <label for="Summary of your job">Summary of your job</label><br>
+                                <label for="soyj">Summary of your job</label><br>
                                 <textarea oninput="displaysoyj()" id="soyj" name="soyj"
                                     placeholder="e.g. Experienced PHP Developer"></textarea>
                                 <div id="error17" style="color:red; font-size:18px; margin-top: 7px;"></div>
@@ -340,13 +340,13 @@ session_start();
                             <div class="newdiv">
                                 <div class="prow">
                                     <div class="pcol">
-                                        <label for="skill">Skill</label><br>
+                                        <label for="skl">Skill</label><br>
                                         <input type="text" oninput="displayskill()" name="skl" id="skl"
                                             placeholder="e.g. Graphic Designer">
                                         <div id="error18" style="color:red; font-size:18px; margin-top: 7px;"></div>
                                     </div>
                                     <div class="pcol">
-                                        <label for="skill percentgae">Skill Percentage</label><br>
+                                        <label for="sklprntg">Skill Percentage</label><br>
                                         <input type="number" oninput="displayskillp()" name="sklprntg" id="sklprntg"
                                             placeholder="e.g. 78%">
                                         <div id="error19" style="color:red; font-size:18px; margin-top: 7px;"></div>
@@ -1147,19 +1147,13 @@ session_start();
     //  addding new fields dynamically
 
     function addnewlang() {
-
         let newnode = document.createElement('input');
-
         newnode.classList.add('addinputlang');
         newnode.setAttribute('placeholder', 'e.g Hindi');
         newnode.setAttribute('type', 'text');
-
         let addlang = document.querySelector('.addinputlang');
         let addafter = document.querySelector('.inside');
-
-        addlang.insertBefore(newnode, addafter);
-
-
+        addlang.append(newnode, addafter);
     }
     </script>
 </body>
