@@ -45,7 +45,7 @@
                         <!-- for responsivenes of rightside of the hero section  -->
                         <div class="bgt">
                             <div class="imgcontainer">
-                                <img class="resumeimg" src="images/guideresume/resume.webp" height="500" alt="Resume">
+                                <!-- <img class="resumeimg" src="images/guideresume/resume.webp" height="500" alt="Resume"> -->
                             </div>
                         </div>
 
@@ -65,8 +65,7 @@
                 <div class="guidebox">
                     <div class="leftguide">
                         <div class="guideboximg">
-                            <img class="guideimg" id="gi1" src="images/resumeTemplateimg/resume1.png"
-                                alt="Guide images">
+                        <img class="guideimg" id="gi1" src="images/resumeTemplateimg/guide-template.png" alt="Guide images">
                         </div>
                     </div>
                     <div class="rightguide">
@@ -151,8 +150,8 @@
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
                                     <figure>
-                                        <img src="images/resumeTemplateimg/resume1.png" height="615px"
-                                            alt="resume template 1" />
+                                    <img src="images/resumeTemplateimg/resume-template-placeholder.png" height="700px"
+                                        alt="resume template 1" />
                                         <form action="Editor.php" method="post">
                                             <button class="sliderbtn" type="submit" name="tmp" value="1">
                                                 <figcaption>
@@ -164,8 +163,8 @@
                                 </div>
                                 <div class="swiper-slide">
                                     <figure>
-                                        <img src="images/resumeTemplateimg/resume2.png" height="615px"
-                                            alt="resume template 2" />
+                                    <img src="images/resumeTemplateimg/resume-template-placeholder.png" height="700px"
+                                        alt="resume template 2" />
                                         <form action="Editor.php" method="post">
                                             <button class="sliderbtn" type="submit" name="tmp" value="2">
                                                 <figcaption>
@@ -177,8 +176,8 @@
                                 </div>
                                 <div class="swiper-slide">
                                     <figure>
-                                        <img src="images/resumeTemplateimg/temp3.jpg" height="615px"
-                                            alt="resume template 3" />
+                                    <img src="images/resumeTemplateimg/resume-template-placeholder.png" height="700px"
+                                        alt="resume template 3" />
                                         <form action="Editor.php" method="post">
                                             <button class="sliderbtn" type="submit" name="tmp" value="3">
                                                 <figcaption>
@@ -190,7 +189,7 @@
                                 </div>
                                 <div class="swiper-slide">
                                     <figure>
-                                        <img src="images/r1.svg" height="615px" alt="resume template 4" />
+                                    <img src="images/resumeTemplateimg/resume-template-placeholder.png" height="700px" alt="resume template 4" />
                                         <form action="Editor.php" method="post">
                                             <button class="sliderbtn" type="submit" name="tmp" value="4">
                                                 <figcaption>
@@ -202,7 +201,7 @@
                                 </div>
                                 <div class="swiper-slide">
                                     <figure>
-                                        <img src="images/r1.svg" height="615px" alt="resume template 5" />
+                                    <img src="images/resumeTemplateimg/resume-template-placeholder.png" height="700px" alt="resume template 5" />
                                         <form action="Editor.php" method="post">
                                             <button class="sliderbtn" type="submit" name="tmp" value="5">
                                                 <figcaption>
@@ -214,7 +213,7 @@
                                 </div>
                                 <div class="swiper-slide">
                                     <figure>
-                                        <img src="images/r1.svg" height="615px" alt="resume template 6" />
+                                    <img src="images/resumeTemplateimg/resume-template-placeholder.png" height="700px" alt="resume template 6" />
                                         <form action="Editor.php" method="post">
                                             <button class="sliderbtn" type="submit" name="tmp" value="6">
                                                 <figcaption>
@@ -259,20 +258,37 @@
 
     //js to change step by step section image as user clicks on different steps
 
+    // function changeimg() {
+    //     document.getElementById("gi1").src = "images/resumeTemplateimg/resume1.png";
+    // }
+
+    // function changeimg1() {
+    //     document.getElementById("gi1").src = "images/resumeTemplateimg/resume2.png";
+    // }
+
+    // function changeimg2() {
+    //     document.getElementById("gi1").src = "images/guideresume/resume4.jpg";
+    // }
+
+    // function changeimg3() {
+    //     document.getElementById("gi1").src = "images/resumeTemplateimg/temp3.jpg";
+    // }
+
+
     function changeimg() {
-        document.getElementById("gi1").src = "images/resumeTemplateimg/resume1.png";
+        document.getElementById("gi1").src = "images/resumeTemplateimg/resume-template-placeholder.png";
     }
 
     function changeimg1() {
-        document.getElementById("gi1").src = "images/resumeTemplateimg/resume2.png";
+        document.getElementById("gi1").src = "images/resumeTemplateimg/resume-template-placeholder.png";
     }
 
     function changeimg2() {
-        document.getElementById("gi1").src = "images/guideresume/resume4.jpg";
+        document.getElementById("gi1").src = "images/resumeTemplateimg/resume-template-placeholder.png";
     }
 
     function changeimg3() {
-        document.getElementById("gi1").src = "images/resumeTemplateimg/temp3.jpg";
+        document.getElementById("gi1").src = "images/resumeTemplateimg/resume-template-placeholder.png";
     }
 
     //    swiper.js

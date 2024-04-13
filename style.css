@@ -94,7 +94,7 @@
       margin-left:30px;
       text-align: center;
       position: relative;
-      padding:10px 0;
+      padding:8px 0;
       transition: .5s ease-out;
       overflow: hidden;
     } 
@@ -142,13 +142,20 @@
 }
 
 #mbtn a{
-         font-size:18px;
-         text-decoration:none;
-         color:var(--white);
-         background-color: #0000FF;
-         border-radius: 5px;
-         padding: 10px 20px;
-   }
+    text-decoration:none;
+    color:#0000FF;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    border: 2px solid #0000FF;
+    transition: all 0.5s;
+}
+
+#mbtn a:hover{
+  background-color:#0000FF;
+  color: white;     
+}
+
 
 .navbar ul li button{
     border: none;
@@ -384,18 +391,23 @@
 }
 
 .herobtn{
-    background-color:#0000FF;
+    background-color:white;
     outline: none;
-    border: none;
+    border: 2px solid #0000FF;
     padding:15px;
-    width:200px;
     margin-left: 10px;
     border-radius: 5px;
-    color:var(--white);
-    font-size: 15px;
+    color:#0000FF;
+    font-size: 17px;
     font-weight: bolder;
     letter-spacing: 1px;
     cursor: pointer;
+    transition:all 0.5s;
+}
+
+.herobtn:hover{
+    background-color:#0000FF;
+    color: white;     
 }
 
 .btngrid a{
@@ -738,7 +750,7 @@
     background-color:rgb(0, 0, 255);
     text-align: center;
     border-radius:8px 8px 0 0;
-    padding:16px 32px;
+    padding:12px 25px;
     left: 50%;
     transform: translate3d(-50%, 100%, 0);
     opacity: 0;
@@ -767,6 +779,7 @@
     border-radius:8px;
     transition: all 0.3s ease-in-out;
     opacity:0.7;
+    padding: 5px;
     /* width: 50px; */
 }
 
