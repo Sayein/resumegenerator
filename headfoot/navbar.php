@@ -16,8 +16,7 @@ echo '
         </label>
         <ul class="navlinks">
                        <li><a href="./resumeTemplate.php" class="navanc">Resume Templates</a></li>
-                       <li><a href="myResume.php" class="navanc">My Resume</a></li>
-                       <li><a href="#" class="navanc">Job Search</a> </li>';
+                       <li><a href="myResume.php" class="navanc">My Resume</a></li>';
             if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
                 echo '<li><div class="navanc" id="mbtn"><a href="./db/logout.php">Logout</a></div> </li>';
             }
