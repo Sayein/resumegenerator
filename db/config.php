@@ -3,7 +3,7 @@
 $server="localhost";
 $username="root";
 $pass="";
-$dbname="crbp";
+$dbname="rgdb";
 
 $conn=mysqli_connect($server,$username,$pass,$dbname);
 

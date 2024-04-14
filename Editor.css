@@ -159,7 +159,8 @@ border: 2px solid grey;
 /* left side */
 
 .prow{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 30px;
     padding:20px 0;
 }
@@ -208,7 +209,6 @@ input::-webkit-inner-spin-button {
     padding: 20px;
     outline: none;
     border: none;
-    font-family: 'Times New Roman', Times, serif;
     border-bottom:1px solid black;
     margin-top: 15px;
     overflow:hidden;
@@ -434,7 +434,8 @@ input::-webkit-inner-spin-button {
     }
 
     .prow{
-        display: block;
+        grid-template-columns: 1fr;
+        gap: 0;
         padding:0 0;
     }
 

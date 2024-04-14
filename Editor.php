@@ -203,14 +203,17 @@ session_start();
                                     </div>
                         </div>
 
-                        <div class="prevnextbtn">
-                            <div class="backbtn">
-                                <a id="bk" onclick="toprslinfo()">Back</a>
-                            </div>
-                            <div class="nextbtn">
-                                <a id="nxt" onclick="toeducation()">Next</a>
+                        <div class="btndiv">
+                            <div class="prevnextbtn">
+                                <div class="backbtn">
+                                    <a id="bk" onclick="toprslinfo()">Back</a>
+                                </div>
+                                <div class="nextbtn">
+                                    <a id="nxt" onclick="toeducation()">Next</a>
+                                </div>
                             </div>
                         </div>
+
                     </div>
 
                     <!--Education -->
@@ -262,14 +265,18 @@ session_start();
                                 </div>
                             </div>
                         </div>
-                        <div class="prevnextbtn">
-                            <div class="backbtn">
-                                <a id="bk" onclick="toprfsumry()">Back</a>
-                            </div>
-                            <div class="nextbtn">
-                                <a id="nxt" onclick="toexperience()">Next</a>
+
+                        <div class="btndiv">
+                            <div class="prevnextbtn">
+                                <div class="backbtn">
+                                    <a id="bk" onclick="toprfsumry()">Back</a>
+                                </div>
+                                <div class="nextbtn">
+                                    <a id="nxt" onclick="toexperience()">Next</a>
+                                </div>
                             </div>
                         </div>
+                        
                     </div>
 
                     <!-- Experience -->
@@ -321,14 +328,18 @@ session_start();
                                 </div>
                             </div>
                         </div>
-                        <div class="prevnextbtn">
-                            <div class="backbtn">
-                                <a id="bk" onclick="toeducation()">Back</a>
-                            </div>
-                            <div class="nextbtn">
-                                <a id="nxt" onclick="toskl()">Next</a>
+
+                        <div class="btndiv">
+                            <div class="prevnextbtn">
+                                <div class="backbtn">
+                                    <a id="bk" onclick="toeducation()">Back</a>
+                                </div>
+                                <div class="nextbtn">
+                                    <a id="nxt" onclick="toskl()">Next</a>
+                                </div>
                             </div>
                         </div>
+
                     </div>
 
                     <!-- skill -->
@@ -1138,23 +1149,36 @@ session_start();
 
     function displaylang() {
         const lang = document.getElementById('lang').value;
-        localStorage.setItem("lang", lang);
+        localStorage.setItem("language", lang);
         const dlang = localStorage.getItem('lang');
         document.getElementById('dlang').innerHTML = dlang;
     }
 
 
     //  addding new fields dynamically
-
+    let languageInputCount=0;
     function addnewlang() {
+        languageInputCount++;
         let newnode = document.createElement('input');
         newnode.classList.add('addinputlang');
         newnode.setAttribute('placeholder', 'e.g Hindi');
+        newnode.setAttribute('oninput', 'displayNewAddedLang()');
+        newnode.setAttribute('name', `lang${languageInputCount}`);
+        newnode.setAttribute('id', `lang${languageInputCount}`);
         newnode.setAttribute('type', 'text');
         let addlang = document.querySelector('.addinputlang');
         let addafter = document.querySelector('.inside');
         addlang.append(newnode, addafter);
     }
+
+    function displayNewAddedLang() {
+        const newAddedLang = document.getElementById(`lang${languageInputCount}`).value;
+        localStorage.setItem(`language${languageInputCount}`, newAddedLang);
+        const diplayNewAddedLang = localStorage.getItem(`lang${languageInputCount}`);
+        document.getElementById('dlang').innerHTML = diplayNewAddedLang;
+    }
+
+
     </script>
 </body>
 

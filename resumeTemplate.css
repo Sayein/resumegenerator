@@ -71,7 +71,7 @@
     position: relative;
     width: 260px;
     height: 400px;
-    background-color: yellow;
+    /* background-color: yellow; */
     border:2px solid gray;
 }
 
