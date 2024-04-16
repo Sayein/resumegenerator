@@ -291,8 +291,8 @@ if(isset($_POST['del'])){
 
                  $fname = $row['fname'];
                  $lname = $row['lname'];
-                 $phn = $row['phn'];
-                 $eml = $row['eml'];
+                 $phonenumber = $row['phonenumber'];
+                 $email = $row['email'];
                  $city = $row['city'];
                  $state = $row['state'];
                  $country = $row['country'];
@@ -310,7 +310,7 @@ if(isset($_POST['del'])){
                  $jobsummary = $row['jobsummary'];
                  $skill = $row['skill'];
                  $skillperncentage = $row['skillperncentage'];
-                 $hobby = $row['hobbie'];
+                 $hobby = $row['hobbies'];
                  $link = $row['link'];
                     
 
@@ -319,8 +319,8 @@ if(isset($_POST['del'])){
 
                     'fname' => $fname,
                     'lname' => $lname,
-                    'phn' => $phn,
-                    'eml' => $eml,
+                    'phonenumber' => $phonenumber,
+                    'email' => $email,
                     'city' => $city,
                     'state' => $state,
                     'country' => $country,
@@ -404,8 +404,8 @@ if(isset($_POST['del'])){
                             
                             dfname[i].innerHTML = details[i]['fname'];                
                             dlname[i].innerHTML = details[i]['lname'];
-                            dphn[i].innerHTML = details[i]['phn'];
-                            deml[i].innerHTML = details[i]['eml'];
+                            dphn[i].innerHTML = details[i]['phonenumber'];
+                            deml[i].innerHTML = details[i]['email'];
                             dcity[i].innerHTML = details[i]['city'];
                             dstate[i].innerHTML = details[i]['state'];
                             dcountry[i].innerHTML = details[i]['country'];

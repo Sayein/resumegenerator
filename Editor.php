@@ -15,34 +15,34 @@ session_start();
     $tempid=uniqid();
     $fname=$_POST['fname'];
     $lname=$_POST['lname'];
-    $phn=$_POST['phn'];
-    $eml=$_POST['eml'];
+    $phonenumber=$_POST['phonenumber'];
+    $email=$_POST['email'];
     $city=$_POST['city'];
     $state=$_POST['state'];
     $country=$_POST['country'];
 
-    $profile=$_POST['prfsumry'];
-    $language=$_POST['lang'];
+    $profile=$_POST['profilesummary'];
+    $language=$_POST['language'];
 
-    $schoolname=$_POST['sscn'];
-    $schoollocation=$_POST['sscl'];
-    $degree=$_POST['dgr'];
+    $schoolname=$_POST['schoolname'];
+    $schoollocation=$_POST['schoollocation'];
+    $degree=$_POST['degree'];
     $year=$_POST['year'];
-    $fieldofstudy=$_POST['fos'];
+    $fieldofstudy=$_POST['fieldofstudy'];
 
-    $jobtitle=$_POST['jt'];
-    $employer=$_POST['emplr'];
-    $startyear=$_POST['strd'];
-    $endyear=$_POST['endt'];
-    $jobsummary=$_POST['soyj'];
+    $jobtitle=$_POST['jobtitle'];
+    $employer=$_POST['employer'];
+    $startyear=$_POST['startyear'];
+    $endyear=$_POST['endyear'];
+    $jobsummary=$_POST['jobsummary'];
 
     $skill=$_POST['skl'];
-    $skillpercentage=$_POST['sklprntg'];
-    $hobby=$_POST['hobby'];
+    $skillpercentage=$_POST['skillpercentage'];
+    $hobbies=$_POST['hobby'];
     $link=$_POST['links'];
    
      
-      $sql="INSERT INTO `crbpdata` (`user_id`, `templateno`, `templateid`, `fname`, `lname`, `phn`, `eml`, `city`, `state`, `country`, `profile`, `language`, `schoolname`, `schoollocation`, `degree`, `year`, `fieldofstudy`, `jobtitle`, `employer`, `startyear`, `endyear`, `jobsummary`, `skill`, `skillperncentage`, `hobbie`, `link`, `dt`) VALUES ('$userid','$template', '$tempid', '$fname', '$lname', '$phn', '$eml', '$city', '$state', '$country', '$profile', '$language', '$schoolname', '$schoollocation', '$degree', '$year', '$fieldofstudy', '$jobtitle', '$employer', '$startyear', '$endyear', '$jobsummary', ' $skill', ' $skillpercentage', '$hobby', '$link', current_timestamp())";
+      $sql="INSERT INTO `crbpdata` (`user_id`, `templateno`, `templateid`, `fname`, `lname`, `phonenumber`, `email`, `city`, `state`, `country`, `profile`, `language`, `schoolname`, `schoollocation`, `degree`, `year`, `fieldofstudy`, `jobtitle`, `employer`, `startyear`, `endyear`, `jobsummary`, `skill`, `skillperncentage`, `hobbies`, `link`, `dt`) VALUES ('$userid','$template', '$tempid', '$fname', '$lname', '$phonenumber', '$email', '$city', '$state', '$country', '$profile', '$language', '$schoolname', '$schoollocation', '$degree', '$year', '$fieldofstudy', '$jobtitle', '$employer', '$startyear', '$endyear', '$jobsummary', ' $skill', ' $skillpercentage', '$hobbies', '$link', current_timestamp())";
       $result=mysqli_query($conn,$sql);
      
       if($result){
@@ -126,14 +126,14 @@ session_start();
 
                             <div class="prow">
                                 <div class="pcol">
-                                    <label for="phn">Phone number</label> <br>
-                                    <input type="number" oninput="displayphn()" name="phn" id="phn"
+                                    <label for="phonenumber">Phone number</label> <br>
+                                    <input type="number" oninput="displayphn()" name="phonenumber" id="phonenumber"
                                     max  placeholder="e.g. +91 9867982828">
                                     <div id="error2" style="color:red; font-size:18px; margin-top: 7px;"></div>
                                 </div>
                                 <div class="pcol">
-                                    <label for="eml">Email</label><br>
-                                    <input type="text" oninput="displayeml()" name="eml" id="eml"
+                                    <label for="email">Email</label><br>
+                                    <input type="text" oninput="displayeml()" name="email" id="email"
                                         placeholder="e.g. ramesh@gmail.com">
                                     <div id="error3" style="color:red; font-size:18px; margin-top: 7px;"></div>
                                 </div>
@@ -179,7 +179,7 @@ session_start();
                         <h1 >Profile</h1>
                         <div class="pcentr">
                             <div class="ptxtarea">
-                                <textarea oninput="displaypfsumry()" name="prfsumry" id="prfsumry"
+                                <textarea oninput="displaypfsumry()" name="profilesummary" id="profilesummary"
                                     placeholder="e.g. Quickly learned new skills."></textarea>
                                 <div id="error7" style="color:red; font-size:18px; margin-top: 7px;"></div>
                             </div>
@@ -189,7 +189,7 @@ session_start();
                         <div class="pcentr">
                             <div class="prow addinputlang">
                                     <div class="pcol" id="moveleft">
-                                        <input type="text" oninput="displaylang()" name="lang" id="lang"
+                                        <input type="text" oninput="displaylang()" name="language" id="language"
                                             placeholder="e.g. English">
                                         <div id="error22" style="color:red; font-size:18px; margin-top: 7px;"></div>
                                         <input type="hidden" class="inside">
@@ -224,14 +224,14 @@ session_start();
 
                             <div class="prow">
                                 <div class="pcol">
-                                    <label for="sscn">School name</label><br>
-                                    <input type="text" oninput="displayscln()" name="sscn" id="sscn"
+                                    <label for="schoolname">School name</label><br>
+                                    <input type="text" oninput="displayscln()" name="schoolname" id="schoolname"
                                         placeholder="e.g. Saint Xevier">
                                     <div id="error8" style="color:red; font-size:18px; margin-top: 7px;"></div>
                                 </div>
                                 <div class="pcol">
-                                    <label for="sscl">School location</label><br>
-                                    <input type="text" oninput="displaysclloc()" name="sscl" id="sscl"
+                                    <label for="schoollocation">School location</label><br>
+                                    <input type="text" oninput="displaysclloc()" name="schoollocation" id="schoollocation"
                                         placeholder="e.g. Maharashtra,mumbai">
                                     <div id="error9" style="color:red; font-size:18px; margin-top: 7px;"></div>
                                 </div>
@@ -239,8 +239,8 @@ session_start();
 
                             <div class="prow">
                                 <div class="pcol">
-                                    <label for="dgr">Degree</label> <br>
-                                    <input type="text" oninput="displaydegree()" name="dgr" id="dgr"
+                                    <label for="degree">Degree</label> <br>
+                                    <input type="text" oninput="displaydegree()" name="degree" id="degree"
                                         placeholder="e.g. Bsc.IT ">
                                     <div id="error10" style="color:red; font-size:18px; margin-top: 7px;"></div>
                                 </div>
@@ -253,8 +253,8 @@ session_start();
                             </div>
 
                             <div class="ptxtarea" style="padding-bottom:20px;">
-                                <label for="fos">Field of study</label> <br>
-                                <input type="text" oninput="displayfos()" name="fos" id="fos"
+                                <label for="fieldofstudy">Field of study</label> <br>
+                                <input type="text" oninput="displayfos()" name="fieldofstudy" id="fieldofstudy"
                                     placeholder="e.g. Information Tecnology">
                                 <div id="error12" style="color:red; font-size:18px; margin-top: 7px;"></div>
                             </div>
@@ -287,14 +287,14 @@ session_start();
 
                             <div class="prow">
                                 <div class="pcol">
-                                    <label for="jt">Job title</label><br>
-                                    <input type="text" oninput="displayjt()" name="jt" id="jt"
+                                    <label for="jobtitle">Job title</label><br>
+                                    <input type="text" oninput="displayjt()" name="jobtitle" id="jobtitle"
                                         placeholder="e.g. Software Engineer">
                                     <div id="error13" style="color:red; font-size:18px; margin-top: 7px;"></div>
                                 </div>
                                 <div class="pcol">
-                                    <label for="emplr">Employer</label><br>
-                                    <input type="text" oninput="displaycompany()" name="emplr" id="emplr"
+                                    <label for="employer">Employer</label><br>
+                                    <input type="text" oninput="displaycompany()" name="employer" id="employer"
                                         placeholder="e.g. Google">
                                     <div id="error14" style="color:red; font-size:18px; margin-top: 7px;"></div>
                                 </div>
@@ -302,22 +302,22 @@ session_start();
 
                             <div class="prow">
                                 <div class="pcol">
-                                    <label for="strd">Start year</label> <br>
-                                    <input type="text" oninput="displaystrtdt()" name="strd" id="strd"
+                                    <label for="startyear">Start year</label> <br>
+                                    <input type="text" oninput="displaystrtdt()" name="startyear" id="startyear"
                                         placeholder="e.g. 2019" maxlength="4">
                                     <div id="error15" style="color:red; font-size:18px; margin-top: 7px;"></div>
                                 </div>
                                 <div class="pcol">
-                                    <label for="endt">End year</label> <br>
-                                    <input type="text" oninput="displayenddt()" name="endt" id="endt"
+                                    <label for="endyear">End year</label> <br>
+                                    <input type="text" oninput="displayenddt()" name="endyear" id="endyear"
                                         placeholder="e.g. 2023"  maxlength="4">
                                     <div id="error16" style="color:red; font-size:18px; margin-top: 7px;"></div>
                                 </div>
                             </div>
 
                             <div class="ptxtarea" style="padding-bottom:20px;">
-                                <label for="soyj">Summary of your job</label><br>
-                                <textarea oninput="displaysoyj()" id="soyj" name="soyj"
+                                <label for="jobsummary">Summary of your job</label><br>
+                                <textarea oninput="displaysoyj()" id="jobsummary" name="jobsummary"
                                     placeholder="e.g. Experienced PHP Developer"></textarea>
                                 <div id="error17" style="color:red; font-size:18px; margin-top: 7px;"></div>
                             </div>
@@ -357,8 +357,8 @@ session_start();
                                         <div id="error18" style="color:red; font-size:18px; margin-top: 7px;"></div>
                                     </div>
                                     <div class="pcol">
-                                        <label for="sklprntg">Skill Percentage</label><br>
-                                        <input type="number" oninput="displayskillp()" name="sklprntg" id="sklprntg"
+                                        <label for="skillpercentage">Skill Percentage</label><br>
+                                        <input type="number" oninput="displayskillp()" name="skillpercentage" id="skillpercentage"
                                             placeholder="e.g. 78%">
                                         <div id="error19" style="color:red; font-size:18px; margin-top: 7px;"></div>
                                     </div>
@@ -559,9 +559,9 @@ session_start();
         let error = document.getElementById("error"); //for first name error 
         const lname = document.getElementById('lname'); //for last name 
         let error1 = document.getElementById("error1"); //for last name error
-        const phn = document.getElementById('phn'); //for phone number
+        const phn = document.getElementById('phonenumber'); //for phone number
         let error2 = document.getElementById("error2"); //for phone number error
-        const eml = document.getElementById('eml'); //for email
+        const eml = document.getElementById('email'); //for email
         let error3 = document.getElementById("error3"); //for email error
         const city = document.getElementById('city'); //for city
         let error4 = document.getElementById("error4"); //for city error
@@ -656,9 +656,9 @@ session_start();
     }
 
     function toeducation() {
-        const profile = document.getElementById('prfsumry'); //for profile
+        const profile = document.getElementById('profilesummary'); //for profile
         let error7 = document.getElementById("error7"); //for profile error
-        const lang = document.getElementById('lang'); //for language
+        const lang = document.getElementById('language'); //for language
         let error22 = document.getElementById("error22"); //for language error
 
         if (profile.value == "") {
@@ -696,15 +696,15 @@ session_start();
     }
 
     function toexperience() {
-        const scln = document.getElementById('sscn'); //for school name
+        const scln = document.getElementById('schoolname'); //for school name
         let error8 = document.getElementById("error8"); //for school name error  
-        const scloc = document.getElementById('sscl'); //for school location    
+        const scloc = document.getElementById('schoollocation'); //for school location    
         let error9 = document.getElementById("error9"); //for school location error
         const degree = document.getElementById('year'); //for degree
         let error10 = document.getElementById("error10"); //for degree error
-        const year = document.getElementById('dgr'); //for year
+        const year = document.getElementById('degree'); //for year
         let error11 = document.getElementById("error11"); //for year error
-        const fos = document.getElementById('fos'); //for field of study 
+        const fos = document.getElementById('fieldofstudy'); //for field of study 
         let error12 = document.getElementById("error12"); //for field of study error
 
 
@@ -770,15 +770,15 @@ session_start();
 
 
     function toskl() {
-        // const jt = document.getElementById('jt'); //for job title
+        // const jt = document.getElementById('jobtitle'); //for job title
         // let error13 = document.getElementById("error13"); //for job title error 
-        // const emplr = document.getElementById('emplr'); //for employer name    
+        // const emplr = document.getElementById('employer'); //for employer name    
         // let error14 = document.getElementById("error14"); //for employer name error
-        const strd = document.getElementById('strd'); //for start date
+        const strd = document.getElementById('startyear'); //for start date
         let error15 = document.getElementById("error15"); //for start date error
-        const endt = document.getElementById('endt'); //for end date
+        const endt = document.getElementById('endyear'); //for end date
         let error16 = document.getElementById("error16"); //for end date error
-        // const jd = document.getElementById('soyj'); //for summary of your job 
+        // const jd = document.getElementById('jobsummary'); //for summary of your job 
         // let error17 = document.getElementById("error17"); //for summary of your job error
 
         let pattern2 = /^\d+$/;
@@ -826,7 +826,7 @@ session_start();
     function complete() {
         const skil = document.getElementById('skl'); //for skill
         let error18 = document.getElementById("error18"); //for skill error 
-        const skilp = document.getElementById('sklprntg'); //for skill percentage   
+        const skilp = document.getElementById('skillpercentage'); //for skill percentage   
         let error19 = document.getElementById("error19"); //for skill percentage error
         const links = document.getElementById('links'); //for links
         let error20 = document.getElementById("error20"); //for links error
@@ -990,7 +990,7 @@ session_start();
 
     // for phone number
     function displayphn() {
-        const phone = document.getElementById('phn').value;
+        const phone = document.getElementById('phonenumber').value;
         localStorage.setItem("phone", phone);
         const dphone = localStorage.getItem('phone');
         document.getElementById('cont1').innerHTML = dphone;
@@ -998,7 +998,7 @@ session_start();
 
     // for email
     function displayeml() {
-        const email = document.getElementById('eml').value;
+        const email = document.getElementById('email').value;
         localStorage.setItem("email", email);
         const demail = localStorage.getItem('email');
         document.getElementById('cont2').innerHTML = demail;
@@ -1030,15 +1030,15 @@ session_start();
 
     // for profile
     function displaypfsumry() {
-        const prfsmry = document.getElementById('prfsumry').value;
-        localStorage.setItem("prfsumry", prfsmry);
-        const dprfsmry = localStorage.getItem('prfsumry');
+        const prfsmry = document.getElementById('profilesummary').value;
+        localStorage.setItem("profilesummary", prfsmry);
+        const dprfsmry = localStorage.getItem('profilesummary');
         document.getElementById('profsumry').innerHTML = dprfsmry;
     }
 
     // for school name
     function displayscln() {
-        const sclname = document.getElementById('sscn').value;
+        const sclname = document.getElementById('schoolname').value;
         localStorage.setItem("sclname", sclname);
         const dsclname = localStorage.getItem('sclname');
         document.getElementById('scln').innerHTML = dsclname;
@@ -1047,7 +1047,7 @@ session_start();
 
     // for school location
     function displaysclloc() {
-        const sclloc = document.getElementById('sscl').value;
+        const sclloc = document.getElementById('schoollocation').value;
         localStorage.setItem("sclloc", sclloc);
         const dsclloc = localStorage.getItem('sclloc');
         document.getElementById('sclloc').innerHTML = dsclloc;
@@ -1055,7 +1055,7 @@ session_start();
 
     // for degree
     function displaydegree() {
-        const degree = document.getElementById('dgr').value;
+        const degree = document.getElementById('degree').value;
         localStorage.setItem("degree", degree);
         const ddegree = localStorage.getItem('degree');
         document.getElementById('degree').innerHTML = ddegree;
@@ -1071,7 +1071,7 @@ session_start();
 
     // for field of study
     function displayfos() {
-        const fost = document.getElementById('fos').value;
+        const fost = document.getElementById('fieldofstudy').value;
         localStorage.setItem("fost", fost);
         const dfost = localStorage.getItem('fost');
         document.getElementById('fostdy').innerHTML = dfost;
@@ -1079,35 +1079,35 @@ session_start();
 
     // for job title
     function displayjt() {
-        const jbtl = document.getElementById('jt').value;
+        const jbtl = document.getElementById('jobtitle').value;
         localStorage.setItem("jbtl", jbtl);
         const djbtl = localStorage.getItem('jbtl');
         document.getElementById('jbt').innerHTML = djbtl;
     }
 
     function displaycompany() {
-        const employr = document.getElementById('emplr').value;
+        const employr = document.getElementById('employer').value;
         localStorage.setItem("employr", employr);
         const demployr = localStorage.getItem('employr');
         document.getElementById('cpn').innerHTML = demployr;
     }
 
     function displaystrtdt() {
-        const strtdate = document.getElementById('strd').value;
+        const strtdate = document.getElementById('startyear').value;
         localStorage.setItem("strtdate", strtdate);
         const dstrtdate = localStorage.getItem('strtdate');
         document.getElementById('strtyr').innerHTML = dstrtdate;
     }
 
     function displayenddt() {
-        const enddate = document.getElementById('endt').value;
+        const enddate = document.getElementById('endyear').value;
         localStorage.setItem("enddate", enddate);
         const denddate = localStorage.getItem('enddate');
         document.getElementById('endyr').innerHTML = denddate;
     }
 
     function displaysoyj() {
-        const jobsumary = document.getElementById('soyj').value;
+        const jobsumary = document.getElementById('jobsummary').value;
         localStorage.setItem("jobsumary", jobsumary);
         const djobsumary = localStorage.getItem('jobsumary');
         document.getElementById('jbsmry').innerHTML = djobsumary;
@@ -1122,7 +1122,7 @@ session_start();
 
     function displayskillp() {
         // let smpl=document.querySelector('.smpl3');
-        const skillp = document.getElementById('sklprntg').value;
+        const skillp = document.getElementById('skillpercentage').value;
         localStorage.setItem("skillp", skillp);
         const dskillp = localStorage.getItem('skillp');
         document.getElementById('sklprtg').innerHTML = dskillp;
@@ -1148,9 +1148,9 @@ session_start();
     }
 
     function displaylang() {
-        const lang = document.getElementById('lang').value;
+        const lang = document.getElementById('language').value;
         localStorage.setItem("language", lang);
-        const dlang = localStorage.getItem('lang');
+        const dlang = localStorage.getItem('language');
         document.getElementById('dlang').innerHTML = dlang;
     }
 
