@@ -11,8 +11,9 @@ echo '
         </a>
         <input type="checkbox" id="check">
         <label for="check" id="menubtn">
-          <div  id="menubar" onclick="showx()">&#9776;</div>
-          <div class="fad" id="cross" style="display:none; font-size:40px;" onclick="showb()">&times;</div>
+        <i class="fa fa-bars"></i>
+        <!----  <div  id="menubar" onclick="showx()">&#9776;</div>  ---->
+        <!----  <div class="fad" id="cross" style="display:none; font-size:40px;" onclick="showb()">&times;</div> ---->
         </label>
         <ul class="navlinks">
                        <li><a href="./resumeTemplate.php" class="navanc">Resume Templates</a></li>

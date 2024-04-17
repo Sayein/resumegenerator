@@ -11,7 +11,9 @@
     <title>Resume Generator</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" />
+    <script src="https://kit.fontawesome.com/ff61fbf734.js" crossorigin="anonymous"></script>
 </head>
 
 <body>

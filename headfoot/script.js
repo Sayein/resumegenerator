@@ -1,18 +1,18 @@
 /* js code for responsive navbar button */
 
- function showx(){
- let menubar=document.getElementById("menubar");
-  let cross=document.getElementById("cross");
-  cross.style.display="block";
-  menubar.style.display="none";
- }
+//  function showx(){
+//  let menubar=document.getElementById("menubar");
+//   let cross=document.getElementById("cross");
+//   cross.style.display="block";
+//   menubar.style.display="none";
+//  }
  
- function showb(){
- let menubar=document.getElementById("menubar");
- let cross=document.getElementById("cross");
- cross.style.display="none";
- menubar.style.display="block";
- }
+//  function showb(){
+//  let menubar=document.getElementById("menubar");
+//  let cross=document.getElementById("cross");
+//  cross.style.display="none";
+//  menubar.style.display="block";
+//  }
 
 /* js to stop background scrolling when navbar is open in responsive version*/
 
