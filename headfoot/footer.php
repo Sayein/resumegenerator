@@ -16,13 +16,12 @@
                     </ul>
 
                     <ul class="menu">
-                        <li><a href="#">Resume</a></li>
-                        <li><a href="#">Cover Letter</a></li>
-                        <li><a href="#">Job Search</a></li>
-                        <li><a href="#">sign in</a></li>
+                        <li><a href="./resumeTemplate.php">Resume templates</a></li>
+                        <li><a href="./myResume.php">My resume</a></li>
+                        <li><a href="./sign.php">sign in</a></li>
                         <div class="cursor"></div>
                     </ul>
-                    <p> '; echo date('Y'); echo ' Resume Builder</p>
+                    <p> '; echo date('Y'); echo ' Resume Generator</p>
                 </footer>
            </div>';
 ?>

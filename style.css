@@ -224,7 +224,8 @@
         top:60px;
         left:-100%;
         transition:0.5s;
-        background-color: rgba(0, 0, 0, 0.9);
+        background-color: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(16px);
         z-index: 1000;
     }
 
@@ -236,27 +237,12 @@
     }
 
     .navbar ul li .navanc{
-        color: var(--white);
         transition: 0.5s;
         display: block;
         font-size: 22px;
         cursor: pointer;
     }
-
-    #mbtn a{
-        text-decoration:none;
-        color:var(--white);
-        background-color: #0000FF;
-        border-radius: 5px;
-        padding: 15px 30px;
-  }
-
-    .navbar ul li button{
-        font-size: 22px;
-        color: var(--white);
-        transition: 0.5s;
-    }
-
+    
 }
 
 /* Hero section */
@@ -709,7 +695,6 @@
         left: 0;
         right: 0;
         transform: none;
-        /* width: 100%; */
         border-radius: 0;
     }
 
@@ -726,14 +711,13 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    /* min-height: 100vh; */
     background:#fff;
 }
+
 footer{
     position: relative;
     width: 100%;
     background: var(--blue);
-    /* background: #3586ff;  */
     min-height: 100px;
     padding: 20px 50px;
     display: flex;
@@ -742,83 +726,46 @@ footer{
     flex-direction: column;
 }
 
-footer .icons, footer .menu
-{
+footer .icons, footer .menu{
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 10px 0;
-
 }
+
 footer .icons li, footer .menu li{
     list-style: none;
 }
+
 footer .icons li a{
     font-size: 2em;
     color: aliceblue;
     margin: 0 10px;
     display: inline-block;
     transition: 0.3s;
-
 }
 
-footer .icons li a:hover, footer .menu{
-    transform: translateY(-12px);
-
+footer .icons li a:hover{
+    transform: translateY(-6px);
 }
+
 footer .menu li a{
     font-size: 1.4em;
     color: aliceblue;
     margin: 0 10px;
     display: inline-block;
-    /* transition: 0.5s; */
     text-decoration: none;
-    opacity: 0.75;
 }
   
- footer .menu li a:hover{
-    /* transform: scale(0.3); */
-    border-radius: 5px; 
-    animation: animate 1s ease-in;
-    
- }
-
-@media(max-width:500px){
+@media(max-width:519px){
 
     footer .menu{
-                 display:grid;
-                 text-align: center;
-                 gap: 30px;
-                 padding-top: 20px;
+        display:grid;
+        text-align: center;
+        gap: 30px;
+        padding-top: 20px;
     }
-
-}
-
- @keyframes animate
-{
-    0%
-    {
-        transform: scale(1);   
-    }
-    50%
-    {
-        transform: scale(0.3);     
-    }
-    75%
-    {
-        transform: scale(0.5);
-    }
-    100%
-    {
-        transform: scale(1);
-    }
-    
-
-}
-
-footer .menu li a{
-    opacity: 1;
 
 }
 
