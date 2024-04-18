@@ -285,7 +285,10 @@ else{
  echo '<div style="height:100vh; display:grid; place-items:center; padding-top:100px; padding-bottom:200px;">
         <div>
             <h1 style="text-align:center;">Please Login To Use Templates.</h1>
-            <div class="btngrid"><a href="sign.php"><button type="submit" class="herobtn">Login in</button></a></div>
+            <div class="btngrid" id="mbtn"><a href="sign.php" class="herobtn">
+           <!---- <button type="submit" class="herobtn">Login in</button>  --->
+            Login in
+            </a></div>
         </div> 
       </div>';
 

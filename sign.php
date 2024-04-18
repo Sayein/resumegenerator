@@ -150,24 +150,13 @@ elseif(isset($_GET["success2"])){
         place-items: center;
     }
 
-    #rgbtn {
-        margin-top: 45px;
-    }
-
     .submit-btn {
         font-size: 17px;
-        width: 80%;
-        border-radius: 10px;
-        border: none;
-        padding: 10px 30px;
         display: block;
         margin-top: 60px;
         margin-left: 10px;
         cursor: pointer;
-        color: white;
-        /* background:linear-gradient(to right,#9AFBFA,#D071F9); */
-        background-color: #0000FF;
-        font-weight: 600;
+        font-weight: 600; 
     }
 
     #login {
@@ -268,7 +257,7 @@ elseif(isset($_GET["success2"])){
                     <input type="email" class="input-field" placeholder="Email" name="lemail" required>
                     <input type="password" class="input-field" placeholder="password" name="lpassword" required style="margin-bottom:20px;">
                     <a href="forgotpass.php" class="link">forgot password ?</a>
-                    <div class="btnmodalgrid"><button type="submit" name="loginbtn" class="submit-btn">Login</button>
+                    <div class="btnmodalgrid" id="mbtn"><button type="submit" name="loginbtn" class="submit-btn">Login</button>
                     </div>
                 </form>
 
@@ -277,8 +266,7 @@ elseif(isset($_GET["success2"])){
                     <input type="email" class="input-field" placeholder="Email" name="remail" required>
                     <input type="password" class="input-field" placeholder="Password" name="rpassword" required>
                     <input type="password" class="input-field" placeholder="Confirm Password" name="cpassword" required>
-                    <div class="btnmodalgrid"><button type="submit" class="submit-btn" name="registerbtn"
-                            id="rgbtn">Sign up</button>
+                    <div class="btnmodalgrid" id="mbtn"><button type="submit" class="submit-btn" name="registerbtn">Sign up</button>
                     </div>
                 </form>
             </div>

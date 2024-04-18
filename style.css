@@ -155,7 +155,7 @@
     cursor: pointer;
 }
 
-#mbtn a{
+#mbtn a, #mbtn button{
     text-decoration:none;
     color:#0000FF;
     background-color: white;
@@ -165,7 +165,7 @@
     transition: all 0.5s;
 }
 
-#mbtn a:hover{
+#mbtn a:hover, #mbtn button:hover{
   background-color:#0000FF;
   color: white;     
 }
@@ -242,7 +242,7 @@
         font-size: 22px;
         cursor: pointer;
     }
-    
+
 }
 
 /* Hero section */

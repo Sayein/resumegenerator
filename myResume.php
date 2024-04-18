@@ -74,19 +74,11 @@ if(isset($_POST['del'])){
         padding-top: 40px;
     }
 
-    .herobtn {
-        background-color: #0000FF;
-        outline: none;
-        border: none;
-        padding: 15px;
-        width: 200px;
-        margin-left: 10px;
-        border-radius: 5px;
-        color: white;
+    .herobtn{
         font-size: 15px;
         font-weight: bolder;
         letter-spacing: 1px;
-        cursor: pointer;
+        padding:12px 50px !important;
     }
 
     .btngrid a {
@@ -486,7 +478,7 @@ if(isset($_POST['del'])){
             echo '<div style="height:100vh; display:grid; place-items:center; padding-top:100px; padding-bottom:200px;">
                     <div>
                         <h1 style="text-align:center;">Please login to view your resume.</h1>
-                        <div class="btngrid"><a href="sign.php"><button type="submit" class="herobtn">Login in</button></a></div>
+                        <div class="btngrid" id="mbtn"><a href="sign.php" class="herobtn">Login in</a></div>
                     </div> 
                 </div>';
         }
