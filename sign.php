@@ -118,9 +118,13 @@ elseif(isset($_GET["success2"])){
         left: 0px;
         position: absolute;
         padding: 18px 60px;
-        background-color: #1d55ff;
+        background-color: #0000ff;
         border-radius: 38px;
-        transition: 0.5s;
+        transition: 0.2s;
+    }
+
+    #btn-l{
+        color:white;
     }
 
     .input-group {
@@ -152,11 +156,17 @@ elseif(isset($_GET["success2"])){
 
     .submit-btn {
         font-size: 17px;
+        width: 80%;
+        border-radius: 10px;
+        border: none;
+        padding: 10px 30px;
         display: block;
         margin-top: 60px;
         margin-left: 10px;
         cursor: pointer;
-        font-weight: 600; 
+        color: white;
+        background-color: #0000FF;
+        font-weight: 600;
     }
 
     #login {
@@ -249,7 +259,7 @@ elseif(isset($_GET["success2"])){
             <div class="form-box">
                 <div class="btn-box">
                     <div id="btn"></div>
-                    <button type="button" class="toggle-btn" onclick="login()">Login</button>
+                    <button type="button" id="btn-l" class="toggle-btn" onclick="login()">Login</button>
                     <button type="button" id="btn-s" class="toggle-btn" onclick="register()">Sign up</button>
                 </div>
 
@@ -257,7 +267,7 @@ elseif(isset($_GET["success2"])){
                     <input type="email" class="input-field" placeholder="Email" name="lemail" required>
                     <input type="password" class="input-field" placeholder="password" name="lpassword" required style="margin-bottom:20px;">
                     <a href="forgotpass.php" class="link">forgot password ?</a>
-                    <div class="btnmodalgrid" id="mbtn"><button type="submit" name="loginbtn" class="submit-btn">Login</button>
+                    <div class="btnmodalgrid"><button type="submit" name="loginbtn" class="submit-btn">Login</button>
                     </div>
                 </form>
 
@@ -266,7 +276,7 @@ elseif(isset($_GET["success2"])){
                     <input type="email" class="input-field" placeholder="Email" name="remail" required>
                     <input type="password" class="input-field" placeholder="Password" name="rpassword" required>
                     <input type="password" class="input-field" placeholder="Confirm Password" name="cpassword" required>
-                    <div class="btnmodalgrid" id="mbtn"><button type="submit" class="submit-btn" name="registerbtn">Sign up</button>
+                    <div class="btnmodalgrid"><button type="submit" class="submit-btn" name="registerbtn">Sign up</button>
                     </div>
                 </form>
             </div>
