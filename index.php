@@ -28,7 +28,7 @@
                 <div class="sherosec">
                     <div class="leftcontent">
                         <p>Get Your <span class="span1">Dream Job</span> With The Help Of Your <span
-                                class="span1">Professional 1234</span>
+                                class="span1">Professional 23546</span>
                             Resume.</p>
                         <span class="heropara">We help you create your perfect resume to grab your dream job.</span>
 
