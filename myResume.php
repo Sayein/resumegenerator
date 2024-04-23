@@ -93,7 +93,8 @@ if(isset($_POST['del'])){
         place-items: center;
         justify-content: center;
         grid-gap: 70px;
-        padding: 80px 10px 200px 10px;
+        /* padding: 80px 10px 200px 10px; */
+        padding: 80px 20px 80px 20px;
     }
 
     .tempcontainer {
@@ -131,7 +132,8 @@ if(isset($_POST['del'])){
     }
 
     .ctext button {
-        padding: 9px 20px;
+        /* padding: 9px 20px; */
+        padding: 9px 10px;
         cursor: pointer;
         outline: none;
         border: none;
@@ -139,7 +141,16 @@ if(isset($_POST['del'])){
     }
 
     .ctext button:hover {
-        background-color: #3586ff;
+        /* background-color: #3586ff; */
+        /* background-color: rgba(0,0,0,0.1);
+        border:1px solid black; */
+        background-color: lightgray;
+        border:1px solid black;
+        /* border:1px solid gray; */
+        color:white;
+        border-radius: 10px;
+
+
     }
 
     /* responsive templates */
