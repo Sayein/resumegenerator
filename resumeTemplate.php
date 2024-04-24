@@ -1,7 +1,9 @@
 <?php
 session_start();
-if(isset($_POST['tmp'])){
-    $template=$_POST['tmp'];
+// if(isset($_POST['tmp'])){
+if(isset($_GET['tmp'])){
+    $template=$_GET['tmp'];
+    echo $template;
     $_SESSION['tmp']=$template;
 
     header("Location: Editor.php");
@@ -37,245 +39,55 @@ if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
 
        <div class="tempgrid">
            <div class="tempcontainer">
+           <a href="resumeTemplate.php?tmp=1">
                <img class="tempimg" src="images/resumeTemplateimg/resume1.png" alt="resume1" />
                <div class="overlay">
                    <div class="ctext">
-                       <form action="resumeTemplate.php" method="post">
-                           <button type="submit" name="tmp" value="1">
+                   <!-- <form action="resumeTemplate.php" method="post"> -->
+                           <button type="submit">
                                Use This Template
-                           </button>
-                       </form>
+                           </button> 
+                   <!-- </form> -->
                    </div>
                </div>
+            </a> 
            </div>
            <div class="tempcontainer">
+            <a href="resumeTemplate.php?tmp=2">
                <img class="tempimg" src="images/resumeTemplateimg/resume2.png" alt="" />
                <div class="overlay">
                    <div class="ctext">
-                       <form action="resumeTemplate.php" method="post">
-                           <button type="submit" name="tmp" value="2">
+                           <button type="submit">
                                Use This Template
                            </button>
-                       </form>
                    </div>
                </div>
+               </a>
            </div>
            <div class="tempcontainer">
+            <a href="resumeTemplate.php?tmp=3">
                <img class="tempimg" src="images/resumeTemplateimg/temp3.jpg" alt="" />
                <div class="overlay">
                    <div class="ctext">
-                       <form action="resumeTemplate.php" method="post">
-                           <button type="submit" name="tmp" value="3">
+                           <button type="submit">
                                Use This Template
                            </button>
-                       </form>
                    </div>
                </div>
+               </a>
            </div>
            <div class="tempcontainer">
+            <a href="resumeTemplate.php?tmp=4">
                <img class="tempimg" src="images/resumeTemplateimg/resume1.png" alt="" />
                <div class="overlay">
                    <div class="ctext">
-                       <form action="Editor.php" method="post">
-                           <button type="submit" name="tmp" value="3">
+                           <button type="submit">
                                Use This Template
                            </button>
-                       </form>
                    </div>
                </div>
            </div>
-           <!-----<div class="tempcontainer">
-               <img class="tempimg" src="images/resumeTemplateimg/simpletemp1.jpg" alt="" />
-               <div class="overlay">
-                   <div class="ctext">
-                       <form action="Editor.php" method="post">
-                           <button type="submit" name="tmp" value="3">
-                               Use This Template
-                           </button>
-                       </form>
-                   </div>
-               </div>
-           </div>
-           <div class="tempcontainer">
-               <img class="tempimg" src="images/resumeTemplateimg/simpletemp1.jpg" alt="" />
-               <div class="overlay">
-                   <div class="ctext">
-                       <form action="Editor.php" method="post">
-                           <button type="submit" name="tmp" value="3">
-                               Use This Template
-                           </button>
-                       </form>
-                   </div>
-               </div>
-           </div>
-           <div class="tempcontainer">
-               <img class="tempimg" src="images/resumeTemplateimg/simpletemp1.jpg" alt="" />
-               <div class="overlay">
-                   <div class="ctext">
-                       <form action="Editor.php" method="post">
-                           <button type="submit" name="tmp" value="3">
-                               Use This Template
-                           </button>
-                       </form>
-                   </div>
-               </div>
-           </div>
-           <div class="tempcontainer">
-               <img class="tempimg" src="images/resumeTemplateimg/simpletemp1.jpg" alt="" />
-               <div class="overlay">
-                   <div class="ctext">
-                       <form action="Editor.php" method="post">
-                           <button type="submit" name="tmp" value="3">
-                               Use This Template
-                           </button>
-                       </form>
-                   </div>
-               </div>
-           </div>
-           <div class="tempcontainer">
-               <img class="tempimg" src="images/resumeTemplateimg/simpletemp1.jpg" alt="" />
-               <div class="overlay">
-                   <div class="ctext">
-                       <form action="Editor.php" method="post">
-                           <button type="submit" name="tmp" value="3">
-                               Use This Template
-                           </button>
-                       </form>
-                   </div>
-               </div>
-           </div>
-           <div class="tempcontainer">
-               <img class="tempimg" src="images/resumeTemplateimg/simpletemp1.jpg" alt="" />
-               <div class="overlay">
-                   <div class="ctext">
-                       <form action="Editor.php" method="post">
-                           <button type="submit" name="tmp" value="3">
-                               Use This Template
-                           </button>
-                       </form>
-                   </div>
-               </div>
-           </div>
-           <div class="tempcontainer">
-               <img class="tempimg" src="images/resumeTemplateimg/simpletemp1.jpg" alt="" />
-               <div class="overlay">
-                   <div class="ctext">
-                       <form action="Editor.php" method="post">
-                           <button type="submit" name="tmp" value="3">
-                               Use This Template
-                           </button>
-                       </form>
-                   </div>
-               </div>
-           </div>
-           <div class="tempcontainer">
-               <img class="tempimg" src="images/resumeTemplateimg/simpletemp1.jpg" alt="" />
-               <div class="overlay">
-                   <div class="ctext">
-                       <form action="Editor.php" method="post">
-                           <button type="submit" name="tmp" value="3">
-                               Use This Template
-                           </button>
-                       </form>
-                   </div>
-               </div>
-           </div>
-           <div class="tempcontainer">
-               <img class="tempimg" src="images/resumeTemplateimg/simpletemp1.jpg" alt="" />
-               <div class="overlay">
-                   <div class="ctext">
-                       <form action="Editor.php" method="post">
-                           <button type="submit" name="tmp" value="3">
-                               Use This Template
-                           </button>
-                       </form>
-                   </div>
-               </div>
-           </div>
-           <div class="tempcontainer">
-               <img class="tempimg" src="images/resumeTemplateimg/simpletemp1.jpg" alt="" />
-               <div class="overlay">
-                   <div class="ctext">
-                       <form action="Editor.php" method="post">
-                           <button type="submit" name="tmp" value="3">
-                               Use This Template
-                           </button>
-                       </form>
-                   </div>
-               </div>
-           </div>
-           <div class="tempcontainer">
-               <img class="tempimg" src="images/resumeTemplateimg/simpletemp1.jpg" alt="" />
-               <div class="overlay">
-                   <div class="ctext">
-                       <form action="Editor.php" method="post">
-                           <button type="submit" name="tmp" value="3">
-                               Use This Template
-                           </button>
-                       </form>
-                   </div>
-               </div>
-           </div>
-           <div class="tempcontainer">
-               <img class="tempimg" src="images/resumeTemplateimg/simpletemp1.jpg" alt="" />
-               <div class="overlay">
-                   <div class="ctext">
-                       <form action="Editor.php" method="post">
-                           <button type="submit" name="tmp" value="3">
-                               Use This Template
-                           </button>
-                       </form>
-                   </div>
-               </div>
-           </div>
-           <div class="tempcontainer">
-               <img class="tempimg" src="images/resumeTemplateimg/simpletemp1.jpg" alt="" />
-               <div class="overlay">
-                   <div class="ctext">
-                       <form action="Editor.php" method="post">
-                           <button type="submit" name="tmp" value="3">
-                               Use This Template
-                           </button>
-                       </form>
-                   </div>
-               </div>
-           </div>
-           <div class="tempcontainer">
-               <img class="tempimg" src="images/resumeTemplateimg/simpletemp1.jpg" alt="" />
-               <div class="overlay">
-                   <div class="ctext">
-                       <form action="Editor.php" method="post">
-                           <button type="submit" name="tmp" value="3">
-                               Use This Template
-                           </button>
-                       </form>
-                   </div>
-               </div>
-           </div>
-           <div class="tempcontainer">
-               <img class="tempimg" src="images/resumeTemplateimg/simpletemp1.jpg" alt="" />
-               <div class="overlay">
-                   <div class="ctext">
-                       <form action="Editor.php" method="post">
-                           <button type="submit" name="tmp" value="3">
-                               Use This Template
-                           </button>
-                       </form>
-                   </div>
-               </div>
-           </div>
-           <div class="tempcontainer">
-               <img class="tempimg" src="images/resumeTemplateimg/simpletemp1.jpg" alt="" />
-               <div class="overlay">
-                   <div class="ctext">
-                       <form action="Editor.php" method="post">
-                           <button type="submit" name="tmp" value="3">
-                               Use This Template
-                           </button>
-                       </form>
-                   </div>
-               </div>
-           </div>----->
+           </a>
        </div>
    </div>';
 

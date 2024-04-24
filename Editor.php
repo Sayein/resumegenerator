@@ -883,9 +883,6 @@ session_start();
             skl.style.display = "none";
             editnav.style.display = "block";
             imgdiv.style.width = "100%";
-            // right.style.marginRight = "100px";
-            // right.style.marginLeft = "-100px";
-            //downloadprintbtn.style.display = "flex";
             completebtn.style.display = "grid";
         }
     }
@@ -895,17 +892,12 @@ session_start();
 
     let remove = document.getElementById('remove');
 
-
     function editprslinfo() {
         pi.style.display = "block";
         ed.style.display = "none";
         exp.style.display = "none";
         skl.style.display = "none";
         editnav.style.display = "none";
-        // imgdiv.style.width = "85%";
-        right.style.marginRight = "10px";
-        right.style.marginLeft = "10px";
-        //downloadprintbtn.style.display = "none";
         completebtn.style.display = "none";
     }
 
@@ -917,10 +909,6 @@ session_start();
         exp.style.display = "none";
         skl.style.display = "none";
         editnav.style.display = "none";
-        // imgdiv.style.width = "85%";
-        right.style.marginRight = "10px";
-        right.style.marginLeft = "10px";
-        //downloadprintbtn.style.display = "none";
         completebtn.style.display = "none";
     }
 
@@ -931,10 +919,6 @@ session_start();
         exp.style.display = "none";
         skl.style.display = "none";
         editnav.style.display = "none";
-        // imgdiv.style.width = "85%";
-        right.style.marginRight = "10px";
-        right.style.marginLeft = "10px"
-        //downloadprintbtn.style.display = "none";
         completebtn.style.display = "none";
 
     }
@@ -946,10 +930,6 @@ session_start();
         exp.style.display = "block";
         skl.style.display = "none";
         editnav.style.display = "none";
-        // imgdiv.style.width = "85%";
-        right.style.marginRight = "10px";
-        right.style.marginLeft = "10px"
-        //downloadprintbtn.style.display = "none";
         completebtn.style.display = "none";
     }
 
@@ -960,17 +940,11 @@ session_start();
         exp.style.display = "none";
         skl.style.display = "block";
         editnav.style.display = "none";
-        // imgdiv.style.width = "85%";
-        right.style.marginRight = "10px";
-        right.style.marginLeft = "10px"
-        //downloadprintbtn.style.display = "none";
         completebtn.style.display = "none";
     }
 
 
     // js for realtime diplay of input value in template
-
-
 
     // for first name
     function displayfname() {
