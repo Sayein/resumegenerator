@@ -145,7 +145,7 @@ if(isset($_POST['del'])){
         /* background-color: rgba(0,0,0,0.1);
         border:1px solid black; */
         background-color: lightgray;
-        border:1px solid black;
+        /* border:1px solid black;   border for hover effect is shifting the layout*/
         /* border:1px solid gray; */
         color:white;
         border-radius: 10px;
