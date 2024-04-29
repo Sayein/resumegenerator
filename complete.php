@@ -29,41 +29,6 @@
     }
 
 
-@media (max-width:500px) {
-        #dfname,
-        #dlname,
-        #cont1,
-        #cont2,
-        #cont3,
-        #cont4,
-        #cont5,
-        #sclyr,
-        #degree,
-        #fostdy,
-        #scln,
-        #sclloc,
-        #skls,
-        #lnk,
-        #dlang{
-            width:70px;
-            display: block;
-            overflow-wrap: break-word;
-        }
-
-        #hob{
-            width: 54px;
-            display: block;
-            overflow-wrap: break-word;
-        }
-
-        #profsumry,#cpn,#jbt,#jbsmry{
-            width: 309px;
-            display: block;
-            overflow-wrap: break-word;
-        }
-}
-
-
 /* css to print resume */
 
 @media print {
@@ -194,70 +159,6 @@
         background-color: rgba(0, 0, 0, 0.5);
     }
     
-    /* responsive templates */
-
-    @media (max-width:767px) {
-       /* .tempgrid{
-            transform:scale(0.5);
-        } */
-    }
-
-     /* @media (max-width:540px) {
-      #fname {
-          font-size: 10px !important;
-      }
-
-      .tempcontainer {
-          transform: scale(0.8);
-      }
-
-    }
-
-    @media (max-width:500px) {
-
-        .tempcontainer {
-            transform: scale(0.7);
-        }
-
-    }
-
-
-    @media (max-width:499px){
-        .content {
-            width: 100%;
-            padding:50px 20px 300px 20px;
-    }   
-
-    .centerdiv {
-            margin-top:-200px;
-        }
-
-    }
-
-
-    @media (max-width:370px) {
-        .tempcontainer {
-            transform: scale(0.6);
-        }
-
-        .centerdiv {
-            margin-top:-200px;
-        }
-
-
-    }
-
-    @media (max-width:330px) {
-        .tempcontainer {
-            transform: scale(0.5);
-        }
-
-        .centerdiv {
-            margin-top:-250px;
-        }
-
-    } */
-
     </style>
 </head>
 
@@ -333,7 +234,7 @@
 
 
         html2canvas(frame, {
-            scale: 3
+            scale: 5
         }).then((canvas) => {
             let imgData = canvas.toDataURL('image/jpeg', 1.0);
             let pdf = new jsPDF('p', 'px', [canvas.width * 0.99, canvas.height * 0.99]);
