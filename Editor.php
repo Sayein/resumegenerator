@@ -104,7 +104,7 @@ session_start();
         echo '<!-- left -->
         <div class="left">
             <!-- personal details -->
-            <form action="Editor.php" method="post">
+            <form action="Editor.php" method="post" onsubmit="formSubmitted()">
                     <div class="pi">
                         <h1 >Personal Details</h1>
                         <div class="pcentr">
@@ -1152,7 +1152,16 @@ session_start();
         document.getElementById('dlang').innerHTML = diplayNewAddedLang;
     }
 
+    // as the string returned from this function will not be displayed in the browser as prevents it to display and 
+    // browser display their own defult string value.
+      window.onbeforeunload = function () {
+            return "Are you sure you want to leave? Any unsaved changes will be lost.";
+        };
 
+        // Once the form is submitted, remove the beforeunload event listener
+        function formSubmitted() {
+            window.onbeforeunload = null;
+        }
     </script>
 </body>
 
