@@ -149,7 +149,7 @@
             
         }
 }
-@media (max-width:990px){
+@media (max-width:1039px){
     .tempgrid{
         grid-template-columns: repeat(2,1fr);
         
