@@ -53,6 +53,104 @@ if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
             </a> 
            </div>
            <div class="tempcontainer">
+           <a href="resumeTemplate.php?tmp=1">
+               <img class="tempimg" src="images/resumeTemplateimg/resume1.png" alt="resume1" />
+               <div class="overlay">
+                   <div class="ctext">
+                   <!-- <form action="resumeTemplate.php" method="post"> -->
+                           <button type="submit">
+                               Use This Template
+                           </button> 
+                   <!-- </form> -->
+                   </div>
+               </div>
+            </a> 
+           </div>
+           <div class="tempcontainer">
+           <a href="resumeTemplate.php?tmp=1">
+               <img class="tempimg" src="images/resumeTemplateimg/resume1.png" alt="resume1" />
+               <div class="overlay">
+                   <div class="ctext">
+                   <!-- <form action="resumeTemplate.php" method="post"> -->
+                           <button type="submit">
+                               Use This Template
+                           </button> 
+                   <!-- </form> -->
+                   </div>
+               </div>
+            </a> 
+           </div>
+           <div class="tempcontainer">
+           <a href="resumeTemplate.php?tmp=1">
+               <img class="tempimg" src="images/resumeTemplateimg/resume1.png" alt="resume1" />
+               <div class="overlay">
+                   <div class="ctext">
+                   <!-- <form action="resumeTemplate.php" method="post"> -->
+                           <button type="submit">
+                               Use This Template
+                           </button> 
+                   <!-- </form> -->
+                   </div>
+               </div>
+            </a> 
+           </div>
+           <div class="tempcontainer">
+           <a href="resumeTemplate.php?tmp=1">
+               <img class="tempimg" src="images/resumeTemplateimg/resume1.png" alt="resume1" />
+               <div class="overlay">
+                   <div class="ctext">
+                   <!-- <form action="resumeTemplate.php" method="post"> -->
+                           <button type="submit">
+                               Use This Template
+                           </button> 
+                   <!-- </form> -->
+                   </div>
+               </div>
+            </a> 
+           </div>
+           <div class="tempcontainer">
+           <a href="resumeTemplate.php?tmp=1">
+               <img class="tempimg" src="images/resumeTemplateimg/resume1.png" alt="resume1" />
+               <div class="overlay">
+                   <div class="ctext">
+                   <!-- <form action="resumeTemplate.php" method="post"> -->
+                           <button type="submit">
+                               Use This Template
+                           </button> 
+                   <!-- </form> -->
+                   </div>
+               </div>
+            </a> 
+           </div>
+           <div class="tempcontainer">
+           <a href="resumeTemplate.php?tmp=1">
+               <img class="tempimg" src="images/resumeTemplateimg/resume1.png" alt="resume1" />
+               <div class="overlay">
+                   <div class="ctext">
+                   <!-- <form action="resumeTemplate.php" method="post"> -->
+                           <button type="submit">
+                               Use This Template
+                           </button> 
+                   <!-- </form> -->
+                   </div>
+               </div>
+            </a> 
+           </div>
+           <div class="tempcontainer">
+           <a href="resumeTemplate.php?tmp=1">
+               <img class="tempimg" src="images/resumeTemplateimg/resume1.png" alt="resume1" />
+               <div class="overlay">
+                   <div class="ctext">
+                   <!-- <form action="resumeTemplate.php" method="post"> -->
+                           <button type="submit">
+                               Use This Template
+                           </button> 
+                   <!-- </form> -->
+                   </div>
+               </div>
+            </a> 
+           </div>
+           <div class="tempcontainer">
             <a href="resumeTemplate.php?tmp=2">
                <img class="tempimg" src="images/resumeTemplateimg/resume2.png" alt="" />
                <div class="overlay">
