@@ -104,7 +104,7 @@ session_start();
         echo '<!-- left -->
         <div class="left">
             <!-- personal details -->
-            <form action="Editor.php" method="post" onsubmit="formSubmitted()">
+            <form action="Editor.php" method="post" onsubmit="formSubmitted()" id="editorForm">
                     <div class="pi">
                         <h1 >Personal Details</h1>
                         <div class="pcentr">
@@ -1161,6 +1161,13 @@ session_start();
         // Once the form is submitted, remove the beforeunload event listener
         function formSubmitted() {
             window.onbeforeunload = null;
+        }
+
+        window.onload=()=>{
+            let form=document.getElementById('editorForm');
+            form.onsubmit=(e)=>{
+                e.preventDefault();
+            }
         }
     </script>
 </body>
