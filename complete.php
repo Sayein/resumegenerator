@@ -142,9 +142,10 @@
         gap: 50px;
     }
 
-    .downloadprintbtn button {
+    .download-scan-print-bt, #downloadpdfbtn {
         padding: 10px;
-        width: 150px;
+        /* max-width:150px; */
+        width: 192px;
         height: 50px;
         font-size: 17px;
         border: none;
@@ -155,8 +156,17 @@
         letter-spacing: 1px;
     }
 
-    .downloadprintbtn button:hover {
+    .download-scan-print-bt:hover, #downloadpdfbtn:hover{
         background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .qrimagecontainer{
+        display:grid;
+        place-items:center; 
+    }
+
+    #qrimage{
+        padding-top:20px;
     }
     
     </style>
@@ -193,14 +203,17 @@
         <div class="centerdiv">
             <div class="downloadprintbtn">
                 <div class="downlodbtn">
-                    <button type="submit" onclick="downloadpdf()">Download PDF</button>
+                    <button id="downloadpdfbtn" onclick="downloadpdf()">Download PDF</button>
                 </div>
 
                 <div class="printbtn">
-                    <button onclick="window.print()">Print</button>
+                    <button class="download-scan-print-bt" onclick="window.print()">Print</button>
                 </div>
             </div>
-
+            <div class="qrimagecontainer">
+                <img src="" alt="" id="qrimage">
+                <button class="download-scan-print-bt" onclick="generatorQR()">Scan and Download</button>
+            </div>
         </div>
     </div>';
                 }
@@ -245,6 +258,11 @@
             pdf.save(filename);
 
         });
+    }
+
+    function generatorQR(){
+        let qrimage=document.getElementById('qrimage');
+        qrimage.src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=something";
     }
 
     function adddata() {
