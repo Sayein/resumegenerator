@@ -1,10 +1,10 @@
 <?php
 session_start();
-if(isset($_POST['tmp'])){
-    $template=$_POST['tmp'];
-    $_SESSION['tmp']=$template;
+if(isset($_POST['edit'])){
+    $edittemplate=$_POST['edit'];
+    $_SESSION['edittemplate']=$edittemplate;
 
-    header("Location: Editor.php");
+    header("Location: Editor.php?edit");
 }
 
 if(isset($_POST['del'])){
@@ -247,7 +247,7 @@ if(isset($_POST['del'])){
                                     <div class="ctext">
                                     
                                     <form action="myResume.php" method="post">
-                                    <button name="tmp" value="'.$template.'" ><div class="editwalabtn"> <img src="images/icons/edit.png" alt="Edit" width="30px" height="30px"> </div></button>
+                                    <button name="edit" value="'.$templateid.'"><div class="editwalabtn"> <img src="images/icons/edit.png" alt="Edit" width="30px" height="30px"> </div></button>
                                     </form>
 
                                     <button id="dwnldpdf'.$templateid.'" class="downloadButton"'.$template.'" data-templateno="'.$template.'"><div class="downloadwalabtn"> <img src="images/icons/download.svg" alt="Download" width="30px" height="30px"> </div></button>  
@@ -267,10 +267,10 @@ if(isset($_POST['del'])){
                     echo '<div style="height:100vh; display:grid; place-items:center; padding-top:100px; padding-bottom:200px;">
                             <div>     
                                 <h1 style="text-align:center; max-width:700px; padding:0 20px 0 20px;">You have no resumes yet please create your resume.</h1>
-                                <div class="btngrid"><a href="resumeTemplate.php"><button type="submit" class="herobtn">Create your resume</button></a></div>
+                                <div class="btngrid" id="mbtn"><a href="resumeTemplate.php" class="herobtn">Create your resume</a></div>
                             </div>
                         </div>';
-                                }  
+                    }  
                         
                 
                 
@@ -493,9 +493,6 @@ if(isset($_POST['del'])){
                     </div> 
                 </div>';
         }
-
-
-
 
 ?>
 

@@ -1,18 +1,28 @@
 <?php 
 session_start(); 
 
+$alert=false;
+$error="";
+
   if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
-    $template = $_SESSION['tmp'];  
     $userid=$_SESSION['user_id'];
+    if (isset($_SESSION['tmp'])) {
+        $template = $_SESSION['tmp'];  
+      }
+      elseif (isset($_SESSION['edittemplate'])) {
+        $edittemplate=$_SESSION['edittemplate']; 
+      }
+      else{
+        $alert=true;
+        $error="Please select a template";
+      }
   }
 
-  $alert=false;
-  $error="";
   if(isset($_POST['complete'])){
-//   if($_SERVER['REQUEST_METHOD']=="POST"){
     include "db/config.php";
 
     $tempid=uniqid();
+    $_SESSION['tempid']=$tempid;
     $fname=$_POST['fname'];
     $lname=$_POST['lname'];
     $phonenumber=$_POST['phonenumber'];
@@ -88,20 +98,14 @@ session_start();
     <?php   
 
     if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
-       echo '
+    
+        if(!$alert){
+    
+        echo '
        <!-- Editor -->
     <div class="row">
-      <div class="main">';
-
-            if($alert){
-        
-                echo '<div class="error" id="error">
-                               <h2 style="color:red;">'.$error.'</h2>
-              </div>' ; 
-        
-           } 
-
-        echo '<!-- left -->
+      <div class="main">
+        <!-- left -->
         <div class="left">
             <!-- personal details -->
             <form action="Editor.php" method="post" onsubmit="formSubmitted()" id="editorForm">
@@ -438,16 +442,58 @@ session_start();
                     <!-- resumetemplate -->
                     ';
 
+                    // code for edit feature
+                    $template_files = [
+                        '1' => 'templates/template1.php',
+                        '2' => 'templates/template2.php',
+                        '3' => 'templates/template3.php',
+                    ];
+                            
+                    if (isset($_GET['edit'])) {
+                        include "db/config.php";
+                        $edittemplate=$_SESSION['edittemplate'];  
 
-                        if($template == "1"){
-                        include 'templates/template1.php';
-                        } elseif($template == "2"){
-                        include 'templates/template2.php';
-                        } elseif($template == "3"){
-                        include 'templates/template3.php';
+                        $sql = "SELECT * FROM crbpdata WHERE templateid = '$edittemplate' ";
+                        $result = mysqli_query($conn, $sql);
+                        if(mysqli_num_rows($result) > 0){
+                            while($row = mysqli_fetch_assoc($result)){
+
+                                $templateno=$row['templateno'];
+                                $fname = $row['fname'];
+                                $lname = $row['lname'];
+                                $phn = $row['phonenumber'];
+                                $eml = $row['email'];
+                                $city = $row['city'];
+                                $state = $row['state'];
+                                $country = $row['country'];
+                                $profile = $row['profile'];
+                                $language = $row['language'];
+                                $schoolname = $row['schoolname'];
+                                $schoollocation = $row['schoollocation'];
+                                $degree = $row['degree'];
+                                $year = $row['year'];
+                                $fieldofstudy = $row['fieldofstudy'];
+                                $jobtitle = $row['jobtitle'];
+                                $employer = $row['employer'];
+                                $startyear = $row['startyear'];
+                                $endyear = $row['endyear'];
+                                $jobsummary = $row['jobsummary'];
+                                $skill = $row['skill'];
+                                $skillperncentage = $row['skillperncentage'];
+                                $hobby = $row['hobbies'];
+                                $link = $row['link'];
+
+                            }
+                            if (isset($template_files[$templateno])) {
+                                include $template_files[$templateno];
+                            }
                         }
-
-                    
+                    }
+                    else{                
+                        if (isset($template_files[$template])) {
+                            include $template_files[$template];
+                        }
+                    }                    
 
                     echo '</div>
                 </div>
@@ -474,13 +520,22 @@ session_start();
         </div>
     </div>
        ';
-
     }
+    else{
+        echo '<div style="height:100vh; display:grid; place-items:center; padding-top:100px; padding-bottom:200px;">
+                <div>
+                <h1 style="text-align:center;">Please Select a Template .</h1>
+                <div class="btngrid" id="mbtn"><a href="resumeTemplate.php" class="herobtn">Resume Template</a></div>
+                </div> 
+             </div>';
+        }
+
+ }
     else{
         echo '  <div style="height:100vh; display:grid; place-items:center; padding-top:100px; padding-bottom:200px;">
                     <div>
                         <h1 style="text-align:center;">Please Login To Use Editor .</h1>
-                        <div class="btngrid"><a href="sign.php"><button type="submit" class="herobtn">Login in</button></a></div>
+                        <div class="btngrid" id="mbtn"><a href="resumeTemplate.php" class="herobtn">Log in</a></div>
                     </div> 
                 </div>';
     }
@@ -1152,7 +1207,7 @@ session_start();
         document.getElementById('dlang').innerHTML = diplayNewAddedLang;
     }
 
-    // as the string returned from this function will not be displayed in the browser as prevents it to display and 
+    // as the string returned from this function will not be displayed in the browser, browser prevents it to display and 
     // browser display their own defult string value.
       window.onbeforeunload = function () {
             return "Are you sure you want to leave? Any unsaved changes will be lost.";
@@ -1163,12 +1218,72 @@ session_start();
             window.onbeforeunload = null;
         }
 
-        window.onload=()=>{
-            let form=document.getElementById('editorForm');
-            form.onsubmit=(e)=>{
-                e.preventDefault();
+        // window.onload=()=>{
+        //     let form=document.getElementById('editorForm');
+        //     form.onsubmit=(e)=>{
+        //         e.preventDefault();
+        //     }
+        // }
+
+        <?php 
+       if (isset($_GET['edit'])) {
+            echo"
+            function addeditdata() {
+                document.getElementById('dfname').innerHTML =  '$fname';
+
+                document.getElementById('dlname').innerHTML = '$lname';
+
+                document.getElementById('cont1').innerHTML = '$phn';
+
+                document.getElementById('cont2').innerHTML = '$eml';
+
+                document.getElementById('cont3').innerHTML = '$city';
+
+                document.getElementById('cont5').innerHTML = '$state';
+
+                document.getElementById('profsumry').innerHTML = '$profile';
+
+                document.getElementById('scln').innerHTML = '$schoolname';
+
+                document.getElementById('sclloc').innerHTML = '$schoollocation';
+
+                document.getElementById('degree').innerHTML = '$degree';
+
+                document.getElementById('sclyr').innerHTML = '$year';
+
+                document.getElementById('fostdy').innerHTML = '$fieldofstudy';
+
+                document.getElementById('jbt').innerHTML = '$jobtitle';
+
+                document.getElementById('cpn').innerHTML = '$employer';
+
+                document.getElementById('strtyr').innerHTML = '$startyear';
+
+                document.getElementById('endyr').innerHTML = '$endyear';
+
+                document.getElementById('jbsmry').innerHTML = '$jobsummary';
+
+                document.getElementById('skls').innerHTML = '$skill';
+
+                document.getElementById('sklprtg').innerHTML = '$skillperncentage';
+                let percentage = document.getElementById('sklprtg');
+                width = '$skillperncentage' + '%';
+                percentage.style.width = width;
+
+                document.getElementById('hob').innerHTML = '$hobby';
+
+                document.getElementById('lnk').innerHTML = '$link';
+
+                document.getElementById('dlang').innerHTML = '$language';
             }
+
+            const searchParams = new URLSearchParams(window.location.search);
+            if (searchParams.has('edit')) {
+                addeditdata();
+            }";
         }
+    ?>
+
     </script>
 </body>
 

@@ -1,8 +1,24 @@
 <?php
    session_start();
+   $alert=false;
+   $error="";
+
    if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
-     $template=$_SESSION['tmp'];
-   }  
+     $userid=$_SESSION['user_id'];
+     $token=$_SESSION['token']; 
+     
+     if (isset($_SESSION['tmp'])) {
+        $template = $_SESSION['tmp'];  
+      }
+      elseif (isset($_SESSION['tempid'])) {
+        $templateid=$_SESSION['tempid'];
+      }
+      else{
+        $alert=true;
+        $error="Please select a template";
+      } 
+     
+    }  
 ?>
 
 
@@ -16,6 +32,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="allresumetemplates.css">
     <title>complete</title>
+    <script src="https://kit.fontawesome.com/5e725f22df.js" crossorigin="anonymous"></script>
     <style>
     * {
         margin: 0;
@@ -85,7 +102,7 @@
 
 }
 
-/*css for unautorized users sign in button*/
+    /*css for unautorized users sign in button*/
 
     .btngrid{
         display: grid;
@@ -95,18 +112,10 @@
     }
 
     .herobtn{
-        background-color:#0000FF;
-        outline: none;
-        border: none;
-        padding:15px;
-        width:200px;
-        margin-left: 10px;
-        border-radius: 5px;
-        color:white;
         font-size: 15px;
         font-weight: bolder;
         letter-spacing: 1px;
-        cursor: pointer;
+        padding:12px 50px !important;
     }
 
     .btngrid a{
@@ -144,7 +153,6 @@
 
     .download-scan-print-bt, #downloadpdfbtn {
         padding: 10px;
-        /* max-width:150px; */
         width: 192px;
         height: 50px;
         font-size: 17px;
@@ -169,6 +177,81 @@
         padding-top:20px;
     }
     
+
+    @media(max-width:767px){
+        .qrimagecontainer{
+            display:none;
+        }
+
+    }
+
+    @media(max-width:985px) {
+
+        .downloadprintbtn {
+            display: grid;
+            gap: 20px;
+        }
+
+    }
+
+/* responsive templates */
+
+@media (max-width:540px) {
+#fname {
+  font-size: 10px !important;
+}
+
+.tempcontainer {
+  transform: scale(0.8);
+}
+
+}
+
+@media (max-width:500px) {
+
+.tempcontainer {
+    transform: scale(0.7);
+}
+
+}
+
+
+@media (max-width:499px){
+.content {
+    width: 100%;
+    padding:50px 20px 300px 20px;
+}   
+
+.centerdiv {
+    margin-top:-200px;
+}
+
+}
+
+
+@media (max-width:370px) {
+.tempcontainer {
+    transform: scale(0.6);
+}
+
+.centerdiv {
+    margin-top:-200px;
+}
+
+
+}
+
+@media (max-width:330px) {
+.tempcontainer {
+    transform: scale(0.5);
+}
+
+.centerdiv {
+    margin-top:-250px;
+}
+
+}
+
     </style>
 </head>
 
@@ -180,20 +263,61 @@
     <!-- html for resume template and edit section -->
 <?php
     if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
-       echo '
+        include "db/config.php";
+
+        if (!$alert) {      
+        $templateid=$_SESSION['tempid'];
+        
+        $base_url = 'http://192.168.0.105:80/resumegenerator/db/qrbasedlogin.php';
+        $qr_data = $base_url . '?userid=' . urlencode($userid) . '&token=' . urlencode($token).'&tmp='.urlencode($template). '&tempid='.urlencode($templateid);
+       
+        $sql = "SELECT * FROM crbpdata WHERE templateid = '$templateid' ";
+        $result = mysqli_query($conn, $sql);
+        if(mysqli_num_rows($result) > 0){
+            while($row = mysqli_fetch_assoc($result)){
+
+                $fname = $row['fname'];
+                $lname = $row['lname'];
+                $phn = $row['phonenumber'];
+                $eml = $row['email'];
+                $city = $row['city'];
+                $state = $row['state'];
+                $country = $row['country'];
+                $profile = $row['profile'];
+                $language = $row['language'];
+                $schoolname = $row['schoolname'];
+                $schoollocation = $row['schoollocation'];
+                $degree = $row['degree'];
+                $year = $row['year'];
+                $fieldofstudy = $row['fieldofstudy'];
+                $jobtitle = $row['jobtitle'];
+                $employer = $row['employer'];
+                $startyear = $row['startyear'];
+                $endyear = $row['endyear'];
+                $jobsummary = $row['jobsummary'];
+                $skill = $row['skill'];
+                $skillperncentage = $row['skillperncentage'];
+                $hobby = $row['hobbies'];
+                $link = $row['link'];
+
+            }
+        }
+            
+        echo '
     <div class="content">
         <div class="tempgrid">
             <div class="tempcontainer" id="frame">
                ';
                     
-                    if($template == "1"){
-                    include 'templates/template1.php';
-                    } elseif($template == "2"){
-                    include 'templates/template2.php';
-                    } elseif($template == "3"){
-                    include 'templates/template3.php';
-                    }
-               
+               $template_files = [
+                '1' => 'templates/template1.php',
+                '2' => 'templates/template2.php',
+                '3' => 'templates/template3.php',
+            ];
+
+            if (isset($template_files[$template])) {
+                include $template_files[$template];
+            }               
 
                echo  '
             </div>
@@ -216,14 +340,23 @@
             </div>
         </div>
     </div>';
-                }
+    }
     else{
         echo '<div style="height:100vh; display:grid; place-items:center; padding-top:100px; padding-bottom:200px;">
-        <div>
-           <h1 style="text-align:center;">Please Login To Use This Page.</h1>
-           <div class="btngrid"><a href="sign.php"><button type="submit" class="herobtn">Login in</button></a></div>
-        </div> 
-     </div>';
+                <div>
+                    <h1 style="text-align:center;">Please select a Template.</h1>
+                    <div class="btngrid" id="mbtn"><a href="resumeTemplate.php" class="herobtn">Resume Template</a></div>
+                </div> 
+              </div>';
+        }
+}
+    else{
+        echo '<div style="height:100vh; display:grid; place-items:center; padding-top:100px; padding-bottom:200px;">
+                    <div>
+                        <h1 style="text-align:center;">Please login to view your resume.</h1>
+                        <div class="btngrid" id="mbtn"><a href="sign.php" class="herobtn">Login in</a></div>
+                    </div> 
+                </div>';
     }
 ?>
 
@@ -231,7 +364,8 @@
      include('headfoot/footer.php');
 ?>
     <script src="headfoot/script.js"></script>
-
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <!-- jspsdf and html2canvas -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"
         integrity="sha512-1g3IT1FdbHZKcBVZzlk4a4m5zLRuBjMFMxub1FeIRvR+rhfqHFld9VFXXBYe66ldBWf+syHHxoZEbZyunH6Idg=="
@@ -262,84 +396,69 @@
 
     function generatorQR(){
         let qrimage=document.getElementById('qrimage');
-        qrimage.src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=something";
+        qrimage.src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=<?php echo urlencode($qr_data) ?>";
     }
 
+    const searchParams = new URLSearchParams(window.location.search);
+    if (searchParams.has('pdf')) {
+        setTimeout(() => {
+            downloadpdf();
+        }, 1000);
+    }
+ 
+
+    <?php echo"
     function adddata() {
-        const dfname = localStorage.getItem('fname');
-        document.getElementById('dfname').innerHTML = dfname;
+        document.getElementById('dfname').innerHTML =  '$fname';
 
-        const dlname = localStorage.getItem('lname');
-        document.getElementById('dlname').innerHTML = dlname;
+        document.getElementById('dlname').innerHTML = '$lname';
 
-        const dphone = localStorage.getItem('phone');
-        document.getElementById('cont1').innerHTML = dphone;
+        document.getElementById('cont1').innerHTML = '$phn';
 
-        const demail = localStorage.getItem('email');
-        document.getElementById('cont2').innerHTML = demail;
+        document.getElementById('cont2').innerHTML = '$eml';
 
-        const dcity = localStorage.getItem('city');
-        document.getElementById('cont3').innerHTML = dcity;
+        document.getElementById('cont3').innerHTML = '$city';
 
-        const dcountry = localStorage.getItem('country');
-        document.getElementById('cont5').innerHTML = dcountry;
+        document.getElementById('cont5').innerHTML = '$state';
 
-        const dprfsmry = localStorage.getItem('prfsumry');
-        document.getElementById('profsumry').innerHTML = dprfsmry;
+        document.getElementById('profsumry').innerHTML = '$profile';
 
-        const dsclname = localStorage.getItem('sclname');
-        document.getElementById('scln').innerHTML = dsclname;
+        document.getElementById('scln').innerHTML = '$schoolname';
 
-        const dsclloc = localStorage.getItem('sclloc');
-        document.getElementById('sclloc').innerHTML = dsclloc;
+        document.getElementById('sclloc').innerHTML = '$schoollocation';
 
-        const ddegree = localStorage.getItem('degree');
-        document.getElementById('degree').innerHTML = ddegree;
+        document.getElementById('degree').innerHTML = '$degree';
 
-        const dsclyer = localStorage.getItem('sclyer');
-        document.getElementById('sclyr').innerHTML = dsclyer;
+        document.getElementById('sclyr').innerHTML = '$year';
 
-        const dfost = localStorage.getItem('fost');
-        document.getElementById('fostdy').innerHTML = dfost;
+        document.getElementById('fostdy').innerHTML = '$fieldofstudy';
 
-        const djbtl = localStorage.getItem('jbtl');
-        document.getElementById('jbt').innerHTML = djbtl;
+        document.getElementById('jbt').innerHTML = '$jobtitle';
 
-        const demployr = localStorage.getItem('employr');
-        document.getElementById('cpn').innerHTML = demployr;
+        document.getElementById('cpn').innerHTML = '$employer';
 
-        const dstrtdate = localStorage.getItem('strtdate');
-        document.getElementById('strtyr').innerHTML = dstrtdate;
+        document.getElementById('strtyr').innerHTML = '$startyear';
 
-        const denddate = localStorage.getItem('enddate');
-        document.getElementById('endyr').innerHTML = denddate;
+        document.getElementById('endyr').innerHTML = '$endyear';
 
-        const djobsumary = localStorage.getItem('jobsumary');
-        document.getElementById('jbsmry').innerHTML = djobsumary;
+        document.getElementById('jbsmry').innerHTML = '$jobsummary';
 
-        const dskill = localStorage.getItem('skill');
-        document.getElementById('skls').innerHTML = dskill;
+        document.getElementById('skls').innerHTML = '$skill';
 
-        const dskillp = localStorage.getItem('skillp');
-        document.getElementById('sklprtg').innerHTML = dskillp;
+        document.getElementById('sklprtg').innerHTML = '$skillperncentage';
         let percentage = document.getElementById('sklprtg');
-        width = dskillp + '%';
+        width = '$skillperncentage' + '%';
         percentage.style.width = width;
 
 
-        const dhoby = localStorage.getItem('hobby');
-        document.getElementById('hob').innerHTML = dhoby;
+        document.getElementById('hob').innerHTML = '$hobby';
 
-        const dlink = localStorage.getItem('link');
-        document.getElementById('lnk').innerHTML = dlink;
+        document.getElementById('lnk').innerHTML = '$link';
 
-        const dlang = localStorage.getItem('lang');
-        document.getElementById('dlang').innerHTML = dlang;
+        document.getElementById('dlang').innerHTML = '$language';
+    }";
 
-
-
-    }
-
+    ?>
 
     </script>
 </body>

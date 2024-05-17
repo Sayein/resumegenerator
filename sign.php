@@ -5,13 +5,15 @@ $success=false;
 $error="";
 if($_SERVER["REQUEST_METHOD"]=="POST"){
   include "./db/config.php";
-	
+
   $userid=uniqid();
  
   $email=$_POST['remail'];
   $pass=$_POST['rpassword'];
   $cpass=$_POST['cpassword'];
-  
+//   $userid=uniqid();
+  $token = bin2hex(random_bytes(16));
+
   $existuser="SELECT * FROM `crbpusers` WHERE email='$email'";
   $result=mysqli_query($conn,$existuser);
   $numrow=mysqli_num_rows($result);
@@ -32,7 +34,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     }
     elseif($pass==$cpass){
        $hash=password_hash($pass, PASSWORD_DEFAULT);
-       $sql="INSERT INTO `crbpusers` (`user_id`, `email`, `password`, `dt`) VALUES ('$userid', '$email', '$hash', current_timestamp())";
+       $sql="INSERT INTO `crbpusers` (`user_id`, `token`, `email`, `password`, `dt`) VALUES ('$userid', '$token', '$email', '$hash', current_timestamp())";
        $result=mysqli_query($conn,$sql);
        if($result){
         header("Location: ./sign.php?success2");
@@ -43,6 +45,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         $error="Passwords donot match !";
         
      }
+
     }
    }
 
@@ -53,6 +56,10 @@ if(isset($_GET['false1']) && $_GET['false1']=="true"){
 elseif(isset($_GET['false2'])){
     $alert=true;
     $error="User does not exist !";
+}
+elseif(isset($_GET['false3'])){
+    $alert=true;
+    $error="Invalid user";
 }
 elseif(isset($_GET["success"])){
     $success=true;

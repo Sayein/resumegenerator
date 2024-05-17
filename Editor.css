@@ -87,9 +87,9 @@ border: 2px solid grey;
 
 }
 
-/*css for unautorized users sign in button*/
+ /*css for unautorized users sign in button*/
 
-.btngrid{
+ .btngrid{
     display: grid;
     width: 100%;
     justify-content: center;
@@ -97,25 +97,16 @@ border: 2px solid grey;
 }
 
 .herobtn{
-    background-color:#0000FF;
-    outline: none;
-    border: none;
-    padding:15px;
-    width:200px;
-    margin-left: 10px;
-    border-radius: 5px;
-    color:white;
     font-size: 15px;
     font-weight: bolder;
     letter-spacing: 1px;
-    cursor: pointer;
+    padding:12px 50px !important;
 }
 
 .btngrid a{
     text-decoration: none;
 
 }
-
 
 /* css for add button */
 

@@ -14,10 +14,12 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         while($row=mysqli_fetch_assoc($result)){
           if(password_verify($pass,$row['password'])){   
             $userid=$row['user_id'];
+            $token=$row['token'];
             session_start();
             $_SESSION['loggedin']=true;       
             $_SESSION['email']=$email;
             $_SESSION['user_id']=$userid;
+            $_SESSION['token']=$token;
             
             header("location: ../index.php");
           }

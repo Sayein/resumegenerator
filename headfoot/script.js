@@ -62,64 +62,6 @@ function login() {
 
 
 
-// let modal = document.getElementById("btns");
-
-// let openm = document.getElementById("mbtn");
-
-// let closem = document.getElementsByClassName("close")[0];
-
-// let loginform=document.getElementById("login");
-
-// let registerform=document.getElementById("register");
-
-
-// openm.onclick = function () {
-//     modal.style.zIndex = "110000";
-//     document.body.style.overflow = "hidden";
-//     modal.style.display = "block";
-// }
-
-// closem.onclick = function () {
-//     modal.style.display = "none";
-//     document.body.style.overflow = "scroll";
-// }
-
-
-// registerform.addEventListener('submit', function(event) {
-//     event.preventDefault(); // prevent the form from submitting normally
-  
-//     const email=document.getElementById("remail").value;
-
-//     const pass=document.getElementById("rpassword").value;
-  
-//     // TODO: Perform additional validation on the email and password fields if needed
-  
-//     // Make an AJAX request to the server to validate the user's credentials
-//     const xhr = new XMLHttpRequest();
-//     xhr.open('POST', 'loginregistermodal.php');
-//     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-//     xhr.onload = function() {
-//       if (xhr.status === 200) {
-//         const response = JSON.parse(xhr.responseText);
-//         if (response.success) {
-//           // Login was successful, update the page as needed
-//         } else {
-//           // Login failed, display an error message to the user
-//           const errorMessage = document.getElementById('register-error');
-//           errorMessage.innerHTML = 'Invalid email or password.';
-//           errorMessage.style.display = 'block';
-//         }
-//       } else {
-//         // There was an error making the AJAX request
-//         console.error('Error:', xhr.statusText);
-//       }
-//     };
-//     xhr.onerror = function() {
-//       // There was a network error
-//       console.error('Error:', xhr.statusText);
-//     };
-//     xhr.send('email=' + encodeURIComponent(email) + '&password=' + encodeURIComponent(password));
-//   });
 
 
 
