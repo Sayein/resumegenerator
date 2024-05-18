@@ -253,7 +253,7 @@ if(isset($_POST['del'])){
                                     <button id="dwnldpdf'.$templateid.'" class="downloadButton"'.$template.'" data-templateno="'.$template.'"><div class="downloadwalabtn"> <img src="images/icons/download.svg" alt="Download" width="30px" height="30px"> </div></button>  
                                     
                                     <form action="myResume.php" method="post">
-                                    <button name="del" value="'.$templateid.'"><div class="deletewalabtn"> <img src="images/icons/delete.png" alt="Delete" width="30px" height="30px"> </div></button>
+                                    <button name="del" value="'.$templateid.'" onclick="deletebtn"><div class="deletewalabtn"> <img src="images/icons/delete.png" alt="Delete" width="30px" height="30px"> </div></button>
                                     </form>
                                    
                                     </div>
@@ -472,10 +472,10 @@ if(isset($_POST['del'])){
                         });
                 
                  });
-    
+ 
             
 
-                    </script>";
+                    </script>";   
                             
             }
 

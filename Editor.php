@@ -1239,7 +1239,9 @@ $error="";
 
                 document.getElementById('cont3').innerHTML = '$city';
 
-                document.getElementById('cont5').innerHTML = '$state';
+                document.getElementById('cont4').innerHTML = '$state';
+
+                document.getElementById('cont5').innerHTML = '$country';
 
                 document.getElementById('profsumry').innerHTML = '$profile';
 
@@ -1275,6 +1277,79 @@ $error="";
                 document.getElementById('lnk').innerHTML = '$link';
 
                 document.getElementById('dlang').innerHTML = '$language';
+                
+
+                // code to add all the data in respective fields 
+
+                const fname = document.getElementById('fname');
+                fname.value='$fname';  
+                 
+                const lname = document.getElementById('lname');
+                lname.value='$lname';
+
+                const phone = document.getElementById('phonenumber');
+                phone.value='$phn';
+
+                const email = document.getElementById('email');
+                email.value='$eml';
+
+                const city = document.getElementById('city');
+                city.value='$city';
+
+                const state = document.getElementById('state');
+                state.value='$state';
+
+                const country = document.getElementById('country');
+                country.value='$country';
+
+                const prfsmry = document.getElementById('profilesummary');
+                prfsmry.value='$profile';
+
+                const sclname = document.getElementById('schoolname');
+                sclname.value='$schoolname';
+                
+                const sclloc = document.getElementById('schoollocation');
+                sclloc.value='$schoollocation';
+
+                const degree = document.getElementById('degree');
+                degree.value='$degree';
+
+                const sclyer = document.getElementById('year');
+                sclyer.value='$year';
+
+                const fost = document.getElementById('fieldofstudy');
+                fost.value='$fieldofstudy';
+
+                const jbtl = document.getElementById('jobtitle');
+                jbtl.value='$jobtitle';
+
+                const employr = document.getElementById('employer');
+                employr.value='$employer';
+
+                const strtdate = document.getElementById('startyear');
+                strtdate.value='$startyear';
+
+                const enddate = document.getElementById('endyear');
+                enddate.value='$endyear';
+
+                const jobsumary = document.getElementById('jobsummary');
+                jobsumary.value='$jobsummary';
+
+                const skill = document.getElementById('skl');
+                skill.value='$skill';
+
+                const skillp = document.getElementById('skillpercentage');
+                skillp.value='$skillperncentage';
+
+                const hoby = document.getElementById('hobby');
+                hoby.value='$hobby';
+
+                const link = document.getElementById('links');
+                link.value='$link';
+
+                const lang = document.getElementById('language');
+                lang.value='$language';
+
             }
 
             const searchParams = new URLSearchParams(window.location.search);
