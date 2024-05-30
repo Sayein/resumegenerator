@@ -77,6 +77,54 @@ if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
                </a>
            </div>
            <div class="tempcontainer">
+            <a href="resumeTemplate.php?tmp=3">
+               <img class="tempimg" src="images/resumeTemplateimg/temp3.jpg" alt="" />
+               <div class="overlay">
+                   <div class="ctext">
+                           <button type="submit">
+                               Use This Template
+                           </button>
+                   </div>
+               </div>
+               </a>
+           </div>
+           <div class="tempcontainer">
+            <a href="resumeTemplate.php?tmp=3">
+               <img class="tempimg" src="images/resumeTemplateimg/temp3.jpg" alt="" />
+               <div class="overlay">
+                   <div class="ctext">
+                           <button type="submit">
+                               Use This Template
+                           </button>
+                   </div>
+               </div>
+               </a>
+           </div>
+           <div class="tempcontainer">
+            <a href="resumeTemplate.php?tmp=3">
+               <img class="tempimg" src="images/resumeTemplateimg/temp3.jpg" alt="" />
+               <div class="overlay">
+                   <div class="ctext">
+                           <button type="submit">
+                               Use This Template
+                           </button>
+                   </div>
+               </div>
+               </a>
+           </div>
+           <div class="tempcontainer">
+            <a href="resumeTemplate.php?tmp=3">
+               <img class="tempimg" src="images/resumeTemplateimg/temp3.jpg" alt="" />
+               <div class="overlay">
+                   <div class="ctext">
+                           <button type="submit">
+                               Use This Template
+                           </button>
+                   </div>
+               </div>
+               </a>
+           </div>
+           <div class="tempcontainer">
             <a href="resumeTemplate.php?tmp=4">
                <img class="tempimg" src="images/resumeTemplateimg/resume1.png" alt="" />
                <div class="overlay">

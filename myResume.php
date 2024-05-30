@@ -253,7 +253,55 @@ if(isset($_POST['del'])){
                                     <button id="dwnldpdf'.$templateid.'" class="downloadButton"'.$template.'" data-templateno="'.$template.'"><div class="downloadwalabtn"> <img src="images/icons/download.svg" alt="Download" width="30px" height="30px"> </div></button>  
                                     
                                     <form action="myResume.php" method="post">
-                                    <button name="del" value="'.$templateid.'"><div class="deletewalabtn"> <img src="images/icons/delete.png" alt="Delete" width="30px" height="30px"> </div></button>
+                                        <button onclick="showConfirmation()" name="del" value="'.$templateid.'">
+                                            <img src="images/icons/delete.png" alt="Delete" width="30px" height="30px">
+                                            </button>
+                                            <!-- Confirmation popover -->
+                                        <div id="confirmation-popover" class="popover">
+                                           <p>Are you sure you want to delete this resume?</p>
+                                           <button id="confirm-yes">Yes</button>
+                                           <button id="confirm-no">No</button>
+                                       
+                                       </body>
+                                       </html>
+                                       
+                                       <script>
+                                           function showConfirmation(button , resumeId){  
+                                              let popover = document.getElementById("confirmation-popover");
+                                              let yesbutton = document.getElementById("confirm-yes");
+                                              let nobutton = document.getElementById("confirm-no"); 
+                                       
+                                             
+                                       
+                                           popover.setAttribute("data-resume-id", resumeId);
+                                       
+                                           popover.style.display = "block";
+                                           
+                                           yesButton.onclick = function() {
+                                               deleteResume();
+                                               hideConfirmation();
+                                           };
+                                       
+                                           noButton.onclick = function() {
+                                               hideConfirmation();
+                                           };
+                                        }
+                                        function hideConfirmation() {
+                                           let popover = document.getElementById("confirmation-popover");
+                                           popover.style.display = "none";
+                                       }
+                                       
+                                       function deleteResume() {
+                                           let popover = document.getElementById("confirmation-popover");
+                                           let resumeId = popover.getAttribute("data-resume-id");
+                                       
+                                           console.log("Resume with ID " + resumeId + " has been deleted.");
+                                           let button = document.querySelector("button[data-resume-id= " + $templateid + " ]");
+                                           if (button) {
+                                               button.parentNode.removeChild(button);
+                                           }
+                                       }
+                                       </script>
                                     </form>
                                    
                                     </div>
