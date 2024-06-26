@@ -41,16 +41,16 @@ echo '
 
         <div class="contactinfo education">
             <h3 class="title">education</h3>
-            <ul>
+            <ul id="templateducation">
                 <li>
                     <h5 class="cdyear1" id="sclyr">2010-2015</h5>
-                    <h4 class="cddegree1" id="degree">Master Degree yrtyrty</h4>
+                    <h4 class="cddegree1" id="degree1">Master Degree</h4>
                     <h4 class="cdfos1" id="fostdy">something</h4>
                     <h4 class="cdsclname1" id="scln">holy cow college</h4>
                     <h4 class="cdsclloc1" id="sclloc">france</h4>
                 </li>
 
-                <li>
+                <li class="dummyeducationtext">
                     <h5 id="sclyr">2015-2019</h5>
                     <h4 id="degree">Master Degree jkhjiyui</h4>
                     <h4 id="fostdy">something1</h4>
@@ -58,7 +58,7 @@ echo '
                     <h4 id="sclloc">london</h4>
                 </li>
 
-                <li>
+                <li class="dummyeducationtext">
                     <h5 id="sclyr">2019-2022</h5>
                     <h4 id="degree">Master Degree in Computer Scrience</h4>
                     <h4 id="fostdy">computer science</h4>
@@ -71,19 +71,17 @@ echo '
 
         <div class="contactinfo languages">
             <h3 class="title">languages</h3>
-            <ul>
+            <ul id="templatelanguages">
                 <li>
                     <span class="cdlang1 text" id="dlang">Hindi</span>
                 </li>
 
-                <li>
+                <li class="dummytext">
                     <span class="text">English</span>
-
                 </li>
 
-                <li>
+                <li class="dummytext">
                     <span class="text">Tamil</span>
-    
                 </li>
 
             </ul>
@@ -102,9 +100,9 @@ echo '
                       officiis iure dolorem consequuntur inventore harum rerum maxime.
                       Id minima excepturi enim porro aspernatur.</p>  
     </div>  
-        <div class="about">
+        <div class="about" id="templatexperience">
             <h2 class="title2">Experience</h2>
-            <div class="box">
+            <div class="box" id="templatexperiencecontainer">
                 <div class="yearcompany">
                 <h5><span id="strtyr" class="cdstrtyear1">2019 </span> - <span id="endyr" class="cdendyear1"> 2020</span></h5>
                     <h5 id="cpn" class="cdcnp1">Company Name</h5>
@@ -116,7 +114,7 @@ echo '
                         quibusdam corporis atque facere minus omnis non. Aliquam, itaque!</p>
                 </div>
             </div>
-            <div class="box" id="remove">
+            <div class="box dummyexperincetext">
                 <div class="yearcompany">
                     <h5> 2017 - 2026</h5>
                     <h5>Company Name</h5>
@@ -131,30 +129,30 @@ echo '
         </div>
         <!-- pro skills -->
 
-        <div class="about skills">
+        <div class="about skills" id="templateskill">
             <h2 class="title2">professional skills</h2>
-            <div class="box">
+            <div class="box" id="templateskillcontainer">
                 <h4 id="skls" class="cdskl1">HTML</h4>
                 <div class="percent">
                     <div id="sklprtg" class="cdsklp1"></div>
                 </div>
             </div>
 
-            <div class="box" id="remove">
+            <div class="box dummyskilltext" id="remove">
                 <h4 id="skls1">CSS</h4>
                 <div class="percent">
                     <div id="sklprtg1"></div>
                 </div>
             </div>
 
-            <div class="box" id="remove">
+            <div class="box dummyskilltext" id="remove">
                 <h4 id="skls2">JAVASCRIPT</h4>
                 <div class="percent">
                     <div id="sklprtg2"></div>
                 </div>
             </div>
 
-            <div class="box" id="remove">
+            <div class="box dummyskilltext" id="remove">
                 <h4 id="skls3">PHP</h4>
                 <div class="percent">
                     <div id="sklprtg3"></div>
@@ -164,21 +162,21 @@ echo '
 
         <div class="about-links">
             <h2 class="title2">Links</h2>
-            <ul>
+            <ul id="templatelinks">
                 <li id="lnk" class="cdlnk1">www.LinkedIn.com</li>
-                <li id="lnk1" id="remove">www.Facebook.com</li>
-                <li id="lnk2" id="remove">www.Instagram.com</li>
-                <li id="lnk3" id="remove">www.Github.com</li>
+                <li class="dummylinkstext" id="lnk1 remove">www.Facebook.com</li>
+                <li class="dummylinkstext" id="lnk2 remove">www.Instagram.com</li>
+                <li class="dummylinkstext" id="lnk3 remove">www.Github.com</li>
             </ul>
         </div>
 
-        <div class="about interest" >
+        <div class="about interest">
             <h2 class="title2">Intrest</h2>
-            <ul>
+            <ul id="templatehobby">
                 <li id="hob" class="cdhob1">Reading</li>
-                <li id="hob1" id="remove">Writing</li>
-                <li id="hob2" id="remove">Cooking</li>
-                <li id="hob3" id="remove">Swimming</li>
+                <li class="dummyhobbytext" id="hob1 remove">Writing</li>
+                <li class="dummyhobbytext" id="hob2 remove">Cooking</li>
+                <li class="dummyhobbytext" id="hob3 remove">Swimming</li>
             </ul>
         </div>
 

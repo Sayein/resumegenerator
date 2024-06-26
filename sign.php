@@ -8,10 +8,19 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
   $userid=uniqid();
  
-  $email=$_POST['remail'];
-  $pass=$_POST['rpassword'];
-  $cpass=$_POST['cpassword'];
-//   $userid=uniqid();
+//   $email=$_POST['remail'];
+//   $pass=$_POST['rpassword'];
+//   $cpass=$_POST['cpassword'];
+
+  $sanetizemail=$_POST['remail'];
+  $email= filter_var($sanetizemail, FILTER_SANITIZE_EMAIL);
+
+  $sanetizepass=$_POST['rpassword'];
+  $pass= filter_var($sanetizepass, FILTER_SANITIZE_STRING);
+
+  $sanetizecpass=$_POST['cpassword'];
+  $cpass=filter_var($sanetizecpass, FILTER_SANITIZE_STRING);
+  
   $token = bin2hex(random_bytes(16));
 
   $existuser="SELECT * FROM `crbpusers` WHERE email='$email'";

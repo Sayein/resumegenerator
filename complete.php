@@ -19,6 +19,7 @@
       } 
      
     }  
+
 ?>
 
 
@@ -284,25 +285,57 @@
                 $state = $row['state'];
                 $country = $row['country'];
                 $profile = $row['profile'];
-                $language = $row['language'];
-                $schoolname = $row['schoolname'];
-                $schoollocation = $row['schoollocation'];
-                $degree = $row['degree'];
-                $year = $row['year'];
-                $fieldofstudy = $row['fieldofstudy'];
-                $jobtitle = $row['jobtitle'];
-                $employer = $row['employer'];
-                $startyear = $row['startyear'];
-                $endyear = $row['endyear'];
-                $jobsummary = $row['jobsummary'];
-                $skill = $row['skill'];
-                $skillperncentage = $row['skillperncentage'];
-                $hobby = $row['hobbies'];
-                $link = $row['link'];
 
+                $language = $row['language'];
+                $languages = explode(',', $language);
+
+                $schoolname = $row['schoolname'];
+                $schoolnames = explode(',', $schoolname);
+
+                $schoollocation = $row['schoollocation'];
+                $schoollocations = explode(',', $schoollocation);
+
+                $degree = $row['degree'];
+                $degrees = explode(',', $degree);
+
+                $year = $row['year'];
+                $years = explode(',', $year);
+
+                $fieldofstudy = $row['fieldofstudy'];
+                $fieldofstudys = explode(',', $fieldofstudy);
+                
+                $jobtitle = $row['jobtitle'];
+                $jobtitles = explode(',', $jobtitle);
+
+                $employer = $row['employer'];
+                $employers = explode(',', $employer);
+
+                $startyear = $row['startyear'];
+                $startyears = explode(',', $startyear);
+
+                $endyear = $row['endyear'];
+                $endyears = explode(',', $endyear);
+
+                $jobsummary = $row['jobsummary'];
+                $jobsummarys = explode(',', $jobsummary);
+
+                $skill = $row['skill'];
+                $skills = explode(',', $skill);
+
+                $skillperncentage = $row['skillperncentage'];
+                $skillperncentages = explode(',', $skillperncentage);
+
+                $hobby = $row['hobbies'];
+                $hobbys = explode(',', $hobby);
+
+                $link = $row['link'];
+                $links = explode(',', $link);
+             
             }
         }
-            
+        
+
+
         echo '
     <div class="content">
         <div class="tempgrid">
@@ -406,9 +439,166 @@
         }, 1000);
     }
  
+    // dynamic language data insertion
+    let languagesArray=<?php echo json_encode($languages); ?>;
+    document.querySelectorAll('.dummytext').forEach(element => element.remove());
+    document.querySelectorAll('.cdlang1').forEach(element => element.remove());
+    for(let i=0; i<languagesArray.length; i++){
+            // let newtemplatelanguagesnode = `<li><span class='cdlang1 text' id='dlang'>Hindi</span></li>`;
+            let newtemplatelanguagesnode = `<li><span class='cdlang1 text' id='dlang'>${languagesArray[i]}</span></li>`;
+            let templatelanguages = document.getElementById('templatelanguages');
+            templatelanguages.insertAdjacentHTML('beforeend', newtemplatelanguagesnode);
+        }
+
+
+    // dynamic education data insertion    
+    let schoolnamesArray=<?php echo json_encode($schoolnames); ?>;
+    document.querySelectorAll('.dummyeducationtext').forEach(element => element.remove());
+    document.querySelectorAll('#templateducation li').forEach(element => element.remove());
+    for(let i=0; i<schoolnamesArray.length; i++){
+    let newtemplateducationode = `
+            <li class="newtemplateducationcreatednode">
+                <h5 class="cdyear1" id="sclyr">2010-2015</h5>
+                <h4 class="cddegree1" id="degree1">Master Degree</h4>
+                <h4 class="cdfos1" id="fostdy">something</h4>
+                <h4 class="cdsclname1" id="scln">${schoolnamesArray[i]}e</h4>
+                <h4 class="cdsclloc1" id="sclloc">france</h4>
+            </li>
+    `;
+    let templateducation = document.getElementById('templateducation');
+    templateducation.insertAdjacentHTML('beforeend', newtemplateducationode);      
+    }
+
+    // for school location
+    let schoolLocationsArray=<?php echo json_encode($schoollocations); ?>;
+    let displaySchoolLocationText = document.querySelectorAll('#sclloc');
+    for(let i=0; i<schoolLocationsArray.length; i++){
+        displaySchoolLocationText[i].textContent = schoolLocationsArray[i];
+    }
+
+    // for degree
+    let degreesArray=<?php echo json_encode($degrees); ?>;
+    let displayDegreeText = document.querySelectorAll('#degree1');
+    for(let i=0; i<degreesArray.length; i++){
+        displayDegreeText[i].textContent = degreesArray[i];
+    }
+
+    // for year
+    let yearsArray=<?php echo json_encode($years); ?>;
+    let displayDegreeYearsText = document.querySelectorAll('#sclyr');
+    for(let i=0; i<yearsArray.length; i++){
+        displayDegreeYearsText[i].textContent = yearsArray[i];
+    }
+
+    // for field of study
+    let fieldofstudysArray=<?php echo json_encode($fieldofstudys); ?>;
+    let displayFieldOfStudyText = document.querySelectorAll('#fostdy');
+    for(let i=0; i<fieldofstudysArray.length; i++){
+        displayFieldOfStudyText[i].textContent = fieldofstudysArray[i];
+    }
+
+
+    // dynamic experience data insertion
+    let jobtitlesArray=<?php echo json_encode($jobtitles); ?>;
+    document.querySelectorAll('.dummyexperincetext').forEach(element => element.remove());
+    document.querySelectorAll('.box').forEach(element => element.remove());
+    for(let i=0; i<jobtitlesArray.length; i++){
+        let newtemplatexperiencenode = `
+                    <div class="box newtemplatexperiencecreatednode">
+                        <div class="yearcompany">
+                            <h5><span id="strtyr" class="cdstrtyear1">2019 </span> - <span id="endyr" class="cdendyear1"> 2020</span></h5>
+                            <h5 id="cpn" class="cdcnp1">Company Name</h5>
+                        </div>
+                        <div class="text">
+                            <h4 id="jbt" class="cdjbt1">${jobtitlesArray[i]}</h4>
+                            <p id="jbsmry"  class="cdjbsmry1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut asperiores
+                                eum,
+                                quibusdam corporis atque facere minus omnis non. Aliquam, itaque!</p>
+                        </div>
+                    </div>
+            `;
+            let templatexperience = document.getElementById('templatexperience');
+            templatexperience.insertAdjacentHTML('beforeend', newtemplatexperiencenode);  
+    }
+
+    // for employers/ company name
+    let employersArray=<?php echo json_encode($employers); ?>;
+    let displayEmployersText = document.querySelectorAll('#cpn');
+    for(let i=0; i<employersArray.length; i++){
+        displayEmployersText[i].textContent = employersArray[i];
+    }
+
+    // for start date
+    let startyearsArray=<?php echo json_encode($startyears); ?>;
+    let displayStartYearText = document.querySelectorAll('#strtyr');
+    for(let i=0; i<startyearsArray.length; i++){
+        displayStartYearText[i].textContent = startyearsArray[i];
+    }
+
+    // for end date
+    let endyearsArray=<?php echo json_encode($endyears); ?>;
+    let displayEndYearText = document.querySelectorAll('#endyr');
+    for(let i=0; i<endyearsArray.length; i++){
+        displayEndYearText[i].textContent = endyearsArray[i];
+    }
+
+    // for summary of job
+    let jobsummarysArray=<?php echo json_encode($jobsummarys); ?>;
+    let displayJobSumaryText = document.querySelectorAll('#jbsmry');
+    for(let i=0; i<jobsummarysArray.length; i++){
+        displayJobSumaryText[i].textContent = jobsummarysArray[i];
+    }
+
+    // dynamic skill data insertion
+    let skillsArray=<?php echo json_encode($skills); ?>;
+    document.querySelectorAll('.dummyskilltext').forEach(element => element.remove());
+    // document.querySelectorAll('.box').forEach(element => element.remove());
+    for(let i=0; i<skillsArray.length; i++){
+        let newtemplateskillnode = `
+                    <div class="box newtemplateskillcreatednode">
+                            <h4 id="skls" class="cdskl1">${skillsArray[i]}</h4>
+                            <div class="percent">
+                                <div id="sklprtg" class="cdsklp1"></div>
+                            </div>
+                    </div>
+            `;
+            let templateskill = document.getElementById('templateskill');
+            templateskill.insertAdjacentHTML('beforeend', newtemplateskillnode);
+    }
+
+    // for summary of job
+    let skillperncentagesArray=<?php echo json_encode($skillperncentages); ?>;
+    let displaySkillPercentageText = document.querySelectorAll('#sklprtg');
+    for(let i=0; i<skillperncentagesArray.length; i++){
+        displaySkillPercentageText[i].style.width = skillperncentagesArray[i]+'%';
+    }
+
+
+    // for dynamic links data insertion
+    let linksArray=<?php echo json_encode($links); ?>;
+    document.querySelectorAll('.dummylinkstext').forEach(element => element.remove());
+    document.querySelectorAll('.cdlnk1').forEach(element => element.remove());
+    for(let i=0; i<linksArray.length; i++){
+        let newtemplatelinksnode = `<li id="lnk" class="cdlnk1">${linksArray[i]}</li>`;
+            let templatelinks = document.getElementById('templatelinks');
+            templatelinks.insertAdjacentHTML('beforeend', newtemplatelinksnode);
+    }
+
+
+    // for dynamic hobby data insertion
+    let hobbysArray=<?php echo json_encode($hobbys); ?>;
+    document.querySelectorAll('.dummyhobbytext').forEach(element => element.remove());
+    document.querySelectorAll('.cdhob1').forEach(element => element.remove());
+    for(let i=0; i<hobbysArray.length; i++){
+        let newtemplatehobbynode = `<li id="hob" class="cdhob1">${hobbysArray[i]}</li>`;
+                let templatehobby = document.getElementById('templatehobby');
+                templatehobby.insertAdjacentHTML('beforeend', newtemplatehobbynode);
+    }
+
 
     <?php echo"
     function adddata() {
+        
         document.getElementById('dfname').innerHTML =  '$fname';
 
         document.getElementById('dlname').innerHTML = '$lname';
@@ -419,47 +609,54 @@
 
         document.getElementById('cont3').innerHTML = '$city';
 
-        document.getElementById('cont5').innerHTML = '$state';
+        document.getElementById('cont4').innerHTML = '$state';
+
+        document.getElementById('cont5').innerHTML = '$country';
 
         document.getElementById('profsumry').innerHTML = '$profile';
 
-        document.getElementById('scln').innerHTML = '$schoolname';
+        // document.getElementById('scln').innerHTML = '$schoolname';
 
-        document.getElementById('sclloc').innerHTML = '$schoollocation';
+        // document.getElementById('sclloc').innerHTML = '$schoollocation';
 
-        document.getElementById('degree').innerHTML = '$degree';
+        // document.getElementById('degree').innerHTML = '$degree';
 
-        document.getElementById('sclyr').innerHTML = '$year';
+        // document.getElementById('sclyr').innerHTML = '$year';
 
-        document.getElementById('fostdy').innerHTML = '$fieldofstudy';
+        // document.getElementById('fostdy').innerHTML = '$fieldofstudy';
 
-        document.getElementById('jbt').innerHTML = '$jobtitle';
+        // document.getElementById('jbt').innerHTML = '$jobtitle';
 
-        document.getElementById('cpn').innerHTML = '$employer';
+        // document.getElementById('cpn').innerHTML = '$employer';
 
-        document.getElementById('strtyr').innerHTML = '$startyear';
+        // document.getElementById('strtyr').innerHTML = '$startyear';
 
-        document.getElementById('endyr').innerHTML = '$endyear';
+        // document.getElementById('endyr').innerHTML = '$endyear';
 
-        document.getElementById('jbsmry').innerHTML = '$jobsummary';
+        // document.getElementById('jbsmry').innerHTML = '$jobsummary';
 
-        document.getElementById('skls').innerHTML = '$skill';
+        // document.getElementById('skls').innerHTML = '$skill';
 
-        document.getElementById('sklprtg').innerHTML = '$skillperncentage';
-        let percentage = document.getElementById('sklprtg');
-        width = '$skillperncentage' + '%';
-        percentage.style.width = width;
+        // document.getElementById('sklprtg').innerHTML = '$skillperncentage';
+        // let percentage = document.getElementById('sklprtg');
+        // width = '$skillperncentage' + '%';
+        // percentage.style.width = width;
 
 
-        document.getElementById('hob').innerHTML = '$hobby';
 
-        document.getElementById('lnk').innerHTML = '$link';
+        // document.getElementById('hob').innerHTML = '$hobby';
 
-        document.getElementById('dlang').innerHTML = '$language';
+        // document.getElementById('lnk').innerHTML = '$link';
+
     }";
 
     ?>
+        
+    //    for(let i=0; i<'$languages'.length; i++){
+    //        console.log('heelo');
+    //    }
 
+        // document.getElementById('dlang').innerHTML = '$language';
     </script>
 </body>
 

@@ -1,6 +1,9 @@
 <?php 
 session_start(); 
 
+// echo '<pre>';
+// print_r($_POST);
+
 $alert=false;
 $error="";
 
@@ -23,33 +26,90 @@ $error="";
 
     $tempid=uniqid();
     $_SESSION['tempid']=$tempid;
-    $fname=$_POST['fname'];
-    $lname=$_POST['lname'];
-    $phonenumber=$_POST['phonenumber'];
-    $email=$_POST['email'];
-    $city=$_POST['city'];
-    $state=$_POST['state'];
-    $country=$_POST['country'];
 
-    $profile=$_POST['profilesummary'];
-    $language=$_POST['language'];
+    $sanetizefname=$_POST['fname'];
+    $fname= filter_var($sanetizefname, FILTER_SANITIZE_STRING);
 
-    $schoolname=$_POST['schoolname'];
-    $schoollocation=$_POST['schoollocation'];
-    $degree=$_POST['degree'];
-    $year=$_POST['year'];
-    $fieldofstudy=$_POST['fieldofstudy'];
+    $sanetizelname=$_POST['lname'];
+    $lname= filter_var($sanetizelname, FILTER_SANITIZE_STRING);
 
-    $jobtitle=$_POST['jobtitle'];
-    $employer=$_POST['employer'];
-    $startyear=$_POST['startyear'];
-    $endyear=$_POST['endyear'];
-    $jobsummary=$_POST['jobsummary'];
+    $sanetizephonenumber=$_POST['phonenumber'];
+    $phonenumber= filter_var($sanetizephonenumber, FILTER_SANITIZE_STRING);
 
-    $skill=$_POST['skl'];
-    $skillpercentage=$_POST['skillpercentage'];
-    $hobbies=$_POST['hobby'];
-    $link=$_POST['links'];
+    $sanetizemail=$_POST['email'];
+    $email= filter_var($sanetizemail, FILTER_SANITIZE_EMAIL);
+
+    $sanetizecity=$_POST['city'];
+    $city=filter_var($sanetizecity, FILTER_SANITIZE_STRING);
+    
+    $sanetizestate=$_POST['state'];
+    $state=filter_var($sanetizestate, FILTER_SANITIZE_STRING);
+
+    $sanetizecountry=$_POST['country'];
+    $country=filter_var($sanetizecountry, FILTER_SANITIZE_STRING);
+
+    $sanetizeprofile=$_POST['profilesummary'];
+    $profile=filter_var($sanetizeprofile, FILTER_SANITIZE_STRING);
+
+    $sanetizelanguageArray=$_POST['language'];
+    $languageArray=filter_var_array($sanetizelanguageArray, FILTER_SANITIZE_STRING);
+    $language = implode(',', $languageArray);
+
+    $sanetizeschoolnameArray=$_POST['schoolname'];
+    $schoolnameArray=filter_var_array($sanetizeschoolnameArray, FILTER_SANITIZE_STRING);
+    $schoolname=implode(',', $schoolnameArray);
+
+    $sanetizeschoollocationArray=$_POST['schoollocation'];
+    $schoollocationArray=filter_var_array($sanetizeschoollocationArray, FILTER_SANITIZE_STRING);
+    $schoollocation=implode(',', $schoollocationArray);
+
+    $sanetizedegreeArray=$_POST['degree'];
+    $degreeArray=filter_var_array($sanetizedegreeArray, FILTER_SANITIZE_STRING);
+    $degree=implode(',', $degreeArray);
+
+    $sanetizeyearArray=$_POST['year'];
+    $yearArray=filter_var_array($sanetizeyearArray, FILTER_SANITIZE_STRING);
+    $year=implode(',', $yearArray);
+
+    $sanetizefieldofstudyArray=$_POST['fieldofstudy'];
+    $fieldofstudyArray=filter_var_array($sanetizefieldofstudyArray, FILTER_SANITIZE_STRING);
+    $fieldofstudy=implode(',', $fieldofstudyArray);
+
+    $sanetizejobtitleArray=$_POST['jobtitle'];
+    $jobtitleArray=filter_var_array($sanetizejobtitleArray, FILTER_SANITIZE_STRING);
+    $jobtitle=implode(',', $jobtitleArray);
+
+    $sanetizeemployerArray=$_POST['employer'];
+    $employerArray=filter_var_array($sanetizeemployerArray, FILTER_SANITIZE_STRING);
+    $employer=implode(',', $employerArray);
+
+    $sanetizestartyearArray=$_POST['startyear'];
+    $startyearArray=filter_var_array($sanetizestartyearArray, FILTER_SANITIZE_STRING);
+    $startyear=implode(',', $startyearArray);
+
+    $sanetizeendyearArray=$_POST['endyear'];
+    $endyearArray=filter_var_array($sanetizeendyearArray, FILTER_SANITIZE_STRING);
+    $endyear=implode(',', $endyearArray);
+
+    $sanetizejobsummaryArray=$_POST['jobsummary'];
+    $jobsummaryArray=filter_var_array($sanetizejobsummaryArray, FILTER_SANITIZE_STRING);
+    $jobsummary=implode(',', $jobsummaryArray);
+
+    $sanetizeskillArray=$_POST['skl'];
+    $skillArray=filter_var_array($sanetizeskillArray, FILTER_SANITIZE_STRING);
+    $skill=implode(',', $skillArray);
+
+    $sanetizeskillpercentageArray=$_POST['skillpercentage'];
+    $skillpercentageArray=filter_var_array($sanetizeskillpercentageArray, FILTER_SANITIZE_STRING);
+    $skillpercentage=implode(',', $skillpercentageArray);
+
+    $sanetizehobbiesArray=$_POST['hobby'];
+    $hobbiesArray=filter_var_array($sanetizehobbiesArray, FILTER_SANITIZE_STRING);
+    $hobbies=implode(',', $hobbiesArray);
+
+    $sanetizelinkArray=$_POST['links'];
+    $linkArray=filter_var_array($sanetizelinkArray, FILTER_SANITIZE_STRING);
+    $link=implode(',', $linkArray);
    
      
       $sql="INSERT INTO `crbpdata` (`user_id`, `templateno`, `templateid`, `fname`, `lname`, `phonenumber`, `email`, `city`, `state`, `country`, `profile`, `language`, `schoolname`, `schoollocation`, `degree`, `year`, `fieldofstudy`, `jobtitle`, `employer`, `startyear`, `endyear`, `jobsummary`, `skill`, `skillperncentage`, `hobbies`, `link`, `dt`) VALUES ('$userid','$template', '$tempid', '$fname', '$lname', '$phonenumber', '$email', '$city', '$state', '$country', '$profile', '$language', '$schoolname', '$schoollocation', '$degree', '$year', '$fieldofstudy', '$jobtitle', '$employer', '$startyear', '$endyear', '$jobsummary', ' $skill', ' $skillpercentage', '$hobbies', '$link', current_timestamp())";
@@ -58,17 +118,12 @@ $error="";
       if($result){
           header("Location: complete.php");
       }else{
-          echo "error".mysqli_error($conn);
+        //   echo "error".mysqli_error($conn);
           $alert=true;
-          $error="Something went wrong";
+          $error="Something went wrong, please try after some time";
       }
      
   }
-
-
-?>
-
-<?php
 
 
 ?>
@@ -85,6 +140,9 @@ $error="";
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="Editor.css">
     <link rel="stylesheet" href="allresumetemplates.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
@@ -193,18 +251,23 @@ $error="";
                         <div class="pcentr">
                             <div class="prow addinputlang">
                                     <div class="pcol" id="moveleft">
-                                        <input type="text" oninput="displaylang()" name="language" id="language"
+                                      <!---  <input class="lang addinputlang1" type="text" oninput="displaylang()" name="language[]" id="language"
+                                            placeholder="e.g. English">  --->
+                                        <input class="lang addinputlang1" type="text" oninput="displayNewAddedLang()" name="language[]" id="language"
                                             placeholder="e.g. English">
                                         <div id="error22" style="color:red; font-size:18px; margin-top: 7px;"></div>
                                         <input type="hidden" class="inside">
                                         </div>
                                     
                             </div>
-                            <div class="pcol addlangbtn" onclick="addnewlang()" id="moveaddbtn">
-                                        <div class="addboxdiv">
+                            <div class="pcol addlangbtn" id="moveaddbtn">
+                                        <div class="addboxdiv" onclick="addnewlang()">
                                             <img class="addbutton" src="images/icons/addbox.png" alt="add button">
                                         </div>
-                                    </div>
+                                        <div class="addboxdiv" onclick="removenewlang()">
+                                            <img class="removebutton" src="images/icons/removebox.svg" alt="remove button">
+                                        </div>
+                            </div>
                         </div>
 
                         <div class="btndiv">
@@ -224,48 +287,54 @@ $error="";
 
                     <div class="ed">
                         <h1 >Education</h1>
-                        <div class="pcentr">
-
-                            <div class="prow">
-                                <div class="pcol">
-                                    <label for="schoolname">School name</label><br>
-                                    <input type="text" oninput="displayscln()" name="schoolname" id="schoolname"
-                                        placeholder="e.g. Saint Xevier">
-                                    <div id="error8" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                        <div class="pcentr" id="addneweducationfields">
+                            <div class="education-fields">
+                                <div class="prow">
+                                    <div class="pcol">
+                                        <label for="schoolname">School name</label><br>
+                                        <input type="text" class="schoolnameclass" oninput="displayscln()" name="schoolname[]" id="schoolname"
+                                            placeholder="e.g. Saint Xevier">
+                                        <div id="error8" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                    </div>
+                                    <div class="pcol">
+                                        <label for="schoollocation">School location</label><br>
+                                        <input type="text" class="allschoollocclass" oninput="displaysclloc()" name="schoollocation[]" id="schoollocation"
+                                            placeholder="e.g. Maharashtra,mumbai">
+                                        <div id="error9" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                    </div>
                                 </div>
-                                <div class="pcol">
-                                    <label for="schoollocation">School location</label><br>
-                                    <input type="text" oninput="displaysclloc()" name="schoollocation" id="schoollocation"
-                                        placeholder="e.g. Maharashtra,mumbai">
-                                    <div id="error9" style="color:red; font-size:18px; margin-top: 7px;"></div>
-                                </div>
-                            </div>
 
-                            <div class="prow">
-                                <div class="pcol">
-                                    <label for="degree">Degree</label> <br>
-                                    <input type="text" oninput="displaydegree()" name="degree" id="degree"
-                                        placeholder="e.g. Bsc.IT ">
-                                    <div id="error10" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                <div class="prow">
+                                    <div class="pcol">
+                                        <label for="degree">Degree</label> <br>
+                                        <input type="text" class="degreeclass" oninput="displaydegree()" name="degree[]" id="degree"
+                                            placeholder="e.g. Bsc.IT ">
+                                        <div id="error10" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                    </div>
+                                    <div class="pcol">
+                                        <label for="year">Year</label> <br>
+                                        <input type="text" class="degreeyearclass" oninput="displayyear()" name="year[]" id="year"
+                                            placeholder="e.g. 2020-2023">
+                                        <div id="error11" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                    </div>
                                 </div>
-                                <div class="pcol">
-                                    <label for="year">Year</label> <br>
-                                    <input type="text" oninput="displayyear()" name="year" id="year"
-                                        placeholder="e.g. 2020-2023">
-                                    <div id="error11" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                <input type="hidden" class="inside">
+                                <div class="ptxtarea" style="padding-bottom:20px;">
+                                    <label for="fieldofstudy">Field of study</label> <br>
+                                    <input type="text" class="fieldofstudyclass" oninput="displayfos()" name="fieldofstudy[]" id="fieldofstudy"
+                                        placeholder="e.g. Information Tecnology">
+                                    <div id="error12" style="color:red; font-size:18px; margin-top: 7px;"></div>
                                 </div>
-                            </div>
+                             </div>
 
-                            <div class="ptxtarea" style="padding-bottom:20px;">
-                                <label for="fieldofstudy">Field of study</label> <br>
-                                <input type="text" oninput="displayfos()" name="fieldofstudy" id="fieldofstudy"
-                                    placeholder="e.g. Information Tecnology">
-                                <div id="error12" style="color:red; font-size:18px; margin-top: 7px;"></div>
-                            </div>
-
-                            <div class="addbox">
-                                <div class="addboxdiv">
-                                    <img class="addbutton" src="images/icons/addbox.png" alt="add button">
+                                <div class="pcentr" id="addneweducationfieldsafter">
+                                    <div class="addbox">
+                                        <div class="addboxdiv" onclick="addneweducation()">
+                                            <img class="addbutton" src="images/icons/addbox.png" alt="add button">
+                                        </div>
+                                        <div class="addboxdiv" onclick="removeneweducation()">
+                                        <img class="removebutton" src="images/icons/removebox.svg" alt="remove button">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -287,48 +356,53 @@ $error="";
 
                     <div class="exp">
                         <h1 >Experience </h1>
-                        <div class="pcentr">
-
-                            <div class="prow">
-                                <div class="pcol">
-                                    <label for="jobtitle">Job title</label><br>
-                                    <input type="text" oninput="displayjt()" name="jobtitle" id="jobtitle"
-                                        placeholder="e.g. Software Engineer">
-                                    <div id="error13" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                        <div class="pcentr" id="addnewexperiencefields">
+                            <div class="experience-fields">
+                                <div class="prow">
+                                    <div class="pcol">
+                                        <label for="jobtitle">Job title</label><br>
+                                        <input type="text" class="jobtitleclass" oninput="displayjt()" name="jobtitle[]" id="jobtitle"
+                                            placeholder="e.g. Software Engineer">
+                                        <div id="error13" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                    </div>
+                                    <div class="pcol">
+                                        <label for="employer">Employer</label><br>
+                                        <input type="text" class="employerclass" oninput="displaycompany()" name="employer[]" id="employer"
+                                            placeholder="e.g. Google">
+                                        <div id="error14" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                    </div>
                                 </div>
-                                <div class="pcol">
-                                    <label for="employer">Employer</label><br>
-                                    <input type="text" oninput="displaycompany()" name="employer" id="employer"
-                                        placeholder="e.g. Google">
-                                    <div id="error14" style="color:red; font-size:18px; margin-top: 7px;"></div>
-                                </div>
-                            </div>
 
-                            <div class="prow">
-                                <div class="pcol">
-                                    <label for="startyear">Start year</label> <br>
-                                    <input type="text" oninput="displaystrtdt()" name="startyear" id="startyear"
-                                        placeholder="e.g. 2019" maxlength="4">
-                                    <div id="error15" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                <div class="prow">
+                                    <div class="pcol">
+                                        <label for="startyear">Start year</label> <br>
+                                        <input type="text" class="startyearclass" oninput="displaystrtdt()" name="startyear[]" id="startyear"
+                                            placeholder="e.g. 2019" maxlength="4">
+                                        <div id="error15" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                    </div>
+                                    <div class="pcol">
+                                        <label for="endyear">End year</label> <br>
+                                        <input type="text" class="endyearclass" oninput="displayenddt()" name="endyear[]" id="endyear"
+                                            placeholder="e.g. 2023"  maxlength="4">
+                                        <div id="error16" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                    </div>
                                 </div>
-                                <div class="pcol">
-                                    <label for="endyear">End year</label> <br>
-                                    <input type="text" oninput="displayenddt()" name="endyear" id="endyear"
-                                        placeholder="e.g. 2023"  maxlength="4">
-                                    <div id="error16" style="color:red; font-size:18px; margin-top: 7px;"></div>
+
+                                <div class="ptxtarea" style="padding-bottom:20px;">
+                                    <label for="jobsummary">Summary of your job</label><br>
+                                    <textarea class="jobsummaryclass" oninput="displaysoyj()" id="jobsummary" name="jobsummary[]"
+                                        placeholder="e.g. Experienced PHP Developer"></textarea>
+                                    <div id="error17" style="color:red; font-size:18px; margin-top: 7px;"></div>
                                 </div>
-                            </div>
 
-                            <div class="ptxtarea" style="padding-bottom:20px;">
-                                <label for="jobsummary">Summary of your job</label><br>
-                                <textarea oninput="displaysoyj()" id="jobsummary" name="jobsummary"
-                                    placeholder="e.g. Experienced PHP Developer"></textarea>
-                                <div id="error17" style="color:red; font-size:18px; margin-top: 7px;"></div>
-                            </div>
-
-                            <div class="addbox">
-                                <div class="addboxdiv">
-                                    <img class="addbutton" src="images/icons/addbox.png" alt="add button">
+                                <div class="pcentr" id="addnewexperiencefieldsafter">
+                                    <div class="addbox">
+                                        <div class="addboxdiv" onclick="addnewexperience()">
+                                            <img class="addbutton" src="images/icons/addbox.png" alt="add button">
+                                        </div>
+                                        <div class="addboxdiv" onclick="removenewexperience()">
+                                        <img class="removebutton" src="images/icons/removebox.svg" alt="remove button">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -343,62 +417,92 @@ $error="";
                                 </div>
                             </div>
                         </div>
+                        </div>
 
                     </div>
 
                     <!-- skill -->
 
                     <div class="skl">
-                        <h1 >Skills & Links</h1>
+                        <h1 >Skills & Hobbies</h1>
                         <div class="pcentr">
+                            <div class="newdiv" id="addnewskillfields">
+                                <div class="skill-fields">
+                                    <div class="prow">
+                                        <div class="pcol">
+                                            <label for="skl">Skill</label><br>
+                                            <input type="text" class="skillclass" oninput="displayskill()" name="skl[]" id="skl"
+                                                placeholder="e.g. Graphic Designer">
+                                            <div id="error18" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                        </div>
+                                        <div class="pcol">
+                                            <label for="skillpercentage">Skill Percentage</label><br>
+                                            <input type="number" class="skillpercentageclass" oninput="displayskillp()" name="skillpercentage[]" id="skillpercentage"
+                                                placeholder="e.g. 78%">
+                                            <div id="error19" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                        </div>
+                                    </div>
 
-                            <div class="newdiv">
-                                <div class="prow">
-                                    <div class="pcol">
-                                        <label for="skl">Skill</label><br>
-                                        <input type="text" oninput="displayskill()" name="skl" id="skl"
-                                            placeholder="e.g. Graphic Designer">
-                                        <div id="error18" style="color:red; font-size:18px; margin-top: 7px;"></div>
-                                    </div>
-                                    <div class="pcol">
-                                        <label for="skillpercentage">Skill Percentage</label><br>
-                                        <input type="number" oninput="displayskillp()" name="skillpercentage" id="skillpercentage"
-                                            placeholder="e.g. 78%">
-                                        <div id="error19" style="color:red; font-size:18px; margin-top: 7px;"></div>
-                                    </div>
-                                </div>
-                                <div class="addbox">
-                                    <div class="addboxdiv">
-                                        <img class="addbutton" src="images/icons/addbox.png" alt="add button">
+                                    <div class="pcentr" id="addnewskillfieldsafter">
+                                        <div class="addbox">
+                                            <div class="addboxdiv" onclick="addnewskill()">
+                                                <img class="addbutton" src="images/icons/addbox.png" alt="add button">
+                                            </div>
+                                            <div class="addboxdiv" onclick="removenewskill()">
+                                               <img class="removebutton" src="images/icons/removebox.svg" alt="remove button">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="prow">
-                                <div class="pcol" id="moveleft">
-                                    <label for="hobby">Hobby</label> <br>
-                                    <input type="text" oninput="displayhobby()" name="hobby" id="hobby"
-                                        placeholder="e.g. Reading">
-                                    <div id="error21" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                            
+                            <div class="pcentr">
+                                <div class="prow" id="addnewinputhobby">
+                                    <div>
+                                       <label for="hobby">Hobby</label>
+                                       <div class="pcol hobby-field" id="moveleft">
+                                            <input type="text" class="hobbyclass" oninput="displayhobby()" name="hobby[]" id="hobby"
+                                            placeholder="e.g. Reading">
+                                            <div id="error21" style="color:red; font-size:18px; margin-top: 7px;"></div>  
+                                            
+                                        </div>
+                                    </div>  
+                                    <div id="addnewinputhobbyafter"></div>
                                 </div>
-                                <div class="pcol" id="moveaddbtn">
-                                    <div class="addboxdiv">
-                                        <img class="addbutton" src="images/icons/addbox.png" alt="add button">
-                                    </div>
+                                <div class="pcentr" >
+                                        <div class="addbox">
+                                            <div class="addboxdiv" onclick="addnewhobby()">
+                                                <img class="addbutton" src="images/icons/addbox.png" alt="add button">
+                                            </div>
+                                            <div class="addboxdiv" onclick="removenewhobby()">
+                                                <img class="removebutton" src="images/icons/removebox.svg" alt="remove button">
+                                            </div>
+                                        </div>
                                 </div>
                             </div>
 
-                            <div class="prow">
-                                <div class="pcol" id="moveleft">
-                                    <label for="links">Links</label> <br>
-                                    <input type="text" oninput="displaylink()" name="links" id="links"
-                                        placeholder="e.g. Linkd in">
-                                    <div id="error20" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                            <div class="pcentr">
+                                <div class="prow" id="addnewinputlinks">
+                                    <div>
+                                       <label for="links">Links</label>
+                                        <div class="pcol links-field" id="moveleft">
+                                           <input type="text" class="linkclass" oninput="displaylink()" name="links[]" id="links"
+                                            placeholder="e.g. Linkd in">
+                                            <div id="error20" style="color:red; font-size:18px; margin-top: 7px;"></div>  
+                                        </div>
+                                    </div>  
+                                    <div id="addnewinputlinksafter"></div>
                                 </div>
-                                <div class="pcol" id="moveaddbtn">
-                                    <div class="addboxdiv">
-                                        <img class="addbutton" onclick="imgclicked()" src="images/icons/addbox.png" alt="add button">
-                                    </div>
+                                <div class="pcentr" >
+                                        <div class="addbox">
+                                            <div class="addboxdiv" onclick="addnewlink()">
+                                                <img class="addbutton" src="images/icons/addbox.png" alt="add button">
+                                            </div>
+                                            <div class="addboxdiv" onclick="removenewlink()">
+                                                <img class="removebutton" src="images/icons/removebox.svg" alt="remove button">
+                                            </div>
+                                        </div>
                                 </div>
                             </div>
 
@@ -513,7 +617,7 @@ $error="";
                 <!-----complete section --->
 
                 <div class="complete" style="display:none;">
-                <button type="submit" name="complete">Complete</button>
+                <button type="submit" name="complete" onclick="clearLocalStorage()">Complete</button>
                 </div> 
             </form> 
             </div>
@@ -1071,7 +1175,6 @@ $error="";
         localStorage.setItem("sclname", sclname);
         const dsclname = localStorage.getItem('sclname');
         document.getElementById('scln').innerHTML = dsclname;
-
     }
 
     // for school location
@@ -1087,7 +1190,7 @@ $error="";
         const degree = document.getElementById('degree').value;
         localStorage.setItem("degree", degree);
         const ddegree = localStorage.getItem('degree');
-        document.getElementById('degree').innerHTML = ddegree;
+        document.getElementById('degree1').innerHTML = ddegree;
     }
 
     // for year
@@ -1176,56 +1279,753 @@ $error="";
         document.getElementById('lnk').innerHTML = dlink;
     }
 
-    function displaylang() {
-        const lang = document.getElementById('language').value;
-        localStorage.setItem("language", lang);
-        const dlang = localStorage.getItem('language');
-        document.getElementById('dlang').innerHTML = dlang;
-    }
+    // function displaylang() {
+    //     const lang = document.getElementById('language').value;
+    //     localStorage.setItem("language", lang);
+    //     const dlang = localStorage.getItem('language');
+    //     document.getElementById('dlang').innerHTML = dlang;
+    //     document.querySelectorAll('.dummytext').forEach(element => element.remove());
+    // }
 
 
-    //  addding new fields dynamically
-    let languageInputCount=0;
+    //  addding new fields dynamically 
+    let languageInputCount = 0;
+    let addlang = document.querySelector('.addinputlang');
+
     function addnewlang() {
-        languageInputCount++;
-        let newnode = document.createElement('input');
-        newnode.classList.add('addinputlang');
-        newnode.setAttribute('placeholder', 'e.g Hindi');
-        newnode.setAttribute('oninput', 'displayNewAddedLang()');
-        newnode.setAttribute('name', `lang${languageInputCount}`);
-        newnode.setAttribute('id', `lang${languageInputCount}`);
-        newnode.setAttribute('type', 'text');
-        let addlang = document.querySelector('.addinputlang');
-        let addafter = document.querySelector('.inside');
-        addlang.append(newnode, addafter);
+
+        let languageTextEmptyCheck = document.querySelector('.lang');
+        if (languageTextEmptyCheck.value == "") {
+            let emptyLanguageError = document.getElementById('error22');
+            emptyLanguageError.innerText = "Please enter your language.";
+        } else {
+            languageInputCount++;
+            let newnode = document.createElement('input');
+            newnode.classList.add('addinputlang1');
+            newnode.setAttribute('placeholder', 'e.g Hindi');
+            newnode.setAttribute('oninput', 'displayNewAddedLang()');
+            newnode.setAttribute('name', `language[]`);
+            newnode.setAttribute('class', `addinputlang1`);
+            newnode.setAttribute('id', `lang${languageInputCount}`);
+            newnode.setAttribute('type', 'text');
+            let addafter = document.querySelector('.inside');
+            addlang.append(newnode, addafter);
+
+            let newtemplatelanguagesnode = `<li><span class="cdlang1 text" id="dlang">Hindi</span></li>`;
+            let templatelanguages = document.getElementById('templatelanguages');
+            templatelanguages.insertAdjacentHTML('beforeend', newtemplatelanguagesnode);
+        }
+
     }
 
     function displayNewAddedLang() {
-        const newAddedLang = document.getElementById(`lang${languageInputCount}`).value;
-        localStorage.setItem(`language${languageInputCount}`, newAddedLang);
-        const diplayNewAddedLang = localStorage.getItem(`lang${languageInputCount}`);
-        document.getElementById('dlang').innerHTML = diplayNewAddedLang;
+        document.querySelectorAll('.dummytext').forEach(element => element.remove());
+        const newAddedLang = addlang.querySelectorAll(`.addinputlang1`);
+        let languageArray = [];
+        newAddedLang.forEach(element => {
+            languageArray.push(element.value);
+        });
+        let dataString = JSON.stringify(languageArray);
+        localStorage.setItem(`languages`, dataString);
+        let localLanguages = localStorage.getItem('languages');
+
+        let localStorageLanguageArray = JSON.parse(localLanguages);
+        let displayLanguageText = document.querySelectorAll('#dlang');
+        for (let i = 0; i < localStorageLanguageArray.length; i++) {
+            if (displayLanguageText[i]) {
+                displayLanguageText[i].textContent = localStorageLanguageArray[i];
+            }
+        }
     }
+
+    function removenewlang() {
+        const inputs = document.querySelectorAll('.addinputlang1');
+
+        if (inputs.length > 1) {
+            inputs[inputs.length - 1].remove();
+        }
+
+        displayLanguageText = document.querySelectorAll('.cdlang1');
+        if (displayLanguageText.length > 1) {
+            displayLanguageText[displayLanguageText.length - 1].remove();
+        }
+
+
+        let localLanguages = localStorage.getItem('languages');
+
+        if (localLanguages) {
+            // Parse the JSON string into an array
+            let localStorageLanguageArray = JSON.parse(localLanguages);
+
+            // Remove the last element from the array
+            if (localStorageLanguageArray.length > 1) {
+                localStorageLanguageArray.pop();
+            }
+
+            // Convert the updated array back to a JSON string
+            let updatedLangugaeDataString = JSON.stringify(localStorageLanguageArray);
+            localStorage.setItem('languages', updatedLangugaeDataString);
+
+            localLanguages = localStorage.getItem('languages');
+            localStorageLanguageArray = JSON.parse(localLanguages);
+            let displayLanguageText = document.querySelectorAll('#dlang');
+            for (let i = 0; i < localStorageLanguageArray.length; i++) {
+                if (displayLanguageText[i]) {
+                    displayLanguageText[i].textContent = localStorageLanguageArray[i];
+                }
+            }
+
+        }
+    }
+
+
+    // code to add new education fields
+    let inputCount = 0;
+
+    function addneweducation() {
+
+        let schoolNameTextEmptyCheck = document.querySelector('#schoolname');
+        if (schoolNameTextEmptyCheck.value == "") {
+            let emptyschoolNameError = document.getElementById('error8');
+            emptyschoolNameError.innerText = "Please enter your school name.";
+        } else {
+        const newEducationFields = `
+                <div class="education-fields margintp">
+                    <div class="prow">
+                        <div class="pcol">
+                            <label for="schoolname">School name</label><br>
+                            <input type="text" class="schoolnameclass" oninput="displayscln()" name="schoolname[]" id="schoolname${inputCount}" placeholder="e.g. Saint Xevier">
+                            <div style="color:red; font-size:18px; margin-top: 7px;"></div>
+                        </div>
+                        <div class="pcol">
+                            <label for="schoollocation">School location</label><br>
+                            <input type="text" class="allschoollocclass" oninput="displaysclloc()" name="schoollocation[]" placeholder="e.g. Maharashtra, Mumbai">
+                            <div style="color:red; font-size:18px; margin-top: 7px;"></div>
+                        </div>
+                    </div>
+
+                    <div class="prow">
+                        <div class="pcol">
+                            <label for="degree">Degree</label><br>
+                            <input type="text" class="degreeclass" oninput="displaydegree()" name="degree[]" placeholder="e.g. Bsc.IT">
+                            <div style="color:red; font-size:18px; margin-top: 7px;"></div>
+                        </div>
+                        <div class="pcol">
+                            <label for="year">Year</label><br>
+                            <input type="text" class="degreeyearclass" oninput="displayyear()" name="year[]" placeholder="e.g. 2020-2023">
+                            <div style="color:red; font-size:18px; margin-top: 7px;"></div>
+                        </div>
+                    </div>
+                    <input type="hidden" class="inside">
+                    <div class="ptxtarea" style="padding-bottom:20px;">
+                        <label for="fieldofstudy">Field of study</label><br>
+                        <input type="text" class="fieldofstudyclass" oninput="displayfos()" name="fieldofstudy[]" placeholder="e.g. Information Technology">
+                        <div style="color:red; font-size:18px; margin-top: 7px;"></div>
+                    </div>
+                </div>
+            `;
+        const $newNode = $(newEducationFields);
+
+        // Insert the new node inside #addneweducationfieldsafter but before #addneweducationfieldsafter
+        $('#addneweducationfields #addneweducationfieldsafter').before($newNode);
+
+        let newtemplateducationode = `
+                <li class="newtemplateducationcreatednode">
+                    <h5 class="cdyear1" id="sclyr">2010-2015</h5>
+                    <h4 class="cddegree1" id="degree1">Master Degree</h4>
+                    <h4 class="cdfos1" id="fostdy">something</h4>
+                    <h4 class="cdsclname1" id="scln">holy cow college</h4>
+                    <h4 class="cdsclloc1" id="sclloc">france</h4>
+                </li>
+        `;
+        let templateducation = document.getElementById('templateducation');
+        templateducation.insertAdjacentHTML('beforeend', newtemplateducationode);
+        }
+    }
+
+    function displayscln() {
+        let allSchoolNameFields = document.querySelectorAll(".schoolnameclass");
+        let schoolNameArray = [];
+        allSchoolNameFields.forEach(element => {
+            schoolNameArray.push(element.value);
+        });
+        let dataString = JSON.stringify(schoolNameArray);
+        localStorage.setItem(`schoolnames`, dataString);
+        const localSchoolnames = localStorage.getItem('schoolnames');
+        // document.getElementById('scln').innerHTML = localSchoolnames;
+        document.querySelectorAll('.dummyeducationtext').forEach(e => e.remove());
+
+        let localStorageSchoolNameArray = JSON.parse(localSchoolnames);
+        let displaySchoolNameText = document.querySelectorAll('#scln');
+        for (let i = 0; i < localStorageSchoolNameArray.length; i++) {
+            if (displaySchoolNameText[i]) {
+                displaySchoolNameText[i].textContent = localStorageSchoolNameArray[i];
+            }
+        }
+    }
+
+    function displaysclloc() {
+        let allSchoollocFields = document.querySelectorAll(".allschoollocclass");
+        let schoolLocArray = [];
+        allSchoollocFields.forEach(element => {
+            schoolLocArray.push(element.value);
+        });
+        let dataString = JSON.stringify(schoolLocArray);
+        localStorage.setItem(`schoollocations`, dataString);
+        const localSchoolLoc = localStorage.getItem('schoollocations');
+        // document.getElementById('sclloc').innerHTML = localSchoolLoc;
+
+        let localStorageSchoolLocationArray = JSON.parse(localSchoolLoc);
+        let displaySchoolLocationText = document.querySelectorAll('#sclloc');
+        for (let i = 0; i < localStorageSchoolLocationArray.length; i++) {
+            if (displaySchoolLocationText[i]) {
+                displaySchoolLocationText[i].textContent = localStorageSchoolLocationArray[i];
+            }
+        }
+
+    }
+
+    function displaydegree() {
+        let allDegreeFields = document.querySelectorAll(".degreeclass");
+        let degreeArray = [];
+        allDegreeFields.forEach(element => {
+            degreeArray.push(element.value);
+        });
+        let dataString = JSON.stringify(degreeArray);
+        localStorage.setItem(`degrees`, dataString);
+        const localDegrees = localStorage.getItem('degrees');
+        // document.getElementById('degree1').innerHTML = localDegrees;
+
+        let localStorageDegreeArray = JSON.parse(localDegrees);
+        let displayDegreeText = document.querySelectorAll('#degree1');
+        for (let i = 0; i < localStorageDegreeArray.length; i++) {
+            if (displayDegreeText[i]) {
+                displayDegreeText[i].textContent = localStorageDegreeArray[i];
+            }
+        }
+    }
+
+    function displayyear() {
+        let allDegreeYearFields = document.querySelectorAll(".degreeyearclass");
+        let degreeYearArray = [];
+        allDegreeYearFields.forEach(element => {
+            degreeYearArray.push(element.value);
+        });
+        let dataString = JSON.stringify(degreeYearArray);
+        localStorage.setItem(`degreeyears`, dataString);
+        const localDegreeYears = localStorage.getItem('degreeyears');
+        // document.getElementById('sclyr').innerHTML = localDegreeYears;
+
+        let localStorageDegreeYearsArray = JSON.parse(localDegreeYears);
+        let displayDegreeYearsText = document.querySelectorAll('#sclyr');
+        for (let i = 0; i < localStorageDegreeYearsArray.length; i++) {
+            if (displayDegreeYearsText[i]) {
+                displayDegreeYearsText[i].textContent = localStorageDegreeYearsArray[i];
+            }
+        }
+    }
+
+    function displayfos() {
+        let allFieldOfStudyFields = document.querySelectorAll(".fieldofstudyclass");
+        let fieldOfStudyArray = [];
+        allFieldOfStudyFields.forEach(element => {
+            fieldOfStudyArray.push(element.value);
+        });
+        let dataString = JSON.stringify(fieldOfStudyArray);
+        localStorage.setItem(`Fieldofstudies`, dataString);
+        const localFieldOfStudy = localStorage.getItem('Fieldofstudies');
+        // document.getElementById('fostdy').innerHTML = localFieldOfStudy;
+
+        let localStorageFieldOfStudyArray = JSON.parse(localFieldOfStudy);
+        let displayFieldOfStudyText = document.querySelectorAll('#fostdy');
+        for (let i = 0; i < localStorageFieldOfStudyArray.length; i++) {
+            if (displayFieldOfStudyText[i]) {
+                displayFieldOfStudyText[i].textContent = localStorageFieldOfStudyArray[i];
+            }
+        }
+    }
+
+    function removeneweducation() {
+        // Remove the last .education-fields div but keep the first one intact
+        const educationFields = $('#addneweducationfields .education-fields');
+        if (educationFields.length > 1) {
+            educationFields.last().remove();
+        }
+
+        let allneweducationode = document.querySelectorAll('.newtemplateducationcreatednode');
+        if (allneweducationode.length > 0) {
+            // console.log(allneweducationode[allneweducationode.length - 1]);
+            allneweducationode[allneweducationode.length - 1].remove();
+        }
+    }
+
+
+
+    // code to add new exprience fields
+    let expinputCount = 0;
+
+    function addnewexperience() {
+
+        let jobTitleTextEmptyCheck = document.querySelector('#jobtitle');
+        if (jobTitleTextEmptyCheck.value == "") {
+            let emptyjobTitleError = document.getElementById('error13');
+            emptyjobTitleError.innerText = "Please enter your Job Title.";
+        } 
+        else {
+            const newExperienceFields = `
+                    <div class="experience-fields margintp">
+                    <div class="prow">
+                                    <div class="pcol">
+                                        <label for="jobtitle">Job title</label><br>
+                                        <input type="text" class="jobtitleclass" oninput="displayjt()" name="jobtitle[]" id="jobtitle${expinputCount}"
+                                            placeholder="e.g. Software Engineer">
+                                        <div id="error13" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                    </div>
+                                    <div class="pcol">
+                                        <label for="employer">Employer</label><br>
+                                        <input type="text" class="employerclass" oninput="displaycompany()" name="employer[]" id="employer${expinputCount}"
+                                            placeholder="e.g. Google">
+                                        <div id="error14" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                    </div>
+                                </div>
+
+                                <div class="prow">
+                                    <div class="pcol">
+                                        <label for="startyear">Start year</label> <br>
+                                        <input type="text" class="startyearclass" oninput="displaystrtdt()" name="startyear[]" id="startyear${expinputCount}"
+                                            placeholder="e.g. 2019" maxlength="4">
+                                        <div id="error15" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                    </div>
+                                    <div class="pcol">
+                                        <label for="endyear">End year</label> <br>
+                                        <input type="text" class="endyearclass" oninput="displayenddt()" name="endyear[]" id="endyear${expinputCount}"
+                                            placeholder="e.g. 2023"  maxlength="4">
+                                        <div id="error16" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                    </div>
+                                </div>
+
+                                <div class="ptxtarea" style="padding-bottom:20px;">
+                                    <label for="jobsummary">Summary of your job</label><br>
+                                    <textarea class="jobsummaryclass" oninput="displaysoyj()" id="jobsummary${expinputCount}" name="jobsummary[]"
+                                        placeholder="e.g. Experienced PHP Developer"></textarea>
+                                    <div id="error17" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                                </div>
+                    </div>
+                `;
+            const $newNode = $(newExperienceFields);
+
+            // Insert the new node inside #addneweducationfieldsafter but before #addneweducationfieldsafter
+            $('#addnewexperiencefields #addnewexperiencefieldsafter').before($newNode);
+
+            let newtemplatexperiencenode = `
+                    <div class="box newtemplatexperiencecreatednode">
+                        <div class="yearcompany">
+                            <h5><span id="strtyr" class="cdstrtyear1">2019 </span> - <span id="endyr" class="cdendyear1"> 2020</span></h5>
+                            <h5 id="cpn" class="cdcnp1">Company Name</h5>
+                        </div>
+                        <div class="text">
+                            <h4 id="jbt" class="cdjbt1">Senior UX Designer</h4>
+                            <p id="jbsmry"  class="cdjbsmry1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut asperiores
+                                eum,
+                                quibusdam corporis atque facere minus omnis non. Aliquam, itaque!</p>
+                        </div>
+                    </div>
+            `;
+            let templatexperience = document.getElementById('templatexperience');
+            templatexperience.insertAdjacentHTML('beforeend', newtemplatexperiencenode);
+        }
+    }
+
+    function displayjt() {
+        let allJobFields = document.querySelectorAll(".jobtitleclass");
+        let jobTitleArray = [];
+        allJobFields.forEach(element => {
+            jobTitleArray.push(element.value);
+        });
+        let dataString = JSON.stringify(jobTitleArray);
+        localStorage.setItem(`jobtitles`, dataString);
+        const localjobtitles = localStorage.getItem('jobtitles');
+        // document.getElementById('jbt').innerHTML = localjobtitles;
+        document.querySelectorAll('.dummyexperincetext').forEach(e => e.remove());
+
+        let localStoragejobtitlesArray = JSON.parse(localjobtitles);
+        let displayjobtitlesText = document.querySelectorAll('#jbt');
+        for (let i = 0; i < localStoragejobtitlesArray.length; i++) {
+            if (displayjobtitlesText[i]) {
+                displayjobtitlesText[i].textContent = localStoragejobtitlesArray[i];
+            }
+        }
+    }
+
+    function displaycompany() {
+        let allEmployerFields = document.querySelectorAll(".employerclass");
+        let employerArray = [];
+        allEmployerFields.forEach(element => {
+            employerArray.push(element.value);
+        });
+        let dataString = JSON.stringify(employerArray);
+        localStorage.setItem(`employers`, dataString);
+        const localemployers = localStorage.getItem('employers');
+        // document.getElementById('cpn').innerHTML = localemployers;
+
+        let localStorageEmployersArray = JSON.parse(localemployers);
+        let displayEmployersText = document.querySelectorAll('#cpn');
+        for (let i = 0; i < localStorageEmployersArray.length; i++) {
+            if (displayEmployersText[i]) {
+                displayEmployersText[i].textContent = localStorageEmployersArray[i];
+            }
+        }
+    }
+
+    function displaystrtdt() {
+        let allStartYearFields = document.querySelectorAll(".startyearclass");
+        let startyearArray = [];
+        allStartYearFields.forEach(element => {
+            startyearArray.push(element.value);
+        });
+        let dataString = JSON.stringify(startyearArray);
+        localStorage.setItem(`startyears`, dataString);
+        const localstartyear = localStorage.getItem('startyears');
+        // document.getElementById('strtyr').innerHTML = localstartyear;
+
+        let localStorageStartYearArray = JSON.parse(localstartyear);
+        let displayStartYearText = document.querySelectorAll('#strtyr');
+        for (let i = 0; i < localStorageStartYearArray.length; i++) {
+            if (displayStartYearText[i]) {
+                displayStartYearText[i].textContent = localStorageStartYearArray[i];
+            }
+        }
+    }
+
+    function displayenddt() {
+        let allEndYearFields = document.querySelectorAll(".endyearclass");
+        let endYearArray = [];
+        allEndYearFields.forEach(element => {
+            endYearArray.push(element.value);
+        });
+        let dataString = JSON.stringify(endYearArray);
+        localStorage.setItem(`endyears`, dataString);
+        const localendyear = localStorage.getItem('endyears');
+        // document.getElementById('endyr').innerHTML = localendyear;
+
+        let localStorageEndYearArray = JSON.parse(localendyear);
+        let displayEndYearText = document.querySelectorAll('#endyr');
+        for (let i = 0; i < localStorageEndYearArray.length; i++) {
+            if (displayEndYearText[i]) {
+                displayEndYearText[i].textContent = localStorageEndYearArray[i];
+            }
+        }
+    }
+
+    function displaysoyj() {
+        let allJobSummaryFields = document.querySelectorAll(".jobsummaryclass");
+        let jobSummaryArray = [];
+        allJobSummaryFields.forEach(element => {
+            jobSummaryArray.push(element.value);
+        });
+        let dataString = JSON.stringify(jobSummaryArray);
+        localStorage.setItem(`jobsumarys`, dataString);
+        const localjobsumary = localStorage.getItem('jobsumarys');
+        // document.getElementById('jbsmry').innerHTML = localjobsumary;
+
+        let localStorageJobSumaryArray = JSON.parse(localjobsumary);
+        let displayJobSumaryText = document.querySelectorAll('#jbsmry');
+        for (let i = 0; i < localStorageJobSumaryArray.length; i++) {
+            if (displayJobSumaryText[i]) {
+                displayJobSumaryText[i].textContent = localStorageJobSumaryArray[i];
+            }
+        }
+    }
+
+    function removenewexperience() {
+        // Remove the last .education-fields div but keep the first one intact
+        const experienceFields = $('#addnewexperiencefields .experience-fields');
+        if (experienceFields.length > 1) {
+            experienceFields.last().remove();
+        }
+    
+        let allnewexperiencenode = document.querySelectorAll('.newtemplatexperiencecreatednode');
+        if (allnewexperiencenode.length > 0) {
+            // console.log(allneweducationode[allneweducationode.length - 1]);
+            allnewexperiencenode[allnewexperiencenode.length - 1].remove();
+        }
+    
+    }
+
+
+    // code to add new skill fields
+    let skillinputCount = 0;
+
+    function addnewskill() {
+
+        let skillTextEmptyCheck = document.querySelector('#skl');
+        if (skillTextEmptyCheck.value == "") {
+            let emptySkillError = document.getElementById('error18');
+            emptySkillError.innerText = "Please enter your skill.";
+        } 
+        else {
+        const newSkillFields = `
+            <div class="skill-fields margintp">
+                <div class="prow">
+                    <div class="pcol">
+                        <label for="skl">Skill</label><br>
+                        <input type="text" class="skillclass" oninput="displayskill()" name="skl[]" id="skl"
+                            placeholder="e.g. Graphic Designer">
+                        <div id="error18" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                    </div>
+                    <div class="pcol">
+                        <label for="skillpercentage">Skill Percentage</label><br>
+                        <input type="number" class="skillpercentageclass" oninput="displayskillp()" name="skillpercentage[]" id="skillpercentage"
+                            placeholder="e.g. 78%">
+                        <div id="error19" style="color:red; font-size:18px; margin-top: 7px;"></div>
+                    </div>
+                </div>
+            </div>
+            `;
+        const $newNode = $(newSkillFields);
+
+        $('#addnewskillfields #addnewskillfieldsafter').before($newNode);
+
+        let newtemplateskillnode = `
+                    <div class="box newtemplateskillcreatednode">
+                            <h4 id="skls" class="cdskl1">HTML</h4>
+                            <div class="percent">
+                                <div id="sklprtg" class="cdsklp1"></div>
+                            </div>
+                    </div>
+            `;
+            let templateskill = document.getElementById('templateskill');
+            templateskill.insertAdjacentHTML('beforeend', newtemplateskillnode);
+        }
+    }
+
+    function displayskill() {
+        document.querySelectorAll('.dummyskilltext').forEach(e => e.remove());
+        const allskillFields = document.querySelectorAll('.skillclass');
+        let skillArray = [];
+        allskillFields.forEach(element => {
+            skillArray.push(element.value);
+        });
+        let dataString = JSON.stringify(skillArray);
+        localStorage.setItem("skills", dataString);
+        let localskill = localStorage.getItem('skills');
+        // document.getElementById('skls').innerHTML = localskill;
+
+        let localStorageSkillArray = JSON.parse(localskill);
+        let displaySkillText = document.querySelectorAll('#skls');
+        for (let i = 0; i < localStorageSkillArray.length; i++) {
+            if (displaySkillText[i]) {
+                displaySkillText[i].textContent = localStorageSkillArray[i];
+            }
+        }
+    }
+
+
+    function displayskillp() {
+        const allSkillPercentageFields = document.querySelectorAll('.skillpercentageclass');
+        let skillPernectageArray = [];
+        allSkillPercentageFields.forEach(element => {
+            skillPernectageArray.push(element.value);
+        });
+        let dataString = JSON.stringify(skillPernectageArray);
+        localStorage.setItem("skillpercentage", dataString);
+        let localskillpercentage = localStorage.getItem('skillpercentage');
+        // document.getElementById('sklprtg').innerHTML = localskillpercentage;
+        // let percentage = document.getElementById('sklprtg');
+        // width = localskillpercentage + '%';
+        // percentage.style.width = width;
+
+        let localStorageSkillPercentageArray = JSON.parse(localskillpercentage);
+        let displaySkillPercentageText = document.querySelectorAll('#sklprtg');
+        for (let i = 0; i < localStorageSkillPercentageArray.length; i++) {
+            if (displaySkillPercentageText[i]) {
+                // displaySkillPercentageText[i].textContent = localStorageSkillPercentageArray[i];
+                displaySkillPercentageText[i].style.width = localStorageSkillPercentageArray[i]+'%';
+            }
+        }
+
+    }
+
+    function removenewskill() {
+        const skillFields = $('#addnewskillfields .skill-fields');
+        if (skillFields.length > 1) {
+            skillFields.last().remove();
+        }
+
+        let allnewskillnode = document.querySelectorAll('.newtemplateskillcreatednode');
+        if (allnewskillnode.length > 0) {
+            allnewskillnode[allnewskillnode.length - 1].remove();
+        }
+    }
+
+
+
+    // code to add new hobby fields
+    let hobbyinputCount = 0;
+
+    function addnewhobby() {
+
+        let hobbyTextEmptyCheck = document.querySelector('#hobby');
+        if (hobbyTextEmptyCheck.value == "") {
+            let emptyHobbyError = document.getElementById('error21');
+            emptyHobbyError.innerText = "Please enter your hobby.";
+        } 
+        else {
+            const newHobbyFields = `
+                <div class="pcol hobby-field" id="moveleft" style="margin-top: 30px;">
+                    <input type="text" class="hobbyclass" oninput="displayhobby()" name="hobby[]" id="hobby"
+                    placeholder="e.g. Reading">
+                    <div id="error21" style="color:red; font-size:18px; margin-top: 7px;"></div>  
+                </div>
+                `;
+            const $newNode = $(newHobbyFields);
+
+            // Insert the new node inside #addneweducationfieldsafter but before #addneweducationfieldsafter
+            $('#addnewinputhobby #addnewinputhobbyafter').before($newNode);
+
+            let newtemplatehobbynode = `<li id="hob" class="cdhob1">Reading</li>`;
+                let templatehobby = document.getElementById('templatehobby');
+                templatehobby.insertAdjacentHTML('beforeend', newtemplatehobbynode);
+        }
+    }
+
+    function displayhobby() {
+        document.querySelectorAll('.dummyhobbytext').forEach(e => e.remove());
+        const allhobbyFields = document.querySelectorAll('.hobbyclass');
+        let hobbyArray = [];
+        allhobbyFields.forEach(element => {
+            hobbyArray.push(element.value);
+        });
+        let dataString = JSON.stringify(hobbyArray);
+        localStorage.setItem("hobbies", dataString);
+        let localhobbies = localStorage.getItem('hobbies');
+        // document.getElementById('hob').innerHTML = localhobbies;
+
+        let localStorageHobbyArray = JSON.parse(localhobbies);
+        let displayHobbyText = document.querySelectorAll('#hob');
+        for (let i = 0; i < localStorageHobbyArray.length; i++) {
+            if (displayHobbyText[i]) {
+                displayHobbyText[i].textContent = localStorageHobbyArray[i];
+            }
+        }
+    }
+
+    function removenewhobby() {
+        // Remove the last .education-fields div but keep the first one intact
+        const hobbyFields = $('#addnewinputhobby .hobby-field');
+        if (hobbyFields.length > 1) {
+            hobbyFields.last().remove();
+        }
+        
+        displayHobbyText = document.querySelectorAll('.cdhob1');
+        if (displayHobbyText.length > 1) {
+            displayHobbyText[displayHobbyText.length - 1].remove();
+        }
+
+    }
+
+    // code to add new links fields
+    let linkinputCount = 0;
+
+    function addnewlink() {
+
+        let linksTextEmptyCheck = document.querySelector('#links');
+        if (linksTextEmptyCheck.value == "") {
+            let emptyLinksError = document.getElementById('error20');
+            emptyLinksError.innerText = "Please enter your links.";
+        } 
+        else {
+            const newLinkFields = `
+                <div class="pcol links-field" id="moveleft" style="margin-top: 30px;">
+                    <input type="text" class="linkclass" oninput="displaylink()" name="links[]" id="links"
+                    placeholder="e.g. Linkd in">
+                    <div id="error20" style="color:red; font-size:18px; margin-top: 7px;"></div>  
+                </div>
+                `;
+            const $newNode = $(newLinkFields);
+
+            // Insert the new node inside #addneweducationfieldsafter but before #addneweducationfieldsafter
+            $('#addnewinputlinks #addnewinputlinksafter').before($newNode);
+
+            let newtemplatelinksnode = `<li id="lnk" class="cdlnk1">www.LinkedIn.com</li>`;
+            let templatelinks = document.getElementById('templatelinks');
+            templatelinks.insertAdjacentHTML('beforeend', newtemplatelinksnode);
+        }
+    }
+
+    function displaylink() {
+        document.querySelectorAll('.dummylinkstext').forEach(e => e.remove());
+        const allLinksFields = document.querySelectorAll('.linkclass');
+        let linksArray = [];
+        allLinksFields.forEach(element => {
+            linksArray.push(element.value);
+        });
+        let dataString = JSON.stringify(linksArray);
+        localStorage.setItem("links", dataString);
+        let localLinks = localStorage.getItem('links');
+        // document.getElementById('lnk').innerHTML = localLinks;
+
+        let localStorageLinksArray = JSON.parse(localLinks);
+        let displayLinksText = document.querySelectorAll('#lnk');
+        for (let i = 0; i < localStorageLinksArray.length; i++) {
+            if (displayLinksText[i]) {
+                displayLinksText[i].textContent = localStorageLinksArray[i];
+            }
+        }
+    }
+
+    function removenewlink() {
+        // Remove the last .education-fields div but keep the first one intact
+        const linksFields = $('#addnewinputlinks .links-field');
+        if (linksFields.length > 1) {
+            linksFields.last().remove();
+        }
+
+        // let localLinks = localStorage.getItem('links');
+
+        // if (localLinks) {
+        //     // Parse the JSON string into an array
+        //     let linkArray = JSON.parse(localLinks);
+
+        //     // Remove the last element from the array
+        //     if (linkArray.length > 1) {
+        //         linkArray.pop();
+        //     }
+
+        //     // Convert the updated array back to a JSON string
+        //     let updatedLinksDataString = JSON.stringify(linkArray);
+        //     localStorage.setItem('links', updatedLinksDataString);
+
+        //     localLinks = localStorage.getItem('links');
+        //     document.getElementById('lnk').innerHTML = localLinks
+        // }
+        displayLinksText = document.querySelectorAll('.cdlnk1');
+        if (displayLinksText.length > 1) {
+            displayLinksText[displayLinksText.length - 1].remove();
+        }
+
+    }
+
 
     // as the string returned from this function will not be displayed in the browser, browser prevents it to display and 
     // browser display their own defult string value.
-      window.onbeforeunload = function () {
-            return "Are you sure you want to leave? Any unsaved changes will be lost.";
-        };
+    //   window.onbeforeunload = function () {
+    //         return "Are you sure you want to leave? Any unsaved changes will be lost.";
+    //     };
 
-        // Once the form is submitted, remove the beforeunload event listener
-        function formSubmitted() {
-            window.onbeforeunload = null;
-        }
+    // Once the form is submitted, remove the beforeunload event listener
+    function formSubmitted() {
+        window.onbeforeunload = null;
+    }
 
-        // window.onload=()=>{
-        //     let form=document.getElementById('editorForm');
-        //     form.onsubmit=(e)=>{
-        //         e.preventDefault();
-        //     }
-        // }
+    // window.onload=()=>{
+    //     let form=document.getElementById('editorForm');
+    //     form.onsubmit=(e)=>{
+    //         e.preventDefault();
+    //     }
+    // }
 
-        <?php 
+    <?php 
        if (isset($_GET['edit'])) {
             echo"
             function addeditdata() {
@@ -1359,6 +2159,9 @@ $error="";
         }
     ?>
 
+    function clearLocalStorage() {
+        localStorage.clear();
+    }
     </script>
 </body>
 

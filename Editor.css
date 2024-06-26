@@ -110,9 +110,10 @@ border: 2px solid grey;
 
 /* css for add button */
 
-.addbox{
-    width: 100%;
+.addbox{ 
     display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
     place-items: center;
 }
 
@@ -122,16 +123,21 @@ border: 2px solid grey;
     cursor: pointer;
 }
 
-.addbutton{
+.addbutton, .removebutton{
     width: 100%;
 }
 
 #moveaddbtn{
     margin-top: 70px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
     display: grid;
     place-items: center;
 }
 
+.margintp{
+    margin-top: 50px;
+}
 
 
 /* Editor */
@@ -409,6 +415,11 @@ input::-webkit-inner-spin-button {
 }
 
 @media (max-width:870px){
+
+    #moveaddbtn, .addbox{
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+    }
 
     .main{
         padding-left: 30px;
